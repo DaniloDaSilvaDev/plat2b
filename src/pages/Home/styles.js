@@ -9,7 +9,7 @@ export const useStyles = makeStyles(theme => ({
   },
   h1: {
     color: "#3d5170",
-    fontSize: "40px",
+    fontSize: "45px",
     lineHeight: "1em",
     fontWeight: "bold",
     margin: "60px 0"
