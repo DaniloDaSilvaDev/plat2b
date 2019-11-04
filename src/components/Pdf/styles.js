@@ -42,7 +42,7 @@ export const useStyles = makeStyles(theme => ({
     color: "#fff",
     // fontSize: 14,
     top: ".9375rem",
-    right: ".9375rem",
+    left: 22,
     position: "absolute",
     textTransform: "uppercase",
     borderRadius: "10rem",
@@ -102,6 +102,11 @@ export const useStyles = makeStyles(theme => ({
     fontWeight: 800,
     backgroundColor: "#222D32",
     color: "#fff"
+  },
+  icons: {
+    position: "absolute",
+    top: 10,
+    right: 10
   }
 }));
 

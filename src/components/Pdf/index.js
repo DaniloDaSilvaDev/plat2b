@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Typography, Paper } from "@material-ui/core";
-// import { FaBookmark, FaCheckSquare } from "react-icons/fa";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { CardBody, useStyles } from "./styles";
 import Popover from "@material-ui/core/Popover";
 
 export default function Pdf() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handlePopoverOpen = event => {
     setAnchorEl(event.currentTarget);
@@ -124,6 +124,11 @@ export default function Pdf() {
   ];
   const classes = useStyles();
 
+  const [ok, setOk] = useState(false);
+  function clicouIcone() {
+    setOk(!ok);
+  }
+
   return (
     <>
       {posts.map(post => (
@@ -143,30 +148,28 @@ export default function Pdf() {
                 <div
                   className={classes.photo}
                   style={{ backgroundImage: `url(${post.author.photo})` }}
-                ></div>
-                <Popover
-                  id="mouse-over-popover"
-                  className={classes.popover}
-                  // classes={{
-                  //   paper: classes.paper
-                  // }}
-                  open={open}
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left"
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left"
-                  }}
-                  onClose={handlePopoverClose}
-                  disableRestoreFocus
                 >
-                  <Typography className={classes.nameTeach}>
-                    Prof: {post.author.name}
-                  </Typography>
-                </Popover>
+                  <Popover
+                    id="mouse-over-popover"
+                    className={classes.popover}
+                    open={open}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "left"
+                    }}
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "left"
+                    }}
+                    onClose={handlePopoverClose}
+                    disableRestoreFocus
+                  >
+                    <Typography className={classes.nameTeach}>
+                      Prof: {post.author.name}
+                    </Typography>
+                  </Popover>
+                </div>
               </div>
               <span
                 style={{ backgroundColor: `${post.categoryColor}` }}
@@ -174,28 +177,21 @@ export default function Pdf() {
               >
                 {post.category}
               </span>
+              <div className={classes.icons} onClick={clicouIcone}>
+                {ok ? (
+                  <FaBookmark size={24} cursor="pointer" color="#fff" />
+                ) : (
+                  <FaRegBookmark size={24} cursor="pointer" color="#fff" />
+                )}
+              </div>
             </div>
             <CardBody>
-              {/* <img src={photoPdf} alt="" /> */}
               <Typography component="h1" variant="h5" className={classes.title}>
                 {post.title}
               </Typography>
               <Typography component="p" className={classes.desc}>
                 {post.desc}
               </Typography>
-
-              {/* <FaBookmark
-            className="icon-fav"
-            size={18}
-            cursor="pointer"
-            color="#333"
-          />
-          <FaCheckSquare
-            className="icon-check"
-            size={18}
-            cursor="pointer"
-            color="#333"
-          /> */}
             </CardBody>
             <Typography component="span" className={classes.date}>
               {post.date}
@@ -204,36 +200,5 @@ export default function Pdf() {
         </Grid>
       ))}
     </>
-
-    // <Grid item xs={6}>
-    //   <Content>
-    //     <FaFilePdf className="icon-pdf" size={30} color="#333" />
-    //     <div className="content-text">
-    //       <h1>Influência da pedagogia na didática - PDF</h1>
-    //       <p>
-    //         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit eius,
-    //         ut aperiam aliquam beatae recusandae fugiat cupiditate porro at
-    //         autem nisi illum officiis nobis esse incidunt ex expedita veritatis
-    //         quia. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit
-    //         eius, ut aperiam aliquam beatae recusandae fugiat cupiditate porro
-    //         at autem nisi illum officiis nobis esse incidunt ex expedita
-    //         veritatis quia.
-    //       </p>
-    //     </div>
-
-    //     <FaBookmark
-    //       className="icon-fav"
-    //       size={18}
-    //       cursor="pointer"
-    //       color="#333"
-    //     />
-    //     <FaCheckSquare
-    //       className="icon-check"
-    //       size={18}
-    //       cursor="pointer"
-    //       color="#333"
-    //     />
-    //   </Content>
-    //</Grid>
   );
 }
