@@ -45,26 +45,24 @@ export const useStyles = makeStyles(theme => ({
     right: ".9375rem",
     position: "absolute",
     textTransform: "uppercase",
-    // ${theme => (props.category === "PDF" ? "backgroundColor: #212529" : "backgroundColor: #fff000")}
-
     borderRadius: "10rem",
     padding: ".375rem .5rem"
   },
 
   title: {
     color: "#3d5170",
-    fontSize: "2.7em",
+    fontSize: "24px",
     lineHeight: "1em",
     fontWeight: "bold",
     marginBottom: ".75rem"
   },
   desc: {
     color: "#5a6169;",
-    fontSize: "20px",
+    fontSize: "18px",
     lineHeight: "22px",
     fontWeight: "500",
     overflow: "hidden",
-    height: "82px"
+    height: "84px"
   },
   date: {
     color: "#5a6169;",
