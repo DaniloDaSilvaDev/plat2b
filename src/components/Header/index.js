@@ -1,54 +1,60 @@
-import React from 'react';
-import { FaSearch, FaBell, FaEnvelope } from 'react-icons/fa';
-import { Header, List, Item } from './style';
-import photoProfile from '../../assets/eu.jpg';
-import menuIcon from '../../assets/menu.png';
-import Logo from '../../assets/logo_2b.png';
+import React from "react";
+import { FaSearch, FaBell, FaEnvelope } from "react-icons/fa";
+import { Header, List, Item } from "./style";
+// import photoProfile from "../../assets/eu.jpg";
+import menuIcon from "../../assets/menu.png";
+import Logo from "../../assets/logo_2b.png";
+import Profile from "../Profile";
+import { Grid } from "@material-ui/core";
 
 // import { Container } from './styles';
 
 export default () => {
-    // const [clicado, setClicado] = useState(0);
+  // const [clicado, setClicado] = useState(0);
 
-    return (
-        <Header>
-            <List>
-                <Item id="logo2bItem">
-                    <img id="logo2b" src={Logo} alt="Logo" size="30px" />
-                </Item>
-                <Item>
-                    <img id="menuIcon" src={menuIcon} alt="menu" />
-                </Item>
+  return (
+    <Header>
+      <Grid container>
+        <List>
+          <Item id="logo2bItem">
+            <img id="logo2b" src={Logo} alt="Logo" size="30px" />
+          </Item>
+          <Item>
+            <img id="menuIcon" src={menuIcon} alt="menu" />
+          </Item>
 
-                <Item id="iconSearch" className="itemsMENU">
-                    <span id="fa-search">
-                        <FaSearch />
-                    </span>
-                    <input type="search" />
-                </Item>
+          <Item id="iconSearch" className="itemsMENU">
+            <span id="fa-search">
+              <FaSearch />
+            </span>
+            <input type="search" />
+          </Item>
 
-                <Item className="itemsMENU">
-                    <FaEnvelope className="fa-envelope" />
-                    <span className="notification">6</span>
-                </Item>
+          <Item className="itemsMENU">
+            <FaEnvelope className="fa-envelope" />
+            <span className="notification">6</span>
+          </Item>
 
-                <Item className="itemsMENU">
-                    <FaBell className="fa-bell" />
-                    <span className="notification">3</span>
-                </Item>
+          <Item className="itemsMENU">
+            <FaBell className="fa-bell" />
+            <span className="notification">3</span>
+          </Item>
 
-                <Item className="nameUSER itemsMENU">
-                    <p>Danilo Souza</p>
-                </Item>
+          <Item className="nameUSER itemsMENU">
+            <p>Danilo Souza</p>
+          </Item>
 
-                <Item className="itemsMENU">
-                    <img
-                        className="photoProfile"
-                        src={photoProfile}
-                        alt="Foto do perfil"
-                    />
-                </Item>
-            </List>
-        </Header>
-    );
+          <Profile />
+
+          {/* <Item className="itemsMENU">
+          <img
+            className="photoProfile"
+            src={photoProfile}
+            alt="Foto do perfil"
+          />
+        </Item> */}
+        </List>
+      </Grid>
+    </Header>
+  );
 };

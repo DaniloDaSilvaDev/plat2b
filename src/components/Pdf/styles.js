@@ -67,7 +67,7 @@ export const useStyles = makeStyles(theme => ({
   date: {
     color: "#5a6169;",
     fontSize: "16px",
-    // marginTop: "auto",
+    marginTop: "auto",
     padding: "2.1875rem 1.5625rem 20px 1.5625rem"
   },
   author: {
@@ -91,7 +91,17 @@ export const useStyles = makeStyles(theme => ({
     borderRadius: "50%",
     textIndent: "-9999px",
     backgroundSize: "cover",
-    backgroundPosition: "50%"
+    backgroundPosition: "50%",
+    cursor: "pointer"
+  },
+  popover: {
+    pointerEvents: "none"
+  },
+  nameTeach: {
+    padding: 10,
+    fontWeight: 800,
+    backgroundColor: "#222D32",
+    color: "#fff"
   }
 }));
 

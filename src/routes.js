@@ -7,7 +7,8 @@ import Profile from "./pages/Profile";
 
 export default function Routes() {
   const RouterStyle = styled.section`
-    background-color: #f5f6f8;
+    /* background-color: #f5f6f8; */
+    background-color: #eaeaea;
     width: 100%;
     margin-left: 100px;
     margin-top: 90px;
