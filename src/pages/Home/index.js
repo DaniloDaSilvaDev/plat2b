@@ -1,16 +1,7 @@
 import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
 import { useStyles } from "./styles";
-// import {
-//   // GaleriaVideos,
-//   // VideosLista,
-//   Publicacoes,
-//   PublicacoesUl
-//   // VideoItem,
-// } from "./style";
 import Pdf from "../../components/Pdf";
-// import PodeCast from "../../components/PodeCast";
-// import Video from "../../components/Video";
 
 export default props => {
   const classes = useStyles();
@@ -29,10 +20,6 @@ export default props => {
       </Typography>
       <Grid container spacing={6}>
         <Pdf />
-
-        {/* <Video />
-        <PodeCast />
-        <Pdf /> */}
       </Grid>
     </Container>
   );

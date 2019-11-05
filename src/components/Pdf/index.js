@@ -148,28 +148,28 @@ export default function Pdf() {
                 <div
                   className={classes.photo}
                   style={{ backgroundImage: `url(${post.author.photo})` }}
+                ></div>
+
+                <Popover
+                  id="mouse-over-popover"
+                  className={classes.popover}
+                  open={open}
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left"
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left"
+                  }}
+                  onClose={handlePopoverClose}
+                  disableRestoreFocus
                 >
-                  <Popover
-                    id="mouse-over-popover"
-                    className={classes.popover}
-                    open={open}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left"
-                    }}
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "left"
-                    }}
-                    onClose={handlePopoverClose}
-                    disableRestoreFocus
-                  >
-                    <Typography className={classes.nameTeach}>
-                      Prof: {post.author.name}
-                    </Typography>
-                  </Popover>
-                </div>
+                  <Typography className={classes.nameTeach}>
+                    Prof: {post.author.name}
+                  </Typography>
+                </Popover>
               </div>
               <span
                 style={{ backgroundColor: `${post.categoryColor}` }}
