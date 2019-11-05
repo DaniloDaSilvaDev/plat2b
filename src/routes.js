@@ -1,13 +1,12 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import styled from "styled-components";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import Courses from './pages/Courses';
 
 export default function Routes() {
   const RouterStyle = styled.section`
-    /* background-color: #f5f6f8; */
     background-color: #eaeaea;
     width: 100%;
     margin-left: 100px;
@@ -21,7 +20,8 @@ export default function Routes() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/user" component={Profile} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/courses" component={Courses} />
         </Switch>
       </BrowserRouter>
     </RouterStyle>
