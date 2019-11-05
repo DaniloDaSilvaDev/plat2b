@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-
-import { Grid, Typography, Paper } from "@material-ui/core";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { CardBody, useStyles } from "./styles";
-import Popover from "@material-ui/core/Popover";
+import React, { useState } from 'react';
+import { Grid, Typography, Paper } from '@material-ui/core';
+import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import Popover from '@material-ui/core/Popover';
+import { CardBody, useStyles } from './styles';
 
 export default function Post(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -30,7 +29,7 @@ export default function Post(props) {
         >
           <div
             className={classes.author}
-            aria-owns={open ? "mouse-over-popover" : undefined}
+            aria-owns={open ? 'mouse-over-popover' : undefined}
             aria-haspopup="true"
             onMouseEnter={handlePopoverOpen}
             onMouseLeave={handlePopoverClose}
@@ -45,12 +44,12 @@ export default function Post(props) {
                 open={open}
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left"
+                  vertical: 'bottom',
+                  horizontal: 'left',
                 }}
                 transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left"
+                  vertical: 'top',
+                  horizontal: 'left',
                 }}
                 onClose={handlePopoverClose}
                 disableRestoreFocus
@@ -69,7 +68,7 @@ export default function Post(props) {
           </span>
           <div className={classes.icons} onClick={() => clicouIcone(!ok)}>
             {ok ? (
-              <FaBookmark size={24} cursor="pointer" color="#fff" />
+              <FaBookmark size={24} cursor="pointer" color="#4FA75A" />
             ) : (
               <FaRegBookmark size={24} cursor="pointer" color="#fff" />
             )}
