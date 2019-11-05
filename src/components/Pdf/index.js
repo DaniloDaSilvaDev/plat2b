@@ -1,22 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useState } from "react";
-import { Grid, Typography, Paper } from "@material-ui/core";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { CardBody, useStyles } from "./styles";
-import Popover from "@material-ui/core/Popover";
+import { Grid } from "@material-ui/core";
+import { useStyles } from "./styles";
+
+import Post from "./post";
 
 export default function Pdf() {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handlePopoverOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
 
   const posts = [
     {
@@ -130,8 +119,9 @@ export default function Pdf() {
   }
 
   return (
-    <>
+    <Grid container className={classes.root} spacing={4}>
       {posts.map(post => (
+<<<<<<< HEAD
         <Grid item lg={4} md={6} sm={12}>
           <Paper className={classes.paper} key={post.id}>
             <div
@@ -198,7 +188,10 @@ export default function Pdf() {
             </Typography>
           </Paper>
         </Grid>
+=======
+        <Post data={post} />
+>>>>>>> aefc9756904cc9a08d3fc2001964ab9cb93ac126
       ))}
-    </>
+    </Grid>
   );
 }
