@@ -1,11 +1,22 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useState } from "react";
 import { Grid, Typography, Paper } from "@material-ui/core";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { CardBody, useStyles } from "./styles";
 import Popover from "@material-ui/core/Popover";
 
-export default function Pdf() {
+export default function CardPdf() {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handlePopoverOpen = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+
   const posts = [
     {
       id: 1,
@@ -16,7 +27,7 @@ export default function Pdf() {
       category: "PDF",
       categoryColor: "rgb(210, 136, 0)",
       categoryUrl: "#",
-      date: "29 Dezembro 2019",
+      date: "29 Deembro 2019",
       author: {
         name: "Monica",
         lastname: "Santiago",
@@ -111,17 +122,6 @@ export default function Pdf() {
     }
   ];
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handlePopoverOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
 
   const [ok, setOk] = useState(false);
   function clicouIcone() {
