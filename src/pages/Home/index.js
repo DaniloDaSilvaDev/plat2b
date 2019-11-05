@@ -21,11 +21,11 @@ export default props => {
       </Typography>
 
       <Typography component="h2" variant="h5" className={classes.h2}>
-        Vídeos recentets
+        Vídeos recentes
       </Typography>
 
       <Typography component="h2" variant="h5" className={classes.h2}>
-        Últimas publicaçõe
+        Últimas publicações
       </Typography>
       <Grid container spacing={6}>
         <Pdf />

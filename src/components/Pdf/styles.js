@@ -46,34 +46,36 @@ export const useStyles = makeStyles(theme => ({
     color: "#fff",
     // fontSize: 14,
     top: ".9375rem",
-    right: ".9375rem",
+    left: 22,
     position: "absolute",
     textTransform: "uppercase",
-    // ${theme => (props.category === "PDF" ? "backgroundColor: #212529" : "backgroundColor: #fff000")}
-
     borderRadius: "10rem",
     padding: ".375rem .5rem"
   },
 
   title: {
     color: "#3d5170",
+<<<<<<< HEAD
     fontSize: "30px",
+=======
+    fontSize: "24px",
+>>>>>>> c4f825505b92b8ccf36e2ebe92b99b5ae7167710
     lineHeight: "1em",
     fontWeight: "bold",
     marginBottom: ".75rem"
   },
   desc: {
     color: "#5a6169;",
-    fontSize: "20px",
+    fontSize: "18px",
     lineHeight: "22px",
     fontWeight: "500",
     overflow: "hidden",
-    height: "82px"
+    height: "84px"
   },
   date: {
     color: "#5a6169;",
     fontSize: "16px",
-    // marginTop: "auto",
+    marginTop: "auto",
     padding: "2.1875rem 1.5625rem 20px 1.5625rem"
   },
   author: {
@@ -97,7 +99,22 @@ export const useStyles = makeStyles(theme => ({
     borderRadius: "50%",
     textIndent: "-9999px",
     backgroundSize: "cover",
-    backgroundPosition: "50%"
+    backgroundPosition: "50%",
+    cursor: "pointer"
+  },
+  popover: {
+    pointerEvents: "none"
+  },
+  nameTeach: {
+    padding: 10,
+    fontWeight: 800,
+    backgroundColor: "#222D32",
+    color: "#fff"
+  },
+  icons: {
+    position: "absolute",
+    top: 10,
+    right: 10
   }
 }));
 

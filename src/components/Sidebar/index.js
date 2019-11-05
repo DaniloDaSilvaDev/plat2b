@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
 import {
   FaHome,
   FaBookmark,
@@ -22,38 +20,45 @@ export default () => {
     {
       title: "Home",
       icon: <FaHome />,
-      path: <Link to="/" />
+      path: "/"
     },
     {
       title: "Disciplinas",
-      icon: <FaGraduationCap size="35px" />
+      icon: <FaGraduationCap size="35px" />,
+      path: "/diciplinas"
     },
     {
       title: "PDFs",
-      icon: <FaFilePdf />
+      icon: <FaFilePdf />,
+      path: "/pdf"
     },
     {
       title: "Questões",
-      icon: <FaCheckDouble />
+      icon: <FaCheckDouble />,
+      path: "/questoes"
     },
     {
       title: "PodCasts",
-      icon: <FaPodcast />
+      icon: <FaPodcast />,
+      path: "/podcast"
     },
     {
       title: "Mapas Mentais",
-      icon: <FaCodeBranch />
+      icon: <FaCodeBranch />,
+      path: "/mapas-mentais"
     },
     {
       title: "Favoritos",
-      icon: <FaBookmark />
+      icon: <FaBookmark />,
+      path: "/favoritos"
     },
     {
       title: "Sair",
       icon: <FaLongArrowAltLeft />,
-      path: <Link to="/user" />
+      path: "/user"
     }
   ];
+
   return (
     <Sidebar id="menuToggle">
       <List id="menu">
