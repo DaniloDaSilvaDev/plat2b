@@ -1,22 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useState } from "react";
-import { Grid, Typography, Paper } from "@material-ui/core";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { CardBody, useStyles } from "./styles";
-import Popover from "@material-ui/core/Popover";
+import { Grid } from "@material-ui/core";
+import { useStyles } from "./styles";
+
+import Post from "./post";
 
 export default function Pdf() {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handlePopoverOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
 
   const posts = [
     {
@@ -132,108 +121,8 @@ export default function Pdf() {
   return (
     <Grid container className={classes.root} spacing={4}>
       {posts.map(post => (
-        <Grid item lg={4} md={6} sm={12}>
-          <Paper className={classes.paper} key={post.id}>
-            <div
-              className={classes.img}
-              style={{ backgroundImage: `url(${post.backgroundImage})` }}
-            >
-              <div
-                className={classes.author}
-                aria-owns={open ? "mouse-over-popover" : undefined}
-                aria-haspopup="true"
-                onMouseEnter={handlePopoverOpen}
-                onMouseLeave={handlePopoverClose}
-              >
-                <div
-                  className={classes.photo}
-                  style={{ backgroundImage: `url(${post.author.photo})` }}
-                >
-                  <Popover
-                    id="mouse-over-popover"
-                    className={classes.popover}
-                    open={open}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left"
-                    }}
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "left"
-                    }}
-                    onClose={handlePopoverClose}
-                    disableRestoreFocus
-                  >
-                    <Typography className={classes.nameTeach}>
-                      Prof: {post.author.name}
-                    </Typography>
-                  </Popover>
-                </div>
-              </div>
-              <span
-                style={{ backgroundColor: `${post.categoryColor}` }}
-                className={classes.category}
-              >
-                {post.category}
-              </span>
-              <div className={classes.icons} onClick={clicouIcone}>
-                {ok ? (
-                  <FaBookmark size={24} cursor="pointer" color="#fff" />
-                ) : (
-                  <FaRegBookmark size={24} cursor="pointer" color="#fff" />
-                )}
-              </div>
-            </div>
-            <CardBody>
-              <Typography component="h1" variant="h5" className={classes.title}>
-                {post.title}
-              </Typography>
-              <Typography component="p" className={classes.desc}>
-                {post.desc}
-              </Typography>
-            </CardBody>
-            <Typography component="span" className={classes.date}>
-              {post.date}
-            </Typography>
-          </Paper>
-        </Grid>
+        <Post data={post} />
       ))}
-<<<<<<< HEAD
     </Grid>
-
-    // <Grid item xs={6}>
-    //   <Content>
-    //     <FaFilePdf className="icon-pdf" size={30} color="#333" />
-    //     <div className="content-text">
-    //       <h1>Influência da pedagogia na didática - PDF</h1>
-    //       <p>
-    //         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit eius,
-    //         ut aperiam aliquam beatae recusandae fugiat cupiditate porro at
-    //         autem nisi illum officiis nobis esse incidunt ex expedita veritatis
-    //         quia. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit
-    //         eius, ut aperiam aliquam beatae recusandae fugiat cupiditate porro
-    //         at autem nisi illum officiis nobis esse incidunt ex expedita
-    //         veritatis quia.
-    //       </p>
-    //     </div>
-
-    //     <FaBookmark
-    //       className="icon-fav"
-    //       size={18}
-    //       cursor="pointer"
-    //       color="#333"
-    //     />
-    //     <FaCheckSquare
-    //       className="icon-check"
-    //       size={18}
-    //       cursor="pointer"
-    //       color="#333"
-    //     />
-    //   </Content>
-    //</Grid>
-=======
-    </>
->>>>>>> c4f825505b92b8ccf36e2ebe92b99b5ae7167710
   );
 }

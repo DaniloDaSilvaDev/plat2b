@@ -55,11 +55,7 @@ export const useStyles = makeStyles(theme => ({
 
   title: {
     color: "#3d5170",
-<<<<<<< HEAD
     fontSize: "30px",
-=======
-    fontSize: "24px",
->>>>>>> c4f825505b92b8ccf36e2ebe92b99b5ae7167710
     lineHeight: "1em",
     fontWeight: "bold",
     marginBottom: ".75rem"
