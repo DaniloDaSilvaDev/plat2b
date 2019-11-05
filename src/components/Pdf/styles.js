@@ -6,7 +6,11 @@ export const useStyles = makeStyles(theme => ({
   root: {
     fle: 1,
     flexGrow: 1,
-    fontSize: 15
+    fontSize: 15,
+    padding: 20
+  },
+  control: {
+    padding: theme.spacing(2)
   },
   paper: {
     alignItems: "stretch",
@@ -53,7 +57,7 @@ export const useStyles = makeStyles(theme => ({
 
   title: {
     color: "#3d5170",
-    fontSize: "2.7em",
+    fontSize: "30px",
     lineHeight: "1em",
     fontWeight: "bold",
     marginBottom: ".75rem"

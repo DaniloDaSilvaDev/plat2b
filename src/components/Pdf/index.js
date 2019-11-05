@@ -107,7 +107,7 @@ export default function Pdf() {
   const classes = useStyles();
 
   return (
-    <>
+    <Grid container className={classes.root} spacing={4}>
       {posts.map(post => (
         <Grid item lg={4} md={6} sm={12}>
           <Paper className={classes.paper}>
@@ -156,7 +156,7 @@ export default function Pdf() {
           </Paper>
         </Grid>
       ))}
-    </>
+    </Grid>
 
     // <Grid item xs={6}>
     //   <Content>
