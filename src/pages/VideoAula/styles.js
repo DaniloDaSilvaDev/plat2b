@@ -1,4 +1,4 @@
-// import styled from "styled-components";
+import styled from 'styled-components';
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
@@ -10,19 +10,22 @@ export const useStyles = makeStyles(theme => ({
     flex: 1,
     flexGrow: 1,
     fontSize: 15,
-    padding: 20,
+    padding: 50,
   },
   control: {
     padding: theme.spacing(2),
   },
   paper: {
+    padding: 20,
     alignItems: 'stretch',
     display: 'flex',
     flexDirection: ' column',
     flexWrap: 'nowrap',
     backgroundColor: '#fff',
-    border: 'none',
+    border: '#cecece',
     borderRadius: '.625rem',
+    boxShadow:
+      '0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);',
   },
   h1: {
     color: '#3d5170',
@@ -31,10 +34,7 @@ export const useStyles = makeStyles(theme => ({
     fontWeight: '500',
     // marginRight: 100,
   },
-  video: {
-    borderRadius: '10px',
-    boxShadow: '0px 2px 9px 0px rgba(0,0,0,0.84)',
-  },
+  video: {},
   check: {
     margin: '0 0 0 20px',
     verticalAlign: 'baseline',
@@ -67,3 +67,21 @@ export const GreenCheckbox = withStyles({
   },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
+
+export const CardBody = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0 30px 0;
+  /* width: 200px;
+  flex: 1; */
+
+  /* background-color: #fff; */
+  /* padding: 30px 20px; */
+  /* margin: 30px 0;
+  border-radius: 20px; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap; */
+`;

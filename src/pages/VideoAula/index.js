@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Grid, Typography, FormControlLabel, Paper } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
-import { useStyles, GreenCheckbox } from './styles';
+import { useStyles, GreenCheckbox, CardBody } from './styles';
 // import { Container } from './styles';
 import videoaula from '../../assets/videos/video.mp4';
 
@@ -23,12 +23,12 @@ export default function VideoAula() {
   };
   return (
     <>
-      <Grid container className={classes.root} spacing={6}>
-        <Paper>
-          <Grid item lg={8} md={12} sm={12}>
+      <Grid container className={classes.root} spacing={4}>
+        <Grid item lg={12} md={12} sm={12}>
+          <Paper className={classes.paper}>
             <video
-              // width="100%"
-              min-height="100%"
+              width="640"
+              height="360"
               className={classes.video}
               autoPlay="false"
               preload
@@ -57,33 +57,35 @@ export default function VideoAula() {
             >
               <source src={videoaula} type="video/mp4" />
             </video>
-          </Grid>
-          <Grid lg={8} md={12} sm={12} className={classes.infos}>
-            <Typography component="h1" variant="h5" className={classes.h1}>
-              Currículo profissional
-            </Typography>
 
-            <Rating
-              value={3}
-              name="size-large"
-              // onClick={() => setStars(`value = { ${stars} }`)}
-              size="large"
-            />
+            <CardBody>
+              <Typography component="h1" variant="h5" className={classes.h1}>
+                Currículo profissional
+              </Typography>
 
-            <FormControlLabel
-              className={classes.check}
-              control={
-                <GreenCheckbox
-                  checked={state.checked}
-                  onChange={handleChange('checked')}
-                  value="checked"
-                />
-              }
-              // label="Custom color"
-            />
-          </Grid>
-        </Paper>
-        {/* <Grid className={classes.icons} item lg={8} md={12} sm={12} /> */}
+              <Rating
+                style={{ marginLeft: '600px' }}
+                value={3}
+                name="size-large"
+                // onClick={() => setStars(`value = { ${stars} }`)}
+                size="large"
+              />
+
+              <FormControlLabel
+                className={classes.check}
+                control={
+                  <GreenCheckbox
+                    checked={state.checked}
+                    onChange={handleChange('checked')}
+                    value="checked"
+                  />
+                }
+                // label="Custom color"
+              />
+            </CardBody>
+          </Paper>
+          {/* <Grid className={classes.icons} item lg={8} md={12} sm={12} /> */}
+        </Grid>
       </Grid>
     </>
   );
