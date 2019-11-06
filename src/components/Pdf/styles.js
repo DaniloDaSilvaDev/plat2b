@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import styled from "styled-components";
-import { makeStyles } from "@material-ui/core/styles";
-=======
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
->>>>>>> fba837ad3e9359b96690a022bb210994d85b1eeb
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -26,6 +21,13 @@ export const useStyles = makeStyles(theme => ({
     borderRadius: '.625rem',
     boxShadow:
       '0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);',
+
+    transition: '500ms',
+    '&:hover': {
+      boxShadow:
+        '0 2px 0 rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.2), 0 10px 10px rgba(0,0,0,0.2), 0 7px 70px rgba(0,0,0,0.2);',
+    },
+    cursor: 'pointer',
   },
   img: {
     backgroundSize: 'cover',
@@ -58,19 +60,11 @@ export const useStyles = makeStyles(theme => ({
   },
 
   title: {
-<<<<<<< HEAD
-    color: "#3d5170",
-    fontSize: "30px",
-    lineHeight: "1em",
-    fontWeight: "bold",
-    marginBottom: ".75rem"
-=======
     color: '#3d5170',
     fontSize: '30px',
     lineHeight: '1em',
     fontWeight: 'bold',
     marginBottom: '.75rem',
->>>>>>> fba837ad3e9359b96690a022bb210994d85b1eeb
   },
   desc: {
     color: '#5a6169;',

@@ -1,14 +1,11 @@
 /* eslint-disable global-require */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { useStyles } from './styles';
 
-<<<<<<< HEAD
-=======
 import Post from './post';
 
->>>>>>> fba837ad3e9359b96690a022bb210994d85b1eeb
 export default function Pdf() {
   const posts = [
     {
@@ -16,19 +13,11 @@ export default function Pdf() {
       backgroundImage: require('../../assets/teste.jpeg'),
       title: 'Influência da pedagogia',
       desc:
-<<<<<<< HEAD
-        "Os anos podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São coragem nos momentos difíceis. São luz nos momentos de desânimo. podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
-      category: "PDF",
-      categoryColor: "rgb(210, 136, 0)",
-      categoryUrl: "#",
-      date: "29 Dezembro 2019",
-=======
         'Os anos podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São coragem nos momentos difíceis. São luz nos momentos de desânimo. podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São',
       category: 'PDF',
       categoryColor: 'rgb(210, 136, 0)',
       categoryUrl: '#',
       date: '29 Deembro 2019',
->>>>>>> fba837ad3e9359b96690a022bb210994d85b1eeb
       author: {
         name: 'Monica',
         lastname: 'Santiago',
