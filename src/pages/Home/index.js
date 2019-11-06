@@ -1,7 +1,7 @@
-import React from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
-import { useStyles } from "./styles";
-import Pdf from "../../components/Pdf";
+import React from 'react';
+import { Container, Grid, Typography } from '@material-ui/core';
+import { useStyles } from './styles';
+import Pdf from '../../components/Pdf';
 
 export default props => {
   const classes = useStyles();

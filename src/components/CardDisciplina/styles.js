@@ -27,7 +27,7 @@ export const useStyles = makeStyles(theme => ({
       '0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);',
     transition: '300ms',
     '&:hover': {
-      transform: 'scale(1.05)',
+      transform: 'scale(1.1)',
     },
   },
   img: {
@@ -65,7 +65,7 @@ export const useStyles = makeStyles(theme => ({
     lineHeight: '40px',
     fontWeight: 'bold',
     transform: 'translateY(400%)',
-    transition: '500ms',
+    transition: '300ms',
     marginBotton: 10,
   },
   desc: {
@@ -76,7 +76,7 @@ export const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     margin: '10px 0 ',
     transform: 'translateY(-220%)',
-    transition: '500ms',
+    transition: '300ms',
   },
   caixa: {
     // padding: 30,
@@ -92,7 +92,7 @@ export const useStyles = makeStyles(theme => ({
 export const CardBody = styled.div`
   /* padding: 2.1875rem 1.5625rem; */
   position: relative;
-  transition: 500ms;
+  transition: 300ms;
   div:hover {
     p {
       transform: translateY(0%);

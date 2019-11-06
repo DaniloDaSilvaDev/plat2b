@@ -15,14 +15,14 @@ export default function CardDisciplina() {
     },
     {
       id: 2,
-      title: 'Metodologia',
+      title: 'Currículo',
       desc:
         'metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes',
       img: require('../../assets/teste2.jpg'),
     },
     {
       id: 3,
-      title: 'Metodologia',
+      title: 'Pedagogia',
       desc: 'metodologia aplicada a pedagogia e seus componentes',
       img: require('../../assets/teste3.jpg'),
     },
@@ -34,13 +34,13 @@ export default function CardDisciplina() {
     },
     {
       id: 5,
-      title: 'Metodologia',
+      title: 'Psicologia pedagógica',
       desc: 'metodologia aplicada a pedagogia e seus componentes',
       img: require('../../assets/teste5.jpg'),
     },
     {
       id: 6,
-      title: 'Metodologia',
+      title: 'Métodos pedagógicos',
       desc: 'metodologia aplicada a pedagogia e seus componentes',
       img: require('../../assets/teste2.jpg'),
     },

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Courses from './pages/Courses';
+import VideoAula from './pages/VideoAula';
 
 export default function Routes() {
   const RouterStyle = styled.section`
@@ -22,6 +23,7 @@ export default function Routes() {
           <Route path="/" exact component={Home} />
           <Route path="/profile" component={Profile} />
           <Route path="/courses" component={Courses} />
+          <Route path="/aula" component={VideoAula} />
         </Switch>
       </BrowserRouter>
     </RouterStyle>
