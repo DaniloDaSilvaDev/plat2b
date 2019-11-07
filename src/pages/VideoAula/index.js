@@ -23,7 +23,7 @@ export default function VideoAula() {
   };
   return (
     <>
-      <Grid container className={classes.root} spacing={4}>
+      <Grid container className={classes.root}>
         <Grid item lg={12} md={12} sm={12}>
           <Paper className={classes.paper}>
             <video

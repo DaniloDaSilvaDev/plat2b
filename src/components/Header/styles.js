@@ -1,9 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
 // import { FaSearch } from 'react-icons/fa';
-
+export const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flex: 1,
+    flexGrow: 1,
+    height: 70,
+  },
+}));
 export const Header = styled.header`
   width: 100%;
-  height: 93px;
+  height: 70px;
   background-color: #4da75a;
   color: #fff;
   position: fixed;
@@ -71,8 +79,9 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  height: 70px;
 
   @media only screen and (max-width: 414px) {
     .itemsMENU {
@@ -178,11 +187,11 @@ export const Item = styled.li`
     top: 20%;
   }
   .photoProfile {
-    width: 50px;
+    width: 20px;
     border-radius: 50%;
     border: 2px solid #fff;
     cursor: pointer;
-    margin-right: 50px;
+    margin-left: 50px;
     @media only screen and (max-width: 414px) {
       margin-right: 10px;
     }

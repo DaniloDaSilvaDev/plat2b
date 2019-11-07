@@ -1,20 +1,20 @@
-import React from "react";
-import { FaSearch, FaBell, FaEnvelope } from "react-icons/fa";
-import { Header, List, Item } from "./style";
+import React from 'react';
+import { FaSearch, FaBell, FaEnvelope } from 'react-icons/fa';
+import { Grid } from '@material-ui/core';
+import { useStyles, Header, List, Item } from './styles';
 // import photoProfile from "../../assets/eu.jpg";
-import menuIcon from "../../assets/menu.png";
-import Logo from "../../assets/logo_2b.png";
-import Profile from "../Profile";
-import { Grid } from "@material-ui/core";
+import menuIcon from '../../assets/menu.png';
+import Logo from '../../assets/logo_2b.png';
+import Profile from '../Profile';
 
 // import { Container } from './styles';
 
 export default () => {
   // const [clicado, setClicado] = useState(0);
-
+  const classes = useStyles();
   return (
     <Header>
-      <Grid container>
+      <Grid container className={classes.root}>
         <List>
           <Item id="logo2bItem">
             <img id="logo2b" src={Logo} alt="Logo" size="30px" />

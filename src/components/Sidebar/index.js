@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FaHome,
   FaBookmark,
@@ -9,54 +9,54 @@ import {
   FaCodeBranch,
   FaCheckDouble,
   FaLongArrowAltLeft,
-  FaGraduationCap
-} from "react-icons/fa";
-import { Sidebar, List } from "./style";
-import Item from "./item";
+  FaGraduationCap,
+} from 'react-icons/fa';
+import { Sidebar, List } from './style';
+import Item from './item';
 
 export default () => {
   const [selected, setSelected] = useState(0);
   const itemsList = [
     {
-      title: "Home",
+      title: 'Home',
       icon: <FaHome />,
-      path: "/"
+      path: '/',
     },
     {
-      title: "Disciplinas",
+      title: 'Disciplinas',
       icon: <FaGraduationCap size="35px" />,
-      path: "/diciplinas"
+      path: '/diciplinas',
     },
     {
-      title: "PDFs",
+      title: 'PDFs',
       icon: <FaFilePdf />,
-      path: "/pdf"
+      path: '/pdf',
     },
     {
-      title: "Questões",
+      title: 'Questões',
       icon: <FaCheckDouble />,
-      path: "/questoes"
+      path: '/questoes',
     },
     {
-      title: "PodCasts",
+      title: 'PodCasts',
       icon: <FaPodcast />,
-      path: "/podcast"
+      path: '/podcast',
     },
     {
-      title: "Mapas Mentais",
+      title: 'Mapas Mentais',
       icon: <FaCodeBranch />,
-      path: "/mapas-mentais"
+      path: '/mapas-mentais',
     },
     {
-      title: "Favoritos",
+      title: 'Favoritos',
       icon: <FaBookmark />,
-      path: "/favoritos"
+      path: '/favoritos',
     },
     {
-      title: "Sair",
+      title: 'Sair',
       icon: <FaLongArrowAltLeft />,
-      path: "/user"
-    }
+      path: '/user',
+    },
   ];
 
   return (

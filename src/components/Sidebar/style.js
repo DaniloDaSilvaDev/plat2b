@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Sidebar = styled.div`
   position: fixed;
   left: 0;
-  top: 93px;
+  top: 70px;
   flex: 1;
   max-width: 200px;
   width: 100px;
@@ -34,14 +34,14 @@ export const Item = styled.li`
   text-align: center;
   color: #fff;
   background-color: ${props =>
-    props.active ? "rgb(30,30,30)" : "transparent"};
+    props.active ? 'rgb(30,30,30)' : 'transparent'};
   ${props =>
-    props.active ? "border-left: solid 3px #4DA75A; " : "transparent"};
+    props.active ? 'border-left: solid 3px #4DA75A; ' : 'transparent'};
 
   user-select: none;
   cursor: pointer;
 
-  ${props => (props.active ? "" : "&:hover {background-color: rgb(30,30,30);}")}
+  ${props => (props.active ? '' : '&:hover {background-color: rgb(30,30,30);}')}
 
   span {
     font-size: 1.5rem;
