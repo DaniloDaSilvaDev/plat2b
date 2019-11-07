@@ -10,13 +10,16 @@ export const useStyles = makeStyles(theme => ({
     flex: 1,
     flexGrow: 1,
     fontSize: 15,
-    padding: 50,
+    padding: '50px 130px',
+    '@media screen and (max-width: 1250px)': {
+      padding: 20,
+    },
   },
   control: {
     padding: theme.spacing(2),
   },
   paper: {
-    padding: 20,
+    padding: 35,
     alignItems: 'stretch',
     display: 'flex',
     flexDirection: ' column',
@@ -29,10 +32,13 @@ export const useStyles = makeStyles(theme => ({
   },
   h1: {
     color: '#3d5170',
-    fontSize: '30px',
+    fontSize: 40,
     // lineHeight: '1em',
-    fontWeight: '500',
+    fontWeight: 500,
     // marginRight: 100,
+    '@media screen and (max-width: 1200px)': {
+      fontSize: 30,
+    },
   },
   video: {},
   check: {
@@ -50,13 +56,14 @@ export const useStyles = makeStyles(theme => ({
     alignContent: 'space-between',
     padding: '0 0 0 20px',
   },
-  // h2: {
-  //   color: "#3d5170",
-  //   fontSize: "2.7em",
-  //   lineHeight: "1em",
-  //   fontWeight: "500",
-  //   marginBottom: "30px"
-  // }
+  p: {
+    color: '#3d5170',
+    fontSize: 18,
+    lineHeight: 1.5,
+    fontWeight: 500,
+    margin: '50px 0',
+    textAlign: 'justify',
+  },
 }));
 export const GreenCheckbox = withStyles({
   root: {
@@ -68,11 +75,12 @@ export const GreenCheckbox = withStyles({
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
-export const CardBody = styled.div`
+export const VideoBody = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 0 30px 0;
+  flex-wrap: wrap;
+  padding: 15px 0 30px 0;
   /* width: 200px;
   flex: 1; */
 

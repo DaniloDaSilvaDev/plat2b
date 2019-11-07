@@ -1,32 +1,32 @@
-import React from "react";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import { makeStyles } from "@material-ui/core/styles";
-import photoperfile from "../../assets/eu.jpg";
+import React from 'react';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import { makeStyles } from '@material-ui/core/styles';
+import photoperfile from '../../assets/eu.jpg';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: 'flex',
   },
   paper: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   photoProfile: {
-    width: "50px",
-    height: "50px",
-    boxShadow: "0 0 0 0.125rem #fff, 0 0.1875rem 0.4375rem rgba(90,97,105,.5)",
-    display: "block",
-    borderRadius: "50%",
-    textIndent: "-9999px",
-    backgroundSize: "cover",
-    backgroundPosition: "50%",
-    cursor: "pointer",
-    marginLeft: 20
-  }
+    width: '40px',
+    height: '40px',
+    boxShadow: '0 0 0 0.125rem #fff, 0 0.1875rem 0.4375rem rgba(90,97,105,.5)',
+    display: 'block',
+    borderRadius: '50%',
+    textIndent: '-9999px',
+    backgroundSize: 'cover',
+    backgroundPosition: '50%',
+    cursor: 'pointer',
+    marginLeft: 20,
+  },
 }));
 
 export default function MenuListComposition() {
@@ -47,7 +47,7 @@ export default function MenuListComposition() {
   };
 
   function handleListKeyDown(event) {
-    if (event.key === "Tab") {
+    if (event.key === 'Tab') {
       event.preventDefault();
       setOpen(false);
     }
@@ -68,12 +68,12 @@ export default function MenuListComposition() {
       <div>
         <div
           ref={anchorRef}
-          aria-controls={open ? "menu-list-grow" : undefined}
+          aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
           style={{ backgroundImage: `url(${photoperfile})` }}
           className={classes.photoProfile}
-        ></div>
+        />
         <Popper
           open={open}
           anchorEl={anchorRef.current}
@@ -86,7 +86,7 @@ export default function MenuListComposition() {
               {...TransitionProps}
               style={{
                 transformOrigin:
-                  placement === "bottom" ? "center top" : "center bottom"
+                  placement === 'bottom' ? 'center top' : 'center bottom',
               }}
             >
               <Paper>

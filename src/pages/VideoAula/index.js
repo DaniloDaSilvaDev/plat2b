@@ -1,8 +1,14 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState } from 'react';
-import { Grid, Typography, FormControlLabel, Paper } from '@material-ui/core';
+import {
+  Grid,
+  Typography,
+  FormControlLabel,
+  Paper,
+  Box,
+} from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
-import { useStyles, GreenCheckbox, CardBody } from './styles';
+import { useStyles, GreenCheckbox, VideoBody } from './styles';
 // import { Container } from './styles';
 import videoaula from '../../assets/videos/video.mp4';
 
@@ -27,10 +33,10 @@ export default function VideoAula() {
         <Grid item lg={12} md={12} sm={12}>
           <Paper className={classes.paper}>
             <video
-              width="640"
-              height="360"
+              width="100%"
+              // height="360"
               className={classes.video}
-              autoPlay="false"
+              // autoPlay="false"
               preload
               controls
               // autoPlay
@@ -58,31 +64,51 @@ export default function VideoAula() {
               <source src={videoaula} type="video/mp4" />
             </video>
 
-            <CardBody>
-              <Typography component="h1" variant="h5" className={classes.h1}>
-                Currículo profissional
-              </Typography>
+            <VideoBody>
+              <Box>
+                <Typography component="h1" variant="h5" className={classes.h1}>
+                  Métodos pedagógicos
+                </Typography>
+              </Box>
 
-              <Rating
-                style={{ marginLeft: '600px' }}
-                value={3}
-                name="size-large"
-                // onClick={() => setStars(`value = { ${stars} }`)}
-                size="large"
-              />
+              <Box>
+                <Rating
+                  // style={{ marginLeft: '600px' }}
+                  value={3}
+                  name="size-large"
+                  // onClick={() => setStars(`value = { ${stars} }`)}
+                  size="large"
+                />
 
-              <FormControlLabel
-                className={classes.check}
-                control={
-                  <GreenCheckbox
-                    checked={state.checked}
-                    onChange={handleChange('checked')}
-                    value="checked"
-                  />
-                }
-                // label="Custom color"
-              />
-            </CardBody>
+                <FormControlLabel
+                  className={classes.check}
+                  control={
+                    <GreenCheckbox
+                      checked={state.checked}
+                      onChange={handleChange('checked')}
+                      value="checked"
+                    />
+                  }
+                  // label="Custom color"
+                />
+              </Box>
+              <Box>
+                <Typography component="p" variant="h5" className={classes.p}>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Autem ad tenetur itaque repudiandae qui aperiam iure, officiis
+                  ipsum placeat, similique cum, laudantium repellat dignissimos
+                  id quasi non ab deleniti temporibus. Cumque nam, commodi autem
+                  eveniet a ipsa dignissimos distinctio asperiores vero libero,
+                  incidunt consequatur sit eos explicabo nesciunt, totam quasi
+                  provident natus odio. Reprehenderit quisquam et velit
+                  necessitatibus voluptatum consequuntur? Laborum illo quasi
+                  quae temporibus accusamus ipsum voluptas ullam magni vero quam
+                  ad eum officia vitae quidem natus rerum inventore minima
+                  architecto voluptates, distinctio aspernatur quaerat quos?
+                  Minima, eius voluptates.
+                </Typography>
+              </Box>
+            </VideoBody>
           </Paper>
           {/* <Grid className={classes.icons} item lg={8} md={12} sm={12} /> */}
         </Grid>
