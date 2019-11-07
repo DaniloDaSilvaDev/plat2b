@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Courses from './pages/Courses';
 import VideoAula from './pages/VideoAula';
+import PdfAula from './pages/PdfAula';
+import Metodologia from './pages/Metodologia';
 
 export default function Routes() {
   const RouterStyle = styled.section`
@@ -23,7 +25,9 @@ export default function Routes() {
           <Route path="/" exact component={Home} />
           <Route path="/profile" component={Profile} />
           <Route path="/courses" component={Courses} />
+          <Route path="/metodologia" component={Metodologia} />
           <Route path="/aula" component={VideoAula} />
+          <Route path="/pdf" component={PdfAula} />
         </Switch>
       </BrowserRouter>
     </RouterStyle>

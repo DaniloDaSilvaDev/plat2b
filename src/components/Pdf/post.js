@@ -68,7 +68,7 @@ export default function Post(props) {
           </span>
           <div className={classes.icons} onClick={() => clicouIcone(!ok)}>
             {ok ? (
-              <FaBookmark size={24} cursor="pointer" color="#4FA75A" />
+              <FaBookmark size={24} cursor="pointer" color="rgb(58, 255, 83)" />
             ) : (
               <FaRegBookmark size={24} cursor="pointer" color="#fff" />
             )}
