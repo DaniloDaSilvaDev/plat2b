@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React from "react";
-import { Item } from "./style";
+import React from 'react';
+import { Item } from './style';
 // import Button from "@material-ui/core/Button";
 
 export default props => {
