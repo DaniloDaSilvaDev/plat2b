@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Grid, Typography, Paper } from '@material-ui/core';
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
@@ -6,7 +7,7 @@ import { CardBody, useStyles } from './styles';
 
 export default function Post(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [ok, clicouIcone] = useState(false);
+  const [click, setClick] = useState(false);
   const classes = useStyles();
 
   const { data } = props;
@@ -66,8 +67,8 @@ export default function Post(props) {
           >
             {data.category}
           </span>
-          <div className={classes.icons} onClick={() => clicouIcone(!ok)}>
-            {ok ? (
+          <div className={classes.icons} onClick={() => setClick(!click)}>
+            {click ? (
               <FaBookmark size={24} cursor="pointer" color="rgb(58, 255, 83)" />
             ) : (
               <FaRegBookmark size={24} cursor="pointer" color="#fff" />

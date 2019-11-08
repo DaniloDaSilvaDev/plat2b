@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
 import { useStyles } from './styles';
 
@@ -112,17 +112,17 @@ export default function Pdf() {
     },
   ];
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = useState(null);
+  // const [anchorEl, setAnchorEl] = useState(null);
 
-  const handlePopoverOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handlePopoverOpen = event => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
+  // const handlePopoverClose = () => {
+  //   setAnchorEl(null);
+  // };
 
-  const open = Boolean(anchorEl);
+  // const open = Boolean(anchorEl);
 
   return (
     <Grid container className={classes.root} spacing={4}>
