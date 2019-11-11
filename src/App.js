@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Sidebar from './components/Sidebar';
+// import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
@@ -10,7 +10,7 @@ export default function App() {
     <>
       <GlobalStyle />
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Routes />
     </>
   );

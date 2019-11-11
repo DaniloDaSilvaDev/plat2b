@@ -7,6 +7,8 @@ import Courses from './pages/Courses';
 import VideoAula from './pages/VideoAula';
 import PdfAula from './pages/PdfAula';
 import Metodologia from './pages/Metodologia';
+import Sidebar from './components/Sidebar';
+import Materia from './pages/Materia';
 
 export default function Routes() {
   const RouterStyle = styled.section`
@@ -21,13 +23,15 @@ export default function Routes() {
   return (
     <RouterStyle>
       <BrowserRouter>
+        <Sidebar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/courses" component={Courses} />
-          <Route path="/metodologia" component={Metodologia} />
-          <Route path="/aula" component={VideoAula} />
-          <Route path="/pdf" component={PdfAula} />
+          <Route path="/perfil" component={Profile} />
+          <Route path="/disciplinas" exact component={Courses} />
+          <Route path="/disciplinas/:id" component={Metodologia} />
+          <Route path="/aula/:id" component={VideoAula} />
+          <Route path="/pdf/:id" component={PdfAula} />
+          <Route path="/materia" component={Materia} />
         </Switch>
       </BrowserRouter>
     </RouterStyle>

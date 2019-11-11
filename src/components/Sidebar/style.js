@@ -9,7 +9,7 @@ export const Sidebar = styled.div`
   width: 100px;
   height: 100%;
   max-height: 100vh;
-  background-color: #222d32;
+  background-color: #283241;
   z-index: 999;
   box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12),
     0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1);
@@ -34,14 +34,14 @@ export const Item = styled.li`
   text-align: center;
   color: #fff;
   background-color: ${props =>
-    props.active ? 'rgb(30,30,30)' : 'transparent'};
+    props.active ? 'rgb(64,78,98)' : 'transparent'};
   ${props =>
     props.active ? 'border-left: solid 3px #4DA75A; ' : 'transparent'};
 
   user-select: none;
   cursor: pointer;
-
-  ${props => (props.active ? '' : '&:hover {background-color: rgb(30,30,30);}')}
+  /* rgb(30,30,30) */
+  ${props => (props.active ? '' : '&:hover {background-color: rgb(57,69,87);}')}
 
   span {
     font-size: 1.5rem;

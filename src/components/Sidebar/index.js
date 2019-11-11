@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import {
   FaHome,
   FaBookmark,
@@ -14,7 +15,7 @@ import {
 import { Sidebar, List } from './style';
 import Item from './item';
 
-export default () => {
+const SideBar = () => {
   const [selected, setSelected] = useState(0);
   const itemsList = [
     {
@@ -25,7 +26,7 @@ export default () => {
     {
       title: 'Disciplinas',
       icon: <FaGraduationCap size="35px" />,
-      path: '/diciplinas',
+      path: '/disciplinas',
     },
     {
       title: 'PDFs',
@@ -52,11 +53,11 @@ export default () => {
       icon: <FaBookmark />,
       path: '/favoritos',
     },
-    {
-      title: 'Sair',
-      icon: <FaLongArrowAltLeft />,
-      path: '/user',
-    },
+    // {
+    //   title: 'Sair',
+    //   icon: <FaLongArrowAltLeft />,
+    //   path: '/user',
+    // },
   ];
 
   return (
@@ -64,6 +65,7 @@ export default () => {
       <List id="menu">
         {itemsList.map((item, index) => (
           <Item
+            path={item.path}
             key={item.title}
             // {...item}
             title={item.title}
@@ -77,3 +79,4 @@ export default () => {
     </Sidebar>
   );
 };
+export default withRouter(SideBar);
