@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Courses from './pages/Courses';
+import Disciplinas from './pages/Disciplinas';
 import VideoAula from './pages/VideoAula';
 import PdfAula from './pages/PdfAula';
 import Metodologia from './pages/Metodologia';
@@ -27,7 +27,7 @@ export default function Routes() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/perfil" component={Profile} />
-          <Route path="/disciplinas" exact component={Courses} />
+          <Route path="/disciplinas" exact component={Disciplinas} />
           <Route path="/disciplinas/:id" component={Metodologia} />
           <Route path="/aula/:id" component={VideoAula} />
           <Route path="/pdf/:id" component={PdfAula} />

@@ -1,35 +1,25 @@
 {
+  "disciplinas": [{
+    "id": 1,
+    "title": "Metodologia",
+    "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
+    "img": "https://designrevision.com/demo/shards-dashboard-react/static/media/10.fe349e85.jpeg"
+  }],
   "posts": [{
-      "id": 1,
-      "backgroundImage": "../../assets/teste1.jpg",
-      "title": "Pedagogia e sociedade",
-      "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
-      "category": "Vídeo",
-      "categoryColor": "rgb(59, 162, 57)",
-      "categoryUrl": "#",
-      "date": "14 Fevereiro 2019",
-      "author": {
-        "name": "Carla",
-        "lastname": "Machado",
-        "photo": "../../assets/prof2.jpg",
-        "url": "#"
-      }
-    },
-    {
-      "id": 2,
-      "backgroundImage": "../../assets/teste1.jpg",
-      "title": "Pedagogia e sociedade",
-      "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
-      "category": "Vídeo",
-      "categoryColor": "rgb(59, 162, 57)",
-      "categoryUrl": "#",
-      "date": "14 Fevereiro 2019",
-      "author": {
-        "name": "Carla",
-        "lastname": "Machado",
-        "photo": "../../assets/prof2.jpg",
-        "url": "#"
-      }
+    "id": 1,
+    "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
+    "title": "Pedagogia e sociedade",
+    "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
+    "category": "Vídeo",
+    "categoryColor": "rgb(59, 162, 57)",
+    "categoryUrl": "#",
+    "date": "14 Fevereiro 2019",
+    "author": {
+      "nameProf": "Carla",
+      "lastnameProf": "Machado",
+      "photoProf": "https://designrevision.com/demo/shards-dashboard-react/static/media/0.73476783.jpg",
+      "url": "#"
     }
-  ]
+
+  }]
 }
