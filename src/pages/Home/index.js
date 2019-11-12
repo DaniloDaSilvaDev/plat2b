@@ -40,7 +40,7 @@ export default class Home extends Component {
         </Typography>
         <Grid container spacing={6}>
           {this.state.posts.map(p => (
-            <Pdf props={p} />
+          <Pdf {...p} />
           ))}
         </Grid>
       </Container>
