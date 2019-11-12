@@ -23,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     async function getPosts() {
       const response = await api.get('http://localhost:3333/posts');
-      setFilter(response.data.filter);
+      setFilter(response.data);
     }
     getPosts();
   }, filter);
