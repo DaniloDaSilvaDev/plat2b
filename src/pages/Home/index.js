@@ -4,32 +4,30 @@
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
-// import { homedir } from 'os';
 import { useStyles } from './styles';
-import Pdf from '../../components/Pdf';
+import Card from '../../components/Card';
 import api from '../../services/api';
 
 export default function Home() {
-  // state = {
-  //   posts: [],
-  // };
-
-  // async componentDidMount() {
-  //   const response = await api.get('http://localhost:3333/posts');
-  //   this.setState({ posts: response.data });
-  // }
   const [posts, setPosts] = useState([]);
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     async function resp() {
       const response = await api.get('http://localhost:3333/posts');
       setPosts(response.data);
-      console.log(response.data);
     }
     resp();
   }, []);
 
-  // render() {
+  useEffect(() => {
+    async function getPosts() {
+      const response = await api.get('http://localhost:3333/posts');
+      setFilter(response.data.filter);
+    }
+    getPosts();
+  }, filter);
+
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
@@ -44,10 +42,10 @@ export default function Home() {
       <Typography component="h2" variant="h5" className={classes.h2}>
         Últimas publicações
       </Typography>
-      {/* <Grid container spacing={6}> */}
+
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (
-          <Pdf
+          <Card
             backgroundImage={p.backgroundImage}
             photoProf={p.author.photoProf}
             title={p.title}
