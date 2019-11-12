@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable global-require */
 import React from 'react';
 import { Link } from 'react-router-dom';

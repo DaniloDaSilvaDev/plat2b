@@ -6,7 +6,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
-import photoperfile from '../../assets/eu.jpg';
+// import photoperfile from '../../assets/eu.jpg';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function MenuListComposition() {
+export default function MenuListComposition(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -71,7 +71,7 @@ export default function MenuListComposition() {
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
-          style={{ backgroundImage: `url(${photoperfile})` }}
+          style={{ backgroundImage: `url(${props.photoPerfil})` }}
           className={classes.photoProfile}
         />
         <Popper

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch, FaBell, FaEnvelope } from 'react-icons/fa';
 import { Grid } from '@material-ui/core';
 import { useStyles, Header, List, Item } from './styles';
@@ -6,11 +6,23 @@ import { useStyles, Header, List, Item } from './styles';
 import menuIcon from '../../assets/menu.png';
 import Logo from '../../assets/logo_2b.png';
 import Profile from '../Profile';
+import api from '../../services/api';
 
 // import { Container } from './styles';
 
 export default () => {
   // const [clicado, setClicado] = useState(0);
+  const [photo, setPhoto] = useState([]);
+
+  useEffect(() => {
+    async function resp() {
+      const response = await api.get('http://localhost:3333/user');
+      setPhoto(response.data[0]);
+      console.log(response.data[0]);
+    }
+    resp();
+  }, []);
+
   const classes = useStyles();
   return (
     <Header>
@@ -44,7 +56,7 @@ export default () => {
             <p>Danilo Souza</p>
           </Item>
 
-          <Profile />
+          <Profile photoPerfil={photo.photoPerfil} />
 
           {/* <Item className="itemsMENU">
           <img

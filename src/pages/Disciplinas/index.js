@@ -7,12 +7,12 @@ import api from '../../services/api';
 export default function Disciplinas() {
   const classes = useStyles();
 
-  const [disc, setDisc] = useState([]);
+  const [disciplinas, setDisciplinas] = useState([]);
 
   useEffect(() => {
     async function resp() {
       const response = await api.get('http://localhost:3333/disciplinas');
-      setDisc(response.data);
+      setDisciplinas(response.data);
       console.log(response.data);
     }
     resp();
@@ -24,7 +24,15 @@ export default function Disciplinas() {
         Disciplinas
       </Typography>
       <Grid container className={classes.root} spacing={4}>
-        <CardDisciplina />
+        {disciplinas.map(d => (
+          <CardDisciplina
+            id={d.id}
+            key={d.id}
+            img={d.img}
+            title={d.title}
+            desc={d.desc}
+          />
+        ))}
       </Grid>
     </Container>
   );
