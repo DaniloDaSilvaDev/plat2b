@@ -37,6 +37,7 @@ export default function Home() {
         Olá, <span>Danilo</span>
       </Typography>
 
+<<<<<<< HEAD
       <Typography component="h2" variant="h5" className={classes.h2}>
         Vídeos recentes
       </Typography>
@@ -62,4 +63,17 @@ export default function Home() {
       </Grid>
     </Container>
   );
+=======
+        <Typography component="h2" variant="h5">
+          Últimas publicações
+        </Typography>
+        <Grid container spacing={6}>
+          {this.state.posts.map(p => (
+          <Pdf {...p} />
+          ))}
+        </Grid>
+      </Container>
+    );
+  }
+>>>>>>> 6fe214554cbe7369d83c17bd83723b9ff09c071a
 }
