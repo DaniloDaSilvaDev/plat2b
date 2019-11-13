@@ -8,7 +8,6 @@ import VideoAula from './pages/VideoAula';
 import PdfAula from './pages/PdfAula';
 import Metodologia from './pages/Metodologia';
 import Sidebar from './components/Sidebar';
-import Materia from './pages/Materia';
 
 export default function Routes() {
   const RouterStyle = styled.section`
@@ -31,7 +30,6 @@ export default function Routes() {
           <Route path="/disciplinas/:id" component={Metodologia} />
           <Route path="/aula/:id" component={VideoAula} />
           <Route path="/pdf/:id" component={PdfAula} />
-          <Route path="/materia" component={Materia} />
         </Switch>
       </BrowserRouter>
     </RouterStyle>

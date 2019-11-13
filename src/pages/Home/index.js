@@ -4,13 +4,24 @@
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
-import { useStyles } from './styles';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { useStyles, GreenCheckbox, BlueCheckbox, RedCheckbox } from './styles';
 import Card from '../../components/Card';
 import api from '../../services/api';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
-  const [filter, setFilter] = useState([]);
+  const [filters, setFilters] = useState([]);
+  const [state, setState] = useState({
+    checkedPod: true,
+    checkedPdf: true,
+    checkedV: true,
+  });
+
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
+  };
 
   useEffect(() => {
     async function resp() {
@@ -20,13 +31,23 @@ export default function Home() {
     resp();
   }, []);
 
+  const getPosts = async () => {
+    const response = await api.get('http://localhost:3333/posts');
+    return response.data;
+  };
+
   useEffect(() => {
-    async function getPosts() {
-      const response = await api.get('http://localhost:3333/posts');
-      setFilter(response.data);
+    async function res() {
+      const response = await getPosts();
+      const selecionados = response.filter(
+        p => response.category === p.category
+      );
+      console.log(selecionados);
+
+      setPosts(selecionados);
     }
-    getPosts();
-  }, filter);
+    res();
+  }, [filters]);
 
   const classes = useStyles();
   return (
@@ -42,6 +63,53 @@ export default function Home() {
       <Typography component="h2" variant="h5" className={classes.h2}>
         Últimas publicações
       </Typography>
+
+      <Typography component="p" variant="h5" className={classes.p}>
+        filtro
+      </Typography>
+      <FormGroup row>
+        <FormControlLabel
+          control={
+            <GreenCheckbox
+              checked={state.checkedV}
+              onChange={
+                (() => setFilters([...filters, 'VIDEO']),
+                handleChange('checkedV'))
+              }
+              value="checkedV"
+            />
+          }
+          label="Vídeos"
+        />
+
+        <FormControlLabel
+          control={
+            <BlueCheckbox
+              checked={state.checkedPdf}
+              onChange={
+                (() => setFilters([...filters, 'PDF']),
+                handleChange('checkedPdf'))
+              }
+              value="checkedPdf"
+            />
+          }
+          label="PDFs"
+        />
+
+        <FormControlLabel
+          control={
+            <RedCheckbox
+              checked={state.checkedPod}
+              onChange={
+                (() => setFilters([...filters, 'PODCAST']),
+                handleChange('checkedPod'))
+              }
+              value="checkedPod"
+            />
+          }
+          label="PodCast"
+        />
+      </FormGroup>
 
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (

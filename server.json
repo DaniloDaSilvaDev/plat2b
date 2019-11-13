@@ -1,11 +1,14 @@
 {
-  "user": [{
-    "id": 1,
-    "name:": "Danilo",
-    "lastName": "Souza",
-    "photoPerfil": "https://instrktiv.com/media/ferry.jpeg"
-  }],
-  "disciplinas": [{
+  "user": [
+    {
+      "id": 1,
+      "name:": "Danilo",
+      "lastName": "Souza",
+      "photoPerfil": "https://instrktiv.com/media/ferry.jpeg"
+    }
+  ],
+  "disciplinas": [
+    {
       "id": 1,
       "title": "Metodologia",
       "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
@@ -42,12 +45,13 @@
       "img": "https://designrevision.com/demo/shards-dashboard-react/static/media/10.fe349e85.jpeg"
     }
   ],
-  "posts": [{
+  "posts": [
+    {
       "id": 1,
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
       "title": "Pedagogia e sociedade",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
-      "category": "VÍDEO",
+      "category": "VIDEO",
       "categoryColor": "rgb(59, 162, 57)",
       "categoryUrl": "#",
       "date": "14 Fevereiro 2019",
@@ -57,7 +61,6 @@
         "photoProf": "https://designrevision.com/demo/shards-dashboard-react/static/media/0.73476783.jpg",
         "url": "#"
       }
-
     },
     {
       "id": 2,
@@ -74,7 +77,6 @@
         "photoProf": "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2019/07/i-googlephotos.jpg",
         "url": "#"
       }
-
     },
     {
       "id": 3,
@@ -91,7 +93,6 @@
         "photoProf": "https://designrevision.com/demo/shards-dashboard-react/static/media/0.73476783.jpg",
         "url": "#"
       }
-
     },
     {
       "id": 4,
@@ -108,14 +109,13 @@
         "photoProf": "https://designrevision.com/demo/shards-dashboard-react/static/media/0.73476783.jpg",
         "url": "#"
       }
-
     },
     {
       "id": 5,
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
       "title": "Pedagogia e sociedade",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
-      "category": "Vídeo",
+      "category": "VIDEO",
       "categoryColor": "rgb(59, 162, 57)",
       "categoryUrl": "#",
       "date": "14 Fevereiro 2019",
@@ -125,7 +125,6 @@
         "photoProf": "https://designrevision.com/demo/shards-dashboard-react/static/media/0.73476783.jpg",
         "url": "#"
       }
-
     },
     {
       "id": 6,
@@ -142,7 +141,6 @@
         "photoProf": "https://designrevision.com/demo/shards-dashboard-react/static/media/0.73476783.jpg",
         "url": "#"
       }
-
     }
   ]
 }

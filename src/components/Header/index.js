@@ -18,7 +18,6 @@ export default () => {
     async function resp() {
       const response = await api.get('http://localhost:3333/user');
       setPhoto(response.data[0]);
-      console.log(response.data[0]);
     }
     resp();
   }, []);
@@ -57,14 +56,6 @@ export default () => {
           </Item>
 
           <Profile photoPerfil={photo.photoPerfil} />
-
-          {/* <Item className="itemsMENU">
-          <img
-            className="photoProfile"
-            src={photoProfile}
-            alt="Foto do perfil"
-          />
-        </Item> */}
         </List>
       </Grid>
     </Header>

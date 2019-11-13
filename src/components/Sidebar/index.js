@@ -9,7 +9,6 @@ import {
   FaPodcast,
   FaCodeBranch,
   FaCheckDouble,
-  FaLongArrowAltLeft,
   FaGraduationCap,
 } from 'react-icons/fa';
 import { Sidebar, List } from './style';
