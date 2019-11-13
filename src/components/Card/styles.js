@@ -61,9 +61,9 @@ export const useStyles = makeStyles(theme => ({
 
   title: {
     color: '#3d5170',
-    fontSize: '30px',
+    fontSize: '24px',
     lineHeight: '1em',
-    fontWeight: 'bold',
+    fontWeight: 800,
     marginBottom: '.75rem',
   },
   desc: {

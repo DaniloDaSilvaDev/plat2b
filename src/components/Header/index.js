@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch, FaBell, FaEnvelope } from 'react-icons/fa';
 import { Grid } from '@material-ui/core';
+import { blueGrey } from '@material-ui/core/colors';
 import { useStyles, Header, List, Item } from './styles';
 // import photoProfile from "../../assets/eu.jpg";
 import menuIcon from '../../assets/menu.png';
@@ -42,12 +43,12 @@ export default () => {
           </Item> */}
 
           <Item className="itemsMENU">
-            <FaEnvelope className="fa-envelope" />
+            <FaEnvelope className="fa-envelope" color="#283241" />
             <span className="notification">6</span>
           </Item>
 
           <Item className="itemsMENU">
-            <FaBell className="fa-bell" />
+            <FaBell className="fa-bell" color="#283241" />
             <span className="notification">3</span>
           </Item>
 

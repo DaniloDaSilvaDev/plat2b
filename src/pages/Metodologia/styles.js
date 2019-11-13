@@ -25,7 +25,7 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '2.7em',
     lineHeight: '1em',
     fontWeight: '500',
-    marginBottom: '30px',
+    margin: '60px 0 30px 0',
   },
 }));
 export const GreenCheckbox = withStyles({

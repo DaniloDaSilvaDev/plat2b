@@ -70,7 +70,7 @@ export default function Metodologia() {
       </Typography>
 
       <Typography component="p" variant="h5" className={classes.p}>
-        filtro
+        Filtro
       </Typography>
       <FormGroup row>
         <FormControlLabel

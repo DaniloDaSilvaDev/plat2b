@@ -13,22 +13,25 @@ export const useStyles = makeStyles(theme => ({
 export const Header = styled.header`
   width: 100%;
   height: 63.36px;
-  background-color: #4da75a;
+  background-color: #eaeaea;
   color: #fff;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 99;
   padding: 0 40px;
-
-  @media only screen and (max-width: 414px) {
-    #iconSearch {
-      display: none;
-    }
+  box-shadow: 0px 1px 3px 0.5px rgba(194,194,194,1);
+  /* border-bottom: solid 2px rgb(210, 210, 210);
+  box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1); */
   }
 
-  @media only screen and (min-width: 500px) {
+  /* @media only screen and (min-width: 500px) {
     #menuIcon {
+      display: none;
+    }
+  } */
+  @media only screen and (max-width: 700px) {
+    .nameUSER {
       display: none;
     }
   }
@@ -70,10 +73,9 @@ export const Header = styled.header`
     position: absolute;
     right: 7px;
     top: 10px;
-    @media only screen and (max-width: 414px) {
+    /* @media only screen and (max-width: 414px) {
       right: -7px;
-    }
-  }
+    } */
 `;
 
 export const List = styled.ul`
@@ -176,7 +178,7 @@ export const Item = styled.li`
   }
 
   p {
-    color: #fff;
+    color: #283241;
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 0.5px;

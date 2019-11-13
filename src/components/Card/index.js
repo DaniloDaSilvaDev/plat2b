@@ -73,7 +73,7 @@ export default function(props) {
           </span>
           <div className={classes.icons} onClick={() => setClick(!click)}>
             {click ? (
-              <FaBookmark size={24} cursor="pointer" color="rgb(58, 255, 83)" />
+              <FaBookmark size={24} cursor="pointer" color="#fff" />
             ) : (
               <FaRegBookmark size={24} cursor="pointer" color="#fff" />
             )}
