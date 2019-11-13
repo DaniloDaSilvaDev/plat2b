@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 // import { FaSearch } from 'react-icons/fa';

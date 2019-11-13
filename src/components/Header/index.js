@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { FaSearch, FaBell, FaEnvelope } from 'react-icons/fa';
+import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { Grid } from '@material-ui/core';
-import { blueGrey } from '@material-ui/core/colors';
+// import { blueGrey } from '@material-ui/core/colors';
 import { useStyles, Header, List, Item } from './styles';
 // import photoProfile from "../../assets/eu.jpg";
-import menuIcon from '../../assets/menu.png';
-import Logo from '../../assets/logo_2b.png';
+// import menuIcon from '../../assets/menu.png';
+// import Logo from '../../assets/logo_2b.png';
 import Profile from '../Profile';
 import api from '../../services/api';
 
