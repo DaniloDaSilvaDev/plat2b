@@ -14,7 +14,7 @@ export default function Routes() {
     background-color: #eaeaea;
     width: 100%;
     margin-left: 100px;
-    margin-top: 70px;
+    margin-top: 63.36px;
     @media only screen and (max-width: 500px) {
       margin-left: 0;
     }

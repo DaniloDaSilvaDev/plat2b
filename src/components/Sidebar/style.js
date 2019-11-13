@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Sidebar = styled.div`
   position: fixed;
   left: 0;
-  top: 70px;
+  top: 0px;
   flex: 1;
   max-width: 200px;
   width: 100px;
@@ -53,7 +53,7 @@ export const Item = styled.li`
   }
 `;
 export const Logo = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 100%;
+  height: 100%;
   margin: auto;
 `;

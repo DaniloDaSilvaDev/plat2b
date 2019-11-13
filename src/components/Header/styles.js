@@ -6,18 +6,20 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     flex: 1,
     flexGrow: 1,
-    height: 70,
+    height: 63.36,
+    justifyContent: 'flex-end',
   },
 }));
 export const Header = styled.header`
   width: 100%;
-  height: 70px;
+  height: 63.36px;
   background-color: #4da75a;
   color: #fff;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 0;
+  padding: 0 40px;
 
   @media only screen and (max-width: 414px) {
     #iconSearch {
@@ -81,9 +83,9 @@ export const List = styled.ul`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 70px;
+  /* height: 70px; */
 
-  @media only screen and (max-width: 414px) {
+  /* @media only screen and (max-width: 414px) {
     .itemsMENU {
       padding-right: 0px;
       padding-left: 10px;
@@ -93,7 +95,7 @@ export const List = styled.ul`
     .nameUSER {
       display: none;
     }
-  }
+  } */
 `;
 export const Item = styled.li`
   padding: 20px 20px 20px 10px;
@@ -110,7 +112,7 @@ export const Item = styled.li`
     margin-right: 100px;
   }
 
-  @media only screen and (max-width: 414px) {
+  /* @media only screen and (max-width: 414px) {
     margin-right: 35px;
   }
 
@@ -130,14 +132,11 @@ export const Item = styled.li`
     #menuIcon {
       margin-right: -10px;
     }
-  }
+  } */
 
-  /* @media only screen and (max-width: 320px) {
-        margin-right: 140px;
-    } */
-  @media only screen and (max-width: 414px) {
+  /* @media only screen and (max-width: 414px) {
     padding-right: 0px;
-  }
+  } */
   #fa-search {
     position: absolute;
     top: 30px;
@@ -157,7 +156,7 @@ export const Item = styled.li`
     transition: 0.3s;
     font-size: 16px;
     margin-right: 400px;
-    @media only screen and (max-width: 1300px) {
+    /* @media only screen and (max-width: 1300px) {
       width: 250px;
       margin-right: 200px;
     }
@@ -167,7 +166,7 @@ export const Item = styled.li`
     }
     @media only screen and (max-width: 414px) {
       display: none;
-    }
+    } */
   }
   input:focus {
     color: #fff;
@@ -192,8 +191,8 @@ export const Item = styled.li`
     border: 2px solid #fff;
     cursor: pointer;
     margin-left: 50px;
-    @media only screen and (max-width: 414px) {
+    /* @media only screen and (max-width: 414px) {
       margin-right: 10px;
-    }
+    } */
   }
 `;

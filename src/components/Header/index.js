@@ -27,7 +27,7 @@ export default () => {
     <Header>
       <Grid container className={classes.root}>
         <List>
-          <Item id="logo2bItem">
+          {/* <Item id="logo2bItem">
             <img id="logo2b" src={Logo} alt="Logo" size="30px" />
           </Item>
           <Item>
@@ -39,7 +39,7 @@ export default () => {
               <FaSearch />
             </span>
             <input type="search" />
-          </Item>
+          </Item> */}
 
           <Item className="itemsMENU">
             <FaEnvelope className="fa-envelope" />

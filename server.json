@@ -1,14 +1,11 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "name:": "Danilo",
-      "lastName": "Souza",
-      "photoPerfil": "https://instrktiv.com/media/ferry.jpeg"
-    }
-  ],
-  "disciplinas": [
-    {
+  "user": [{
+    "id": 1,
+    "name:": "Danilo",
+    "lastName": "Souza",
+    "photoPerfil": "https://instrktiv.com/media/ferry.jpeg"
+  }],
+  "disciplinas": [{
       "id": 1,
       "title": "Metodologia",
       "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
@@ -16,40 +13,22 @@
     },
     {
       "id": 2,
-      "title": "Metodologia",
+      "title": "Curriculo",
       "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
       "img": "https://designrevision.com/demo/shards-dashboard-react/static/media/10.fe349e85.jpeg"
     },
     {
       "id": 3,
-      "title": "Metodologia",
-      "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
-      "img": "https://designrevision.com/demo/shards-dashboard-react/static/media/10.fe349e85.jpeg"
-    },
-    {
-      "id": 4,
-      "title": "Metodologia",
-      "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
-      "img": "https://designrevision.com/demo/shards-dashboard-react/static/media/10.fe349e85.jpeg"
-    },
-    {
-      "id": 5,
-      "title": "Metodologia",
-      "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
-      "img": "https://designrevision.com/demo/shards-dashboard-react/static/media/10.fe349e85.jpeg"
-    },
-    {
-      "id": 6,
-      "title": "Metodologia",
+      "title": "Métodos",
       "desc": "metodologia aplicada a pedagogia e seus componentes metodologia aplicada a pedagogia e seus componentes",
       "img": "https://designrevision.com/demo/shards-dashboard-react/static/media/10.fe349e85.jpeg"
     }
   ],
-  "posts": [
-    {
+  "posts": [{
       "id": 1,
+      "disciplina": "Metodologia",
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
-      "title": "Pedagogia e sociedade",
+      "title": "Pedagogia e sociedade - M",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
       "category": "VIDEO",
       "categoryColor": "rgb(59, 162, 57)",
@@ -64,8 +43,9 @@
     },
     {
       "id": 2,
+      "disciplina": "Curriculo",
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
-      "title": "Pedagogia e sociedade",
+      "title": "Pedagogia e sociedade - C",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
       "category": "PDF",
       "categoryColor": "#00b8d8",
@@ -80,8 +60,9 @@
     },
     {
       "id": 3,
+      "disciplina": "Métodos",
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
-      "title": "Pedagogia e sociedade",
+      "title": "Pedagogia e sociedade  - MTS",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
       "category": "PODCAST",
       "categoryColor": "#fab53c",
@@ -96,8 +77,9 @@
     },
     {
       "id": 4,
+      "disciplina": "Metodologia",
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
-      "title": "Pedagogia e sociedade",
+      "title": "Pedagogia e sociedade - M",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
       "category": "PDF",
       "categoryColor": "#00b8d8",
@@ -112,8 +94,9 @@
     },
     {
       "id": 5,
+      "disciplina": "Métodos",
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
-      "title": "Pedagogia e sociedade",
+      "title": "Pedagogia e sociedade  - MTS",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
       "category": "VIDEO",
       "categoryColor": "rgb(59, 162, 57)",
@@ -128,8 +111,26 @@
     },
     {
       "id": 6,
+      "disciplina": "Metodologia",
       "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
-      "title": "Pedagogia e sociedade",
+      "title": "Pedagogia e sociedade  - M",
+      "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
+      "category": "PODCAST",
+      "categoryColor": "#fab53c",
+      "categoryUrl": "#",
+      "date": "14 Fevereiro 2019",
+      "author": {
+        "nameProf": "Carla",
+        "lastnameProf": "Machado",
+        "photoProf": "https://designrevision.com/demo/shards-dashboard-react/static/media/0.73476783.jpg",
+        "url": "#"
+      }
+    },
+    {
+      "id": 7,
+      "disciplina": "Currículo",
+      "backgroundImage": "https://designrevision.com/demo/shards-dashboard-react/static/media/4.026cb7af.jpeg",
+      "title": "Pedagogia e sociedade  - C",
       "desc": "Ser estrela nesse mundo de cometas é um desafio, mas acima de tudo é uma recompensa. É nascer e viver, e não apenas existir! Então brilhe minha estrela, Que o céu hoje é todo seu podem passar, mas as marcas ficam no coração, assim são os amigos na nossa vida, pois podemos contar com eles. São",
       "category": "PODCAST",
       "categoryColor": "#fab53c",

@@ -13,6 +13,7 @@ import api from '../../services/api';
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
   const [filters, setFilters] = useState(['VIDEO', 'PDF', 'PODCAST']);
+  const [disciplinas, setDisciplinas] = useState();
   const [state, setState] = useState({
     PODCAST: true,
     PDF: true,
@@ -25,14 +26,16 @@ export default function Metodologia() {
     event.target.checked
       ? setFilters([...filters, name])
       : setFilters(filters.filter(f => f !== name));
-    console.log(filters);
-    console.log(state.name);
   };
 
   useEffect(() => {
     async function resp() {
-      const response = await api.get('http://localhost:3333/posts');
-      setPosts(response.data);
+      const responseP = await api.get('http://localhost:3333/posts');
+      setPosts(responseP.data);
+      const responseD = await api.get('http://localhost:3333/disciplinas');
+      console.log(responseD.data);
+
+      setDisciplinas(responseD.data[0].title);
     }
     resp();
   }, []);
@@ -46,8 +49,6 @@ export default function Metodologia() {
     async function res() {
       const response = await getPosts();
       const selecionados = response.filter(p => filters.includes(p.category));
-      console.log(selecionados);
-
       setPosts(selecionados);
     }
     res();
@@ -56,16 +57,16 @@ export default function Metodologia() {
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
-      <Typography component="h1" variant="h5" className={classes.h1}>
+      {/* <Typography component="h1" variant="h5" className={classes.h1}>
         Olá, <span>Danilo</span>
       </Typography>
 
       <Typography component="h2" variant="h5" className={classes.h2}>
         Vídeos recentes
-      </Typography>
+      </Typography> */}
 
       <Typography component="h2" variant="h5" className={classes.h2}>
-        Últimas publicações
+        Publicações de {disciplinas}
       </Typography>
 
       <Typography component="p" variant="h5" className={classes.p}>

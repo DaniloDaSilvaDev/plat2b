@@ -5,7 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Paper, Typography } from '@material-ui/core';
 import { useStyles, CardBody } from './styles';
-// import img from '../../assets/teste1.jpg';
 
 export default function CardDisciplina(props) {
   const classes = useStyles();
@@ -35,5 +34,3 @@ export default function CardDisciplina(props) {
     </Grid>
   );
 }
-
-// spacing={4} className={classes.root}

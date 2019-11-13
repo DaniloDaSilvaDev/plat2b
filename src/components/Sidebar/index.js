@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fa';
 import { Sidebar, List } from './style';
 import Item from './item';
+import Logo from './logo';
 
 const SideBar = () => {
   const [selected, setSelected] = useState(0);
@@ -62,6 +63,7 @@ const SideBar = () => {
   return (
     <Sidebar id="menuToggle">
       <List id="menu">
+        <Logo />
         {itemsList.map((item, index) => (
           <Item
             path={item.path}
