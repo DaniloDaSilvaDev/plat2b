@@ -12,15 +12,21 @@ import api from '../../services/api';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState(['VIDEO', 'PDF', 'PODCAST']);
   const [state, setState] = useState({
-    checkedPod: true,
-    checkedPdf: true,
-    checkedV: true,
+    PODCAST: true,
+    PDF: true,
+    VIDEO: true,
   });
 
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked });
+
+    event.target.checked
+      ? setFilters([...filters, name])
+      : setFilters(filters.filter(f => f !== name));
+    console.log(filters);
+    console.log(state.name);
   };
 
   useEffect(() => {
@@ -39,7 +45,7 @@ export default function Home() {
   useEffect(() => {
     async function res() {
       const response = await getPosts();
-      const selecionados = response.filter(p => p.category === 'VIDEO');
+      const selecionados = response.filter(p => filters.includes(p.category));
       console.log(selecionados);
 
       setPosts(selecionados);
@@ -69,12 +75,9 @@ export default function Home() {
         <FormControlLabel
           control={
             <GreenCheckbox
-              checked={state.checkedV}
-              onChange={
-                (() => setFilters([...filters, 'VIDEO']),
-                handleChange('checkedV'))
-              }
-              value="checkedV"
+              checked={state.VIDEO}
+              onChange={handleChange('VIDEO')}
+              value="VIDEO"
             />
           }
           label="Vídeos"
@@ -83,12 +86,9 @@ export default function Home() {
         <FormControlLabel
           control={
             <BlueCheckbox
-              checked={state.checkedPdf}
-              onChange={
-                (() => setFilters([...filters, 'PDF']),
-                handleChange('checkedPdf'))
-              }
-              value="checkedPdf"
+              checked={state.PDF}
+              onChange={handleChange('PDF')}
+              value="PDF"
             />
           }
           label="PDFs"
@@ -97,12 +97,9 @@ export default function Home() {
         <FormControlLabel
           control={
             <RedCheckbox
-              checked={state.checkedPod}
-              onChange={
-                (() => setFilters([...filters, 'PODCAST']),
-                handleChange('checkedPod'))
-              }
-              value="checkedPod"
+              checked={state.PODCAST}
+              onChange={handleChange('PODCAST')}
+              value="PODCAST"
             />
           }
           label="PodCast"
