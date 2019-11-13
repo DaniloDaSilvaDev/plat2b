@@ -31,17 +31,15 @@ export default function Home() {
     resp();
   }, []);
 
-  const getPosts = async () => {
+  async function getPosts() {
     const response = await api.get('http://localhost:3333/posts');
     return response.data;
-  };
+  }
 
   useEffect(() => {
     async function res() {
       const response = await getPosts();
-      const selecionados = response.filter(
-        p => response.category === p.category
-      );
+      const selecionados = response.filter(p => p.category === 'VIDEO');
       console.log(selecionados);
 
       setPosts(selecionados);
