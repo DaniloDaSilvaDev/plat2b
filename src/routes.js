@@ -8,13 +8,14 @@ import VideoAula from './pages/VideoAula';
 import PdfAula from './pages/PdfAula';
 import Metodologia from './pages/Metodologia';
 import Sidebar from './components/Sidebar';
+import Header2 from './components/Header2';
 
 export default function Routes() {
   const RouterStyle = styled.section`
     background-color: #eaeaea;
     width: 100%;
     margin-left: 100px;
-    margin-top: 63.36px;
+    /* margin-top: 63.36px; */
     @media only screen and (max-width: 500px) {
       margin-left: 0;
     }
@@ -22,6 +23,7 @@ export default function Routes() {
   return (
     <RouterStyle>
       <BrowserRouter>
+        <Header2 />
         <Sidebar />
         <Switch>
           <Route path="/" exact component={Home} />

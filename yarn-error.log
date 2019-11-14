@@ -1,20 +1,20 @@
 Arguments: 
-  /home/danilo/.asdf/installs/nodejs/12.7.0/bin/node /usr/share/yarn/bin/yarn.js
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add @material-ui/icons
 
 PATH: 
-  /home/danilo/.asdf/installs/nodejs/12.7.0/bin:/home/danilo/.asdf/installs/nodejs/12.7.0/.npm/bin::/home/danilo/.asdf/shims:/home/danilo/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/danilo/.fzf/bin
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.19.1
 
 Node version: 
-  12.7.0
+  8.10.0
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: EACCES: permission denied, mkdir '/home/danilo/projects/plat2b/node_modules/react-router/node_modules/isarray'
+  Error: EACCES: permission denied, unlink '/home/danilo/MeuGitHub/plat2b/node_modules/react-router/node_modules/isarray/README.md'
 
 npm manifest: 
   {
