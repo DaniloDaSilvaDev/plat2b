@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Typography component="h1" variant="h5" className={classes.h1}>
-        Olá, <span>Danilo</span>
+        Olá, <span className={classes.span}>Danilo</span>
       </Typography>
 
       <Typography component="h2" variant="h5" className={classes.h2}>

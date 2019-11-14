@@ -17,12 +17,14 @@ export const useStyles = makeStyles(theme => ({
     color: '#3d5170',
     fontSize: '45px',
     lineHeight: '1em',
-    fontWeight: 'bold',
     margin: '60px 0',
+  },
+  span: {
+    fontWeight: 'bold',
   },
   h2: {
     color: '#3d5170',
-    fontSize: '2.7em',
+    fontSize: '3em',
     lineHeight: '1em',
     fontWeight: '500',
     marginBottom: '30px',

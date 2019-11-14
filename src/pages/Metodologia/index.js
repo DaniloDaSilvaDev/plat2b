@@ -74,7 +74,7 @@ export default function Metodologia() {
 
       <Filtro>
         <Typography component="h2" variant="h5" className={classes.h2}>
-          Publicações de {disciplinas}
+          {disciplinas}
         </Typography>
         <FormGroup
           row

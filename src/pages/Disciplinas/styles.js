@@ -9,11 +9,11 @@ export const useStyles = makeStyles(() => ({
   },
   h1: {
     color: '#3d5170',
-    fontSize: '38px',
+    fontSize: '36px',
     // textAlign: 'center',
     lineHeight: '1em',
     fontWeight: '500',
-    margin: '100px 0 30px 20px',
+    margin: '100px 0 30px 0',
   },
   h2: {
     color: '#3d5170',

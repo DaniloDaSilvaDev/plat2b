@@ -24,13 +24,14 @@ export const useStyles = makeStyles(theme => ({
   },
   h2: {
     color: '#3d5170',
-    fontSize: '2.7em',
+    fontSize: '36px',
     lineHeight: '1em',
     fontWeight: '500',
-    margin: '60px 0 0 0',
+    margin: '100px 0 0 0',
   },
   p: {
     color: '#3d5170',
+    fontSize: '3em',
   },
 }));
 

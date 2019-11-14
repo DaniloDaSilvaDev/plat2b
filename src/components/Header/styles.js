@@ -86,6 +86,7 @@ export const List = styled.ul`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
   /* height: 70px; */
 
   /* @media only screen and (max-width: 414px) {

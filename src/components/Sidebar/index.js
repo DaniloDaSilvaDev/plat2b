@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import {
@@ -53,11 +52,6 @@ const SideBar = () => {
       icon: <FaBookmark />,
       path: '/favoritos',
     },
-    // {
-    //   title: 'Sair',
-    //   icon: <FaLongArrowAltLeft />,
-    //   path: '/user',
-    // },
   ];
 
   return (
