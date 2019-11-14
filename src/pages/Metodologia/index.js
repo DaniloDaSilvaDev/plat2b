@@ -6,7 +6,14 @@ import React, { useState, useEffect } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { useStyles, GreenCheckbox, BlueCheckbox, RedCheckbox } from './styles';
+import {
+  Filtro,
+  useStyles,
+  GreenCheckbox,
+  BlueCheckbox,
+  RedCheckbox,
+} from './styles';
+
 import Card from '../../components/Card';
 import api from '../../services/api';
 
@@ -65,47 +72,56 @@ export default function Metodologia() {
         Vídeos recentes
       </Typography> */}
 
-      <Typography component="h2" variant="h5" className={classes.h2}>
-        Publicações de {disciplinas}
-      </Typography>
+      <Filtro>
+        <Typography component="h2" variant="h5" className={classes.h2}>
+          Publicações de {disciplinas}
+        </Typography>
+        <FormGroup
+          row
+          style={{
+            backgroundColor: '#dcdcdc',
+            padding: '10px',
+            borderRadius: '8px',
+            margin: '20px 0',
+          }}
+        >
+          {/* <Typography component="p" variant="h5" className={classes.p}>
+            Filtro
+          </Typography> */}
+          <FormControlLabel
+            control={
+              <GreenCheckbox
+                checked={state.VIDEO}
+                onChange={handleChange('VIDEO')}
+                value="VIDEO"
+              />
+            }
+            label="vídeos"
+          />
 
-      <Typography component="p" variant="h5" className={classes.p}>
-        Filtro
-      </Typography>
-      <FormGroup row>
-        <FormControlLabel
-          control={
-            <GreenCheckbox
-              checked={state.VIDEO}
-              onChange={handleChange('VIDEO')}
-              value="VIDEO"
-            />
-          }
-          label="Vídeos"
-        />
+          <FormControlLabel
+            control={
+              <BlueCheckbox
+                checked={state.PDF}
+                onChange={handleChange('PDF')}
+                value="PDF"
+              />
+            }
+            label="pdf"
+          />
 
-        <FormControlLabel
-          control={
-            <BlueCheckbox
-              checked={state.PDF}
-              onChange={handleChange('PDF')}
-              value="PDF"
-            />
-          }
-          label="PDFs"
-        />
-
-        <FormControlLabel
-          control={
-            <RedCheckbox
-              checked={state.PODCAST}
-              onChange={handleChange('PODCAST')}
-              value="PODCAST"
-            />
-          }
-          label="PodCast"
-        />
-      </FormGroup>
+          <FormControlLabel
+            control={
+              <RedCheckbox
+                checked={state.PODCAST}
+                onChange={handleChange('PODCAST')}
+                value="PODCAST"
+              />
+            }
+            label="podcast"
+          />
+        </FormGroup>
+      </Filtro>
 
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (

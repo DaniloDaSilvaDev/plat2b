@@ -2,6 +2,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 // import styled from "styled-components";
 import React from 'react';
+import styled from 'styled-components';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { green, blue, orange } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -12,6 +13,7 @@ export const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     fontSize: 15,
     // padding: 40,
+    marginTop: 30,
   },
   h1: {
     color: '#3d5170',
@@ -25,9 +27,13 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '2.7em',
     lineHeight: '1em',
     fontWeight: '500',
-    margin: '60px 0 30px 0',
+    margin: '60px 0 0 0',
+  },
+  p: {
+    color: '#3d5170',
   },
 }));
+
 export const GreenCheckbox = withStyles({
   root: {
     color: green[400],
@@ -57,3 +63,11 @@ export const RedCheckbox = withStyles({
   },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
+
+export const Filtro = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
