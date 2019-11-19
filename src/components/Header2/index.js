@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    '@media only screen and (min-width: 500px)': {
+      display: 'none',
+    },
   },
   title: {
     display: 'none',
