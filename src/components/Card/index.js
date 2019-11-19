@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { Grid, Typography, Paper } from '@material-ui/core';
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
 import Popover from '@material-ui/core/Popover';
+import Moment from 'react-moment';
 import { CardBody, useStyles } from './styles';
 
 export default function(props) {
@@ -88,7 +89,7 @@ export default function(props) {
           </Typography>
         </CardBody>
         <Typography component="span" className={classes.date}>
-          {props.date}
+          <Moment format="DD/MM/YYYY">{props.date}</Moment>
         </Typography>
       </Paper>
     </Grid>

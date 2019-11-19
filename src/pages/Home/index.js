@@ -13,11 +13,49 @@ export default function Home() {
 
   useEffect(() => {
     async function resp() {
-      const response = await api.get('http://localhost:3333/posts');
-      setPosts(response.data);
+      const postData = {
+        email: 'atendimento@editora2b.com.br',
+        password: '2b060116',
+      };
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kaW1lbnRvQGVkaXRvcmEyYi5jb20uYnIiLCJwZXJtaXNzYW8iOjEsImlhdCI6MTU3NDEwMTg2NSwiaXNzIjoiaHR0cHM6Ly93d3cuMmJlZHVjYWNhby5jb20uYnIvIn0.VSpM8SnquvspdSPzpC1fjm5UW0QpGMhdQrtpmENdMywZkj9JsSkjrlY5JFNBGLnJVoLymJ2wpY7LgP8DXloszw',
+        },
+      };
+
+      const aulas = await api.post('/listarAulas', postData, config);
+      const pdfs = await api.get('/listarArtigos', postData, config);
+
+      console.log(aulas.data.Aulas);
+      console.log(pdfs.data.Aulas);
+      setPosts(aulas.data.Aulas);
+
+      // const [aula, pdf] = await Promise.all([
+      //   api.post('/listarAulas', postData, config),
+      //   api.get('/listarArtigos', postData, config),
+      // ]);
+      // console.log(aula);
+      // console.log(pdf);
+
+      // setPosts([...aula, ...pdf]);
+
+      // api
+      //   .all([
+      //     api.post('/listarAulas', postData, config),
+      //     api.post('/listarArtigos', postData, config),
+      //   ])
+      //   .then(
+      //     api.spread(([aulaRes, pdfRes]) => {
+      //       setPosts(...aulaRes, ...pdfRes);
+      //     })
+      //   );
     }
+    //  setPosts(...aulaRes, ...pdfRes);
     resp();
   }, []);
+  console.log(posts);
 
   const classes = useStyles();
   return (
@@ -37,14 +75,14 @@ export default function Home() {
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (
           <Card
-            backgroundImage={p.backgroundImage}
-            photoProf={p.author.photoProf}
-            title={p.title}
-            nameProf={p.author.nameProf}
-            desc={p.desc}
-            date={p.date}
-            category={p.category}
-            categoryColor={p.categoryColor}
+            // backgroundImage={p.backgroundImage}
+            // photoProf={p.author.photoProf}
+            title={p.nome}
+            // nameProf={p.author.nameProf}
+            // desc={p.desc}
+            date={p.criadaEm}
+            // category={p.category}
+            // categoryColor={p.categoryColor}
             key={p.id}
           />
         ))}

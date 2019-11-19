@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
   FaHome,
@@ -10,11 +11,14 @@ import {
   FaCheckDouble,
   FaGraduationCap,
 } from 'react-icons/fa';
+// import { connect } from 'tls';
 import { Sidebar, List } from './style';
 import Item from './item';
 import Logo from './logo';
 
-const SideBar = () => {
+function SideBar({ sideBar }) {
+  console.log(sideBar);
+
   const [selected, setSelected] = useState(0);
   const itemsList = [
     {
@@ -73,5 +77,8 @@ const SideBar = () => {
       </List>
     </Sidebar>
   );
-};
-export default withRouter(SideBar);
+}
+// export default withRouter(SideBar);
+export default connect(state => ({
+  sideBar: state.sideBar,
+}))(SideBar);
