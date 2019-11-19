@@ -14,7 +14,15 @@ export const Sidebar = styled.div`
   /* box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12),
     0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1); */
 
-    /* display: ${props => (props.clicado ? 'none' : '')}; */
+  /* @keyframes transi {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } */
+
   @media only screen and (max-width: 500px) {
     display: ${props => (props.clicado ? '' : 'none')};
   }

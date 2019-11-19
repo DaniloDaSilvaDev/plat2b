@@ -10,7 +10,6 @@ export default function App() {
   return (
     <Provider store={store}>
       <GlobalStyle />
-      {/* <Header2 /> */}
       <Routes />
     </Provider>
   );

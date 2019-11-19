@@ -10,6 +10,7 @@ import {
   FaCodeBranch,
   FaCheckDouble,
   FaGraduationCap,
+  FaVideo,
 } from 'react-icons/fa';
 // import { connect } from 'tls';
 import { Sidebar, List } from './style';
@@ -30,6 +31,11 @@ function SideBar({ sideBar }) {
       title: 'Disciplinas',
       icon: <FaGraduationCap size="35px" />,
       path: '/disciplinas',
+    },
+    {
+      title: 'Vídeos',
+      icon: <FaVideo />,
+      path: '/videos',
     },
     {
       title: 'PDFs',
