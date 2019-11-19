@@ -59,7 +59,7 @@ function SideBar({ sideBar }) {
   ];
 
   return (
-    <Sidebar id="menuToggle">
+    <Sidebar id="menuToggle" clicado={sideBar}>
       <List id="menu">
         <Logo />
         {itemsList.map((item, index) => (

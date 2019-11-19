@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Disciplinas from './pages/Disciplinas';
@@ -10,14 +11,15 @@ import Metodologia from './pages/Metodologia';
 import Sidebar from './components/Sidebar';
 import Header2 from './components/Header2';
 
-export default function Routes() {
+function Routes({ sideBar }) {
   const RouterStyle = styled.section`
     background-color: #eaeaea;
     width: 100%;
     margin-left: 100px;
+    /* transform: translateX(100px); */
     /* margin-top: 63.36px; */
     @media only screen and (max-width: 500px) {
-      margin-left: 0;
+      margin-left: ${props => (sideBar ? '100px' : '0px')};
     }
   `;
   return (
@@ -37,3 +39,6 @@ export default function Routes() {
     </RouterStyle>
   );
 }
+export default connect(state => ({
+  sideBar: state.sideBar,
+}))(Routes);
