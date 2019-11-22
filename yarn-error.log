@@ -1,20 +1,20 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add @material-ui/icons
+  /home/danilo/.asdf/installs/nodejs/12.7.0/bin/node /usr/share/yarn/bin/yarn.js
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/danilo/.asdf/installs/nodejs/12.7.0/bin:/home/danilo/.asdf/installs/nodejs/12.7.0/.npm/bin::/home/danilo/.asdf/shims:/home/danilo/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/danilo/.fzf/bin
 
 Yarn version: 
   1.19.1
 
 Node version: 
-  8.10.0
+  12.7.0
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/home/danilo/MeuGitHub/plat2b/node_modules/react-router/node_modules/isarray/README.md'
+  Error: EACCES: permission denied, unlink '/home/danilo/projects/plat2b/node_modules/react-router/node_modules/path-to-regexp/History.md'
 
 npm manifest: 
   {
@@ -23,6 +23,7 @@ npm manifest:
     "private": true,
     "dependencies": {
       "@material-ui/core": "^4.5.2",
+      "@material-ui/icons": "^4.5.1",
       "@material-ui/lab": "^4.0.0-alpha.31",
       "axios": "^0.19.0",
       "npm": "^6.12.0",
@@ -1223,6 +1224,13 @@ Lockfile:
       popper.js "^1.14.1"
       prop-types "^15.7.2"
       react-transition-group "^4.3.0"
+  
+  "@material-ui/icons@^4.5.1":
+    version "4.5.1"
+    resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.5.1.tgz#6963bad139e938702ece85ca43067688018f04f8"
+    integrity sha512-YZ/BgJbXX4a0gOuKWb30mBaHaoXRqPanlePam83JQPZ/y4kl+3aW0Wv9tlR70hB5EGAkEJGW5m4ktJwMgxQAeA==
+    dependencies:
+      "@babel/runtime" "^7.4.4"
   
   "@material-ui/lab@^4.0.0-alpha.31":
     version "4.0.0-alpha.31"
