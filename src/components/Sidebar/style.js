@@ -5,7 +5,7 @@ export const Sidebar = styled.div`
   left: 0;
   top: 0px;
   flex: 1;
-  max-width: 200px;
+  /* max-width: 200px; */
   width: 100px;
   height: 100%;
   max-height: 100vh;
@@ -14,8 +14,17 @@ export const Sidebar = styled.div`
   /* box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12),
     0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1); */
 
+  /* @keyframes transi {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } */
+
   @media only screen and (max-width: 500px) {
-    display: none;
+    display: ${props => (props.clicado ? '' : 'none')};
   }
 `;
 
