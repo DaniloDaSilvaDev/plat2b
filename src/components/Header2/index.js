@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -118,9 +119,19 @@ function PrimarySearchAppBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Sair</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="/perfil" style={{ color: '#373737' }}>
+          {' '}
+          Perfil{' '}
+        </Link>{' '}
+      </MenuItem>
+      {/* <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem> */}
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="/" style={{ color: '#373737' }}>
+          {' '}
+          Sair{' '}
+        </Link>{' '}
+      </MenuItem>
     </Menu>
   );
 
@@ -165,12 +176,12 @@ function PrimarySearchAppBar(props) {
     </Menu>
   );
 
-  // const [showSidebar, setShowSidebar] = useState(false);
+  // const [showSidebar] = useState(false);
   // useEffect(() => {
   //   setShowSidebar(!showSidebar);
   // }, showSidebar);
 
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar] = useState(false);
   function handleSidebarOpen() {
     const { dispatch } = props;
     dispatch({

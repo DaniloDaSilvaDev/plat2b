@@ -1,17 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Disciplinas from './pages/Disciplinas';
 import VideoAula from './pages/VideoAula';
+import Login from './pages/Login';
 import PdfAula from './pages/PdfAula';
 import Metodologia from './pages/Metodologia';
 import Sidebar from './components/Sidebar';
 import Header2 from './components/Header2';
 
 function Routes({ sideBar }) {
+  const logado = localStorage.getItem('authToken');
+  console.log(logado);
+
   const RouterStyle = styled.section`
     background-color: #eaeaea;
     width: 100%;
@@ -26,7 +30,7 @@ function Routes({ sideBar }) {
       transition-property: all; */
     }
   `;
-  return (
+  return logado ? (
     <RouterStyle>
       <BrowserRouter>
         <Header2 />
@@ -41,6 +45,14 @@ function Routes({ sideBar }) {
         </Switch>
       </BrowserRouter>
     </RouterStyle>
+  ) : (
+    <BrowserRouter>
+      <Switch>
+        {/* <Route path={<Redirect to="/login" />} component={Login} /> */}
+
+        <Route path="/login">{logado && <Redirect to="/" />}</Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 export default connect(state => ({

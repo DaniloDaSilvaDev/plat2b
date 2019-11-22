@@ -4,6 +4,7 @@
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
+// import axios from 'axios';
 import { useStyles } from './styles';
 import Card from '../../components/Card';
 import api from '../../services/api';
@@ -13,23 +14,23 @@ export default function Home() {
 
   useEffect(() => {
     async function resp() {
-      const postData = {
-        email: 'atendimento@editora2b.com.br',
-        password: '2b060116',
-      };
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kaW1lbnRvQGVkaXRvcmEyYi5jb20uYnIiLCJwZXJtaXNzYW8iOjEsImlhdCI6MTU3NDEwMTg2NSwiaXNzIjoiaHR0cHM6Ly93d3cuMmJlZHVjYWNhby5jb20uYnIvIn0.VSpM8SnquvspdSPzpC1fjm5UW0QpGMhdQrtpmENdMywZkj9JsSkjrlY5JFNBGLnJVoLymJ2wpY7LgP8DXloszw',
-        },
-      };
+      // const userData = {
+      //   email: 'atendimento@editora2b.com.br',
+      //   senha: '2b060116',
+      // };
+      // const res = await api.post('/loginAluno', userData);
+      // const authToken = `Bearer ${res.data.token}`;
+      // localStorage.setItem('authToken', authToken);
+      // api.defaults.headers.common.Authorization = authToken;
+      // const config = {
+      //   headers: {
+      //     Authorization:
+      //       'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kaW1lbnRvQGVkaXRvcmEyYi5jb20uYnIiLCJpYXQiOjE1NzQyNTg2OTIsImlzcyI6Imh0dHBzOi8vd3d3LjJiZWR1Y2FjYW8uY29tLmJyLyJ9.a06xZSUk7jWdvCTvq-G2dZca9VJnu2kr8rLyh2aBXkw2ZpUSCrdJ9g52hO_N2upE2sJMFpnW8_vxZ3eAx9rdig',
+      //   },
+      // };
+      const aulas = await api.get('/listarTudo');
+      console.log(aulas);
 
-      const aulas = await api.post('/listarAulas', postData, config);
-      const pdfs = await api.get('/listarArtigos', postData, config);
-
-      console.log(aulas.data.Aulas);
-      console.log(pdfs.data.Aulas);
       setPosts(aulas.data.Aulas);
 
       // const [aula, pdf] = await Promise.all([
