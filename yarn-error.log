@@ -1,20 +1,28 @@
 Arguments: 
+<<<<<<< HEAD
+  /home/danilo/.asdf/installs/nodejs/12.7.0/bin/node /usr/share/yarn/bin/yarn.js
+=======
   /usr/bin/node /usr/share/yarn/bin/yarn.js add redux-saga reactotron-redux reactotron-redux-saga immer
+>>>>>>> 627384640f492b02ebc282a9f9bd7a814b820903
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/danilo/.asdf/installs/nodejs/12.7.0/bin:/home/danilo/.asdf/installs/nodejs/12.7.0/.npm/bin::/home/danilo/.asdf/shims:/home/danilo/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/danilo/.fzf/bin
 
 Yarn version: 
   1.19.1
 
 Node version: 
-  8.10.0
+  12.7.0
 
 Platform: 
   linux x64
 
 Trace: 
+<<<<<<< HEAD
+  Error: EACCES: permission denied, unlink '/home/danilo/projects/plat2b/node_modules/react-router/node_modules/path-to-regexp/History.md'
+=======
   Error: EACCES: permission denied, unlink '/home/danilo/MeuGitHub/plat2b/node_modules/@typescript-eslint/eslint-plugin/node_modules/regexpp/LICENSE'
+>>>>>>> 627384640f492b02ebc282a9f9bd7a814b820903
 
 npm manifest: 
   {
