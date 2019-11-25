@@ -22,16 +22,14 @@ export default function Home() {
       // const authToken = `Bearer ${res.data.token}`;
       // localStorage.setItem('authToken', authToken);
       // api.defaults.headers.common.Authorization = authToken;
-      // const config = {
-      //   headers: {
-      //     Authorization:
-      //       'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kaW1lbnRvQGVkaXRvcmEyYi5jb20uYnIiLCJpYXQiOjE1NzQyNTg2OTIsImlzcyI6Imh0dHBzOi8vd3d3LjJiZWR1Y2FjYW8uY29tLmJyLyJ9.a06xZSUk7jWdvCTvq-G2dZca9VJnu2kr8rLyh2aBXkw2ZpUSCrdJ9g52hO_N2upE2sJMFpnW8_vxZ3eAx9rdig',
-      //   },
-      // };
-      const aulas = await api.get('/listarTudo');
-      console.log(aulas);
-
-      setPosts(aulas.data.Aulas);
+      const config = {
+        headers: {
+          Authorization:
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kaW1lbnRvQGVkaXRvcmEyYi5jb20uYnIiLCJpYXQiOjE1NzQyNTg2OTIsImlzcyI6Imh0dHBzOi8vd3d3LjJiZWR1Y2FjYW8uY29tLmJyLyJ9.a06xZSUk7jWdvCTvq-G2dZca9VJnu2kr8rLyh2aBXkw2ZpUSCrdJ9g52hO_N2upE2sJMFpnW8_vxZ3eAx9rdig',
+        },
+      };
+      const res = await api.get('/listarTudo', config);
+      setPosts(res.data.Aulas);
 
       // const [aula, pdf] = await Promise.all([
       //   api.post('/listarAulas', postData, config),
