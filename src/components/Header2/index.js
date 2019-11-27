@@ -18,6 +18,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import imgAvata from '../../assets/eu.jpg';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -148,12 +149,12 @@ function PrimarySearchAppBar(props) {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
+        <IconButton aria-label="mostrar 4 novas mensagens" color="inherit">
           <Badge badgeContent={4} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Mensagens</p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -161,20 +162,8 @@ function PrimarySearchAppBar(props) {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Notificações</p>
       </MenuItem>
-      {/* <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem> */}
-
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -184,11 +173,10 @@ function PrimarySearchAppBar(props) {
         >
           <Avatar
             alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            src={imgAvata}
             className={classes.bigAvatar}
           />
         </IconButton>
-        <p>Profile</p>
       </MenuItem>
     </Menu>
   );
@@ -241,7 +229,10 @@ function PrimarySearchAppBar(props) {
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            <IconButton
+              aria-label="mostrar 17 novas notificações"
+              color="inherit"
+            >
               <Badge badgeContent={17} color="secondary">
                 <NotificationsIcon />
               </Badge>
@@ -254,7 +245,11 @@ function PrimarySearchAppBar(props) {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <Avatar
+                alt="Remy Sharp"
+                src={imgAvata}
+                className={classes.bigAvatar}
+              />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
@@ -265,11 +260,7 @@ function PrimarySearchAppBar(props) {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <Avatar
-                alt="Remy Sharp"
-                src="/static/images/avatar/1.jpg"
-                className={classes.bigAvatar}
-              />
+              <MoreIcon />
             </IconButton>
           </div>
         </Toolbar>
