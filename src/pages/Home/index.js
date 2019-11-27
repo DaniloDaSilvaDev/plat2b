@@ -4,7 +4,6 @@
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
-// import axios from 'axios';
 import { useStyles } from './styles';
 import Card from '../../components/Card';
 import api from '../../services/api';
@@ -14,47 +13,16 @@ export default function Home() {
 
   useEffect(() => {
     async function resp() {
-      // const userData = {
-      //   email: 'atendimento@editora2b.com.br',
-      //   senha: '2b060116',
-      // };
-      // const res = await api.post('/loginAluno', userData);
-      // const authToken = `Bearer ${res.data.token}`;
-      // localStorage.setItem('authToken', authToken);
-      // api.defaults.headers.common.Authorization = authToken;
       const config = {
         headers: {
-          Authorization:
-            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kaW1lbnRvQGVkaXRvcmEyYi5jb20uYnIiLCJpYXQiOjE1NzQyNTg2OTIsImlzcyI6Imh0dHBzOi8vd3d3LjJiZWR1Y2FjYW8uY29tLmJyLyJ9.a06xZSUk7jWdvCTvq-G2dZca9VJnu2kr8rLyh2aBXkw2ZpUSCrdJ9g52hO_N2upE2sJMFpnW8_vxZ3eAx9rdig',
+          Authorization: localStorage.authToken,
         },
       };
       const res = await api.get('/listarTudo', config);
       setPosts(res.data.Aulas);
-
-      // const [aula, pdf] = await Promise.all([
-      //   api.post('/listarAulas', postData, config),
-      //   api.get('/listarArtigos', postData, config),
-      // ]);
-      // console.log(aula);
-      // console.log(pdf);
-
-      // setPosts([...aula, ...pdf]);
-
-      // api
-      //   .all([
-      //     api.post('/listarAulas', postData, config),
-      //     api.post('/listarArtigos', postData, config),
-      //   ])
-      //   .then(
-      //     api.spread(([aulaRes, pdfRes]) => {
-      //       setPosts(...aulaRes, ...pdfRes);
-      //     })
-      //   );
     }
-    //  setPosts(...aulaRes, ...pdfRes);
     resp();
   }, []);
-  console.log(posts);
 
   const classes = useStyles();
   return (

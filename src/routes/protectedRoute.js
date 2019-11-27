@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { memo } from 'react';
 import { Route, Redirect } from 'react-router';
 // import userService from '../../shared/services/user.service';

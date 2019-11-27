@@ -12,14 +12,11 @@ import {
   FaGraduationCap,
   FaVideo,
 } from 'react-icons/fa';
-// import { connect } from 'tls';
 import { Sidebar, List } from './style';
 import Item from './item';
 import Logo from './logo';
 
 function SideBar({ sideBar }) {
-  console.log(sideBar);
-
   const [selected, setSelected] = useState(0);
   const itemsList = [
     {

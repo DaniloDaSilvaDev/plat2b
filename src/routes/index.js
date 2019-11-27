@@ -6,7 +6,7 @@ import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import Disciplinas from '../pages/Disciplinas';
 import VideoAula from '../pages/VideoAula';
-import Login from '../pages/Login';
+import Login2 from '../pages/Login2';
 import PdfAula from '../pages/PdfAula';
 import Metodologia from '../pages/Metodologia';
 import Sidebar from '../components/Sidebar';
@@ -15,7 +15,6 @@ import ProtectedRoute from './protectedRoute';
 
 function Routes({ sideBar }) {
   const logado = localStorage.getItem('authToken');
-  console.log(logado);
 
   const RouterStyle = styled.section`
     background-color: #eaeaea;
@@ -80,7 +79,7 @@ function Routes({ sideBar }) {
           <Route
             path="/login"
             render={props =>
-              logado ? <Redirect to="/" /> : <Login {...props} />
+              logado ? <Redirect to="/" /> : <Login2 {...props} />
             }
           />
         </Switch>
