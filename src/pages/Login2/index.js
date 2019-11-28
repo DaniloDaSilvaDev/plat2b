@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+// import { connect } from 'react-redux';
 import useSignUpForm from './customLogin';
 
 const useStyles = makeStyles(theme => ({

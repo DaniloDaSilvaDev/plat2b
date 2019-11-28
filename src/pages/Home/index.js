@@ -19,7 +19,8 @@ export default function Home() {
         },
       };
       const res = await api.get('/listarTudo', config);
-      setPosts(res.data.Aulas);
+      setPosts(res.data);
+      console.log(res);
     }
     resp();
   }, []);
@@ -42,7 +43,7 @@ export default function Home() {
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (
           <Card
-            // backgroundImage={p.backgroundImage}
+            backgroundImage={p.thumbnail}
             // photoProf={p.author.photoProf}
             title={p.nome}
             // nameProf={p.author.nameProf}
@@ -50,7 +51,7 @@ export default function Home() {
             date={p.criadaEm}
             // category={p.category}
             // categoryColor={p.categoryColor}
-            key={p.id}
+            key={p.nome}
           />
         ))}
       </Grid>

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import api from '../../services/api';
-// import { Container } from './styles';
 
-const useSignUpForm = callback => {
+function useSignUpForm() {
   const [inputs, setInputs] = useState({});
+  // const [infosAluno] = useState({});
+
   const handleSubmit = async event => {
     event.preventDefault();
     const userData = {
@@ -12,10 +13,17 @@ const useSignUpForm = callback => {
     };
 
     const res = await api.post('/loginAluno', userData);
-    console.log(res.data);
+    // const { dispatch } = props;
+    // dispatch({
+    //   type: 'INFOS_USER',
+    //   infosAluno,
+    // });
+
+    const aluno = res.data.alunoId;
 
     const authToken = `Bearer ${res.data.token}`;
     localStorage.setItem('authToken', authToken);
+    localStorage.setItem('aluno', aluno);
     api.defaults.headers.common.Authorization = authToken;
     window.location.reload();
   };
@@ -32,5 +40,5 @@ const useSignUpForm = callback => {
     handleInputChange,
     inputs,
   };
-};
+}
 export default useSignUpForm;

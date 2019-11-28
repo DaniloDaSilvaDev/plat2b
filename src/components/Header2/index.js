@@ -1,24 +1,28 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  InputBase,
+  Badge,
+  MenuItem,
+  Menu,
+  Avatar,
+  Typography,
+} from '@material-ui/core';
+
 // import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import Avatar from '@material-ui/core/Avatar';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import imgAvata from '../../assets/eu.jpg';
+import api from '../../services/api';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -83,12 +87,18 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
+  nome: {
+    margin: 'auto 0 auto 25px',
+    fontSize: 14,
+  },
 }));
 
 function PrimarySearchAppBar(props) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  const [nomeAluno, setNomeAluno] = useState('');
+  const [imgAluno, setImgAluno] = useState('');
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -164,6 +174,7 @@ function PrimarySearchAppBar(props) {
         </IconButton>
         <p>Notificações</p>
       </MenuItem>
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -173,7 +184,7 @@ function PrimarySearchAppBar(props) {
         >
           <Avatar
             alt="Remy Sharp"
-            src={imgAvata}
+            src={imgAluno}
             className={classes.bigAvatar}
           />
         </IconButton>
@@ -194,6 +205,24 @@ function PrimarySearchAppBar(props) {
       showSidebar,
     });
   }
+
+  useEffect(() => {
+    async function resp() {
+      const alunoId = {
+        alunoId: localStorage.aluno,
+      };
+      const config = {
+        headers: {
+          Authorization: localStorage.authToken,
+        },
+      };
+      const res = await api.post('/getAluno', alunoId, config);
+      setNomeAluno(res.data.Aluno.Cliente.cliNome);
+      setImgAluno(res.data.Aluno.foto);
+    }
+    resp();
+  }, []);
+  console.log(nomeAluno);
 
   return (
     <div className={classes.grow}>
@@ -237,6 +266,9 @@ function PrimarySearchAppBar(props) {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
+            <Typography component="p" className={classes.nome}>
+              {nomeAluno}
+            </Typography>
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -247,7 +279,7 @@ function PrimarySearchAppBar(props) {
             >
               <Avatar
                 alt="Remy Sharp"
-                src={imgAvata}
+                src={imgAluno}
                 className={classes.bigAvatar}
               />
             </IconButton>
