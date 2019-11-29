@@ -17,6 +17,14 @@ import {
 import Card from '../../components/Card';
 import api from '../../services/api';
 
+function tipoColor(tipo) {
+  if (tipo === 'pdf') return 'red';
+  if (tipo === 'audio') return 'blue';
+  if (tipo === 'aula') return 'orange';
+
+  return 0;
+}
+
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
   const [filters, setFilters] = useState(['aula', 'pdf', 'audio']);
@@ -37,29 +45,38 @@ export default function Metodologia() {
 
   useEffect(() => {
     async function resp() {
-      const responseP = await api.get('http://localhost:3333/posts');
+      const test = window.location.href.split('/');
+      const currentId = test[test.length - 1];
+      const disciplinaId = {
+        disciplinaId: currentId,
+      };
+      const config = {
+        headers: {
+          Authorization: localStorage.authToken,
+        },
+      };
+      const responseP = await api.post('/listarTudo', disciplinaId, config);
       setPosts(responseP.data);
-      const responseD = await api.get('http://localhost:3333/disciplinas');
-      console.log(responseD.data);
+      const responseD = await api.post('/getDisciplina', disciplinaId, config);
 
-      setDisciplinas(responseD.data[0].title);
+      setDisciplinas(responseD.data.Disciplina.nome);
     }
     resp();
   }, []);
 
-  async function getPosts() {
-    const response = await api.get('http://localhost:3333/posts');
-    return response.data;
-  }
+  // async function getPosts() {
+  //   const response = await api.get('http://localhost:3333/posts');
+  //   return response.data;
+  // }
 
-  useEffect(() => {
-    async function res() {
-      const response = await getPosts();
-      const selecionados = response.filter(p => filters.includes(p.category));
-      setPosts(selecionados);
-    }
-    res();
-  }, [filters]);
+  // useEffect(() => {
+  //   async function res() {
+  //     const response = await getPosts();
+  //     const selecionados = response.filter(p => filters.includes(p.category));
+  //     setPosts(selecionados);
+  //   }
+  //   res();
+  // }, [filters]);
 
   const classes = useStyles();
   return (
@@ -91,7 +108,7 @@ export default function Metodologia() {
           <FormControlLabel
             control={
               <GreenCheckbox
-                checked={state.VIDEO}
+                checked={state.aula}
                 onChange={handleChange('aula')}
                 value="aula"
               />
@@ -102,9 +119,9 @@ export default function Metodologia() {
           <FormControlLabel
             control={
               <BlueCheckbox
-                checked={state.PDF}
+                checked={state.pdf}
                 onChange={handleChange('pdf')}
-                value="PpdfDF"
+                value="pdf"
               />
             }
             label="pdf"
@@ -113,7 +130,7 @@ export default function Metodologia() {
           <FormControlLabel
             control={
               <RedCheckbox
-                checked={state.PODCAST}
+                checked={state.audio}
                 onChange={handleChange('audio')}
                 value="audio"
               />
@@ -126,15 +143,15 @@ export default function Metodologia() {
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (
           <Card
-            backgroundImage={p.backgroundImage}
-            photoProf={p.author.photoProf}
-            title={p.title}
-            nameProf={p.author.nameProf}
-            desc={p.desc}
-            date={p.date}
-            category={p.category}
-            categoryColor={p.categoryColor}
-            key={p.id}
+            backgroundImage={p.thumbnail}
+            photoProf={p.foto}
+            title={p.titulo || p.nome}
+            nameProf={p.profNome}
+            desc={p.descricao}
+            date={p.criadaEm}
+            tipo={p.tipo}
+            tipoColor={tipoColor(p.tipo)}
+            key={p.nome}
           />
         ))}
       </Grid>

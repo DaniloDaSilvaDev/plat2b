@@ -11,15 +11,16 @@ export default function Disciplinas() {
 
   useEffect(() => {
     async function resp() {
-      const idCurso = 323;
+      const cursoId = {
+        cursoId: 323,
+      };
       const config = {
         headers: {
           Authorization: localStorage.authToken,
         },
       };
-      const response = await api.get('/listarDisciplinas', idCurso, config);
-      setDisciplinas(response.data);
-      console.log(response.data);
+      const response = await api.post('/listarDisciplinas', cursoId, config);
+      setDisciplinas(response.data.Disciplinas);
     }
     resp();
   }, []);
@@ -32,11 +33,11 @@ export default function Disciplinas() {
       <Grid container className={classes.root} spacing={4}>
         {disciplinas.map(d => (
           <CardDisciplina
-            id={d.id}
-            key={d.id}
-            img={d.img}
-            title={d.title}
-            desc={d.desc}
+            id={d.disciplinaId}
+            key={d.disciplinaId}
+            img={d.thumbnail}
+            title={d.nome}
+            desc={d.descricao}
           />
         ))}
       </Grid>

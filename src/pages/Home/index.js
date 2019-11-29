@@ -26,12 +26,13 @@ export default function Home() {
 
   useEffect(() => {
     async function resp() {
+      const disciplinaId = {};
       const config = {
         headers: {
           Authorization: localStorage.authToken,
         },
       };
-      const res = await api.get('/listarTudo', config);
+      const res = await api.post('/listarTudo', disciplinaId, config);
       setPosts(res.data);
       console.log(res.data);
     }
@@ -41,10 +42,7 @@ export default function Home() {
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
-      <Typography component="h1" variant="h5" className={classes.h1}>
-        Olá, <span className={classes.span}>Danilo</span>
-      </Typography>
-
+      <div style={{ marginTop: 50 }} />
       <Typography component="h2" variant="h5" className={classes.h2}>
         Vídeos recentes
       </Typography>

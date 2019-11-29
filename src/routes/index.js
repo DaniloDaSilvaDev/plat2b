@@ -57,7 +57,7 @@ function Routes({ sideBar }) {
             authenticated={logado !== null}
           />
           <ProtectedRoute
-            path="/disciplinas/:id"
+            path="/conteudo/:id"
             component={Metodologia}
             authenticated={logado !== null}
           />
