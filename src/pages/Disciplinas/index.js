@@ -11,7 +11,13 @@ export default function Disciplinas() {
 
   useEffect(() => {
     async function resp() {
-      const response = await api.get('http://localhost:3333/disciplinas');
+      const idCurso = 323;
+      const config = {
+        headers: {
+          Authorization: localStorage.authToken,
+        },
+      };
+      const response = await api.get('/listarDisciplinas', idCurso, config);
       setDisciplinas(response.data);
       console.log(response.data);
     }

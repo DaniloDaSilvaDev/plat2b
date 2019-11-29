@@ -1,3 +1,5 @@
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -48,7 +50,7 @@ export const useStyles = makeStyles(theme => ({
     // borderTopRightRadius: "20px",
     // backgroundRepeat: "no-repeat"
   },
-  category: {
+  tipo: {
     color: '#fff',
     // fontSize: 14,
     top: '.9375rem',
@@ -57,6 +59,13 @@ export const useStyles = makeStyles(theme => ({
     textTransform: 'uppercase',
     borderRadius: '10rem',
     padding: '.375rem .5rem',
+    // backgroundColor: 'pdf'
+    //   ? 'red'
+    //   : 'audio'
+    //   ? 'blue'
+    //   : 'artigo'
+    //   ? 'orange'
+    //   : 'black',
   },
 
   title: {

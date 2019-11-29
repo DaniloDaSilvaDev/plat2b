@@ -67,10 +67,10 @@ export default function(props) {
             </div>
           </div>
           <span
-            style={{ backgroundColor: `${props.categoryColor}` }}
-            className={classes.category}
+            style={{ backgroundColor: `${props.tipoColor}` }}
+            className={classes.tipo}
           >
-            {props.category}
+            {props.tipo}
           </span>
           <div className={classes.icons} onClick={() => setClick(!click)}>
             {click ? (

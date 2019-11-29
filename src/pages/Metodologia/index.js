@@ -19,12 +19,12 @@ import api from '../../services/api';
 
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
-  const [filters, setFilters] = useState(['VIDEO', 'PDF', 'PODCAST']);
+  const [filters, setFilters] = useState(['aula', 'pdf', 'audio']);
   const [disciplinas, setDisciplinas] = useState();
   const [state, setState] = useState({
-    PODCAST: true,
-    PDF: true,
-    VIDEO: true,
+    audio: true,
+    pdf: true,
+    aula: true,
   });
 
   const handleChange = name => event => {
@@ -92,8 +92,8 @@ export default function Metodologia() {
             control={
               <GreenCheckbox
                 checked={state.VIDEO}
-                onChange={handleChange('VIDEO')}
-                value="VIDEO"
+                onChange={handleChange('aula')}
+                value="aula"
               />
             }
             label="vídeos"
@@ -103,8 +103,8 @@ export default function Metodologia() {
             control={
               <BlueCheckbox
                 checked={state.PDF}
-                onChange={handleChange('PDF')}
-                value="PDF"
+                onChange={handleChange('pdf')}
+                value="PpdfDF"
               />
             }
             label="pdf"
@@ -114,8 +114,8 @@ export default function Metodologia() {
             control={
               <RedCheckbox
                 checked={state.PODCAST}
-                onChange={handleChange('PODCAST')}
-                value="PODCAST"
+                onChange={handleChange('audio')}
+                value="audio"
               />
             }
             label="podcast"

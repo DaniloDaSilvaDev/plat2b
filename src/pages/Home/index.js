@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-else-return */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-expressions */
@@ -7,6 +9,17 @@ import { Container, Grid, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import Card from '../../components/Card';
 import api from '../../services/api';
+
+function tipoColor(tipo) {
+  if (tipo === 'pdf') {
+    return 'red';
+  }
+  if (tipo === 'audio') {
+    return 'blue';
+  } else if (tipo === 'aula') {
+    return 'orange';
+  }
+}
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -20,7 +33,7 @@ export default function Home() {
       };
       const res = await api.get('/listarTudo', config);
       setPosts(res.data);
-      console.log(res);
+      console.log(res.data);
     }
     resp();
   }, []);
@@ -44,13 +57,13 @@ export default function Home() {
         {posts.map(p => (
           <Card
             backgroundImage={p.thumbnail}
-            // photoProf={p.author.photoProf}
-            title={p.nome}
-            // nameProf={p.author.nameProf}
-            // desc={p.desc}
+            photoProf={p.foto}
+            title={p.titulo || p.nome}
+            nameProf={p.profNome}
+            desc={p.descricao}
             date={p.criadaEm}
-            // category={p.category}
-            // categoryColor={p.categoryColor}
+            tipo={p.tipo}
+            tipoColor={tipoColor(p.tipo)}
             key={p.nome}
           />
         ))}
