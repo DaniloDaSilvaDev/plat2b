@@ -61,7 +61,7 @@ export const useStyles = makeStyles(theme => ({
   title: {
     paddingLeft: 30,
     color: '#fff',
-    fontSize: '24px',
+    fontSize: '28px',
     lineHeight: '40px',
     fontWeight: 'bold',
     transform: 'translateY(400%)',

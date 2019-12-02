@@ -21,33 +21,46 @@ function tipoColor(tipo) {
   if (tipo === 'pdf') return 'red';
   if (tipo === 'audio') return 'blue';
   if (tipo === 'aula') return 'orange';
-
   return 0;
 }
 
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
-  const [filters, setFilters] = useState(['aula', 'pdf', 'audio']);
+  const [filtro, setFiltro] = useState(['AULAS', 'PDF', 'AUDIO']);
   const [disciplinas, setDisciplinas] = useState();
   const [state, setState] = useState({
-    audio: true,
-    pdf: true,
-    aula: true,
+    AUDIO: true,
+    PDF: true,
+    AULAS: true,
   });
+  useEffect(() => {
+    const link = window.location.href.split('/');
+    const disciplinaId = link[link.length - 1];
 
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
+    async function req() {
+      const resFiltro = await api.get('/listarFiltrado', {
+        params: {
+          disciplinaId,
+          filtro: JSON.stringify(filtro),
+        },
+      });
+      setPosts(resFiltro.data);
+    }
+    req();
+  }, [filtro]);
 
+  const handleChange = name => async event => {
     event.target.checked
-      ? setFilters([...filters, name])
-      : setFilters(filters.filter(f => f !== name));
+      ? setFiltro([...filtro, name])
+      : setFiltro(filtro.filter(f => f !== name));
+    setState({ ...state, [name]: event.target.checked });
   };
 
   useEffect(() => {
     async function resp() {
       const test = window.location.href.split('/');
       const currentId = test[test.length - 1];
-      const disciplinaId = {
+      const dscp = {
         disciplinaId: currentId,
       };
       const config = {
@@ -55,9 +68,9 @@ export default function Metodologia() {
           Authorization: localStorage.authToken,
         },
       };
-      const responseP = await api.post('/listarTudo', disciplinaId, config);
+      const responseP = await api.post('/listarTudo', dscp, config);
       setPosts(responseP.data);
-      const responseD = await api.post('/getDisciplina', disciplinaId, config);
+      const responseD = await api.post('/getDisciplina', dscp, config);
 
       setDisciplinas(responseD.data.Disciplina.nome);
     }
@@ -108,9 +121,10 @@ export default function Metodologia() {
           <FormControlLabel
             control={
               <GreenCheckbox
-                checked={state.aula}
-                onChange={handleChange('aula')}
-                value="aula"
+                checked={state.AULAS}
+                onChange={handleChange('AULAS')}
+                value="AULAS"
+                name="AULAS"
               />
             }
             label="vídeos"
@@ -119,9 +133,10 @@ export default function Metodologia() {
           <FormControlLabel
             control={
               <BlueCheckbox
-                checked={state.pdf}
-                onChange={handleChange('pdf')}
-                value="pdf"
+                checked={state.PDF}
+                onChange={handleChange('PDF')}
+                value="PDF"
+                name="PDF"
               />
             }
             label="pdf"
@@ -130,9 +145,10 @@ export default function Metodologia() {
           <FormControlLabel
             control={
               <RedCheckbox
-                checked={state.audio}
-                onChange={handleChange('audio')}
-                value="audio"
+                checked={state.AUDIO}
+                onChange={handleChange('AUDIO')}
+                value="AUDIO"
+                name="AUDIO"
               />
             }
             label="podcast"
