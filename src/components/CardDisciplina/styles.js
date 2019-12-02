@@ -69,7 +69,7 @@ export const useStyles = makeStyles(theme => ({
     marginBotton: 10,
   },
   desc: {
-    paddingLeft: 30,
+    padding: '0 30px 30px 30px',
     color: '#fff;',
     fontSize: '16px',
     lineHeight: '20px',
@@ -80,9 +80,10 @@ export const useStyles = makeStyles(theme => ({
   },
   caixa: {
     // padding: 30,
+    width: '100%',
     position: 'absolute',
     top: 0,
-    right: 0,
+    // right: 0,
     overflow: 'hidden',
     minHeight: '100%',
     cursor: 'pointer',
@@ -119,7 +120,7 @@ export const CardBody = styled.div`
      */
     cursor: pointer;
   }
-  div:hover:before {
+  div:before:hover {
     position: absolute;
     content: '';
     top: 0;
