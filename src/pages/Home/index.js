@@ -56,13 +56,13 @@ export default function Home() {
           <Card
             backgroundImage={p.thumbnail}
             photoProf={p.foto}
-            title={p.titulo || p.nome}
+            title={p.titulo}
             nameProf={p.profNome}
             desc={p.descricao}
             date={p.criadaEm}
             tipo={p.tipo}
             tipoColor={tipoColor(p.tipo)}
-            key={p.nome}
+            key={p.titulo}
           />
         ))}
       </Grid>

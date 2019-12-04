@@ -18,20 +18,22 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'pdf') return 'red';
-  if (tipo === 'audio') return 'blue';
-  if (tipo === 'aula') return 'orange';
+  if (tipo === 'Artigo') return 'red';
+  if (tipo === 'Audio') return 'blue';
+  if (tipo === 'Aula') return 'orange';
+  if (tipo === 'Mapa') return 'green';
   return 0;
 }
 
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
-  const [filtro, setFiltro] = useState(['AULAS', 'PDF', 'AUDIO']);
+  const [filtro, setFiltro] = useState(['AULA', 'ARTIGO', 'AUDIO', 'MAPA']);
   const [disciplinas, setDisciplinas] = useState();
   const [state, setState] = useState({
     AUDIO: true,
-    PDF: true,
-    AULAS: true,
+    ARTIGO: true,
+    AULA: true,
+    MAPA: true,
   });
   useEffect(() => {
     const link = window.location.href.split('/');
@@ -42,6 +44,7 @@ export default function Metodologia() {
         params: {
           disciplinaId,
           filtro: JSON.stringify(filtro),
+          alunoId: localStorage.aluno,
         },
       });
       setPosts(resFiltro.data);
@@ -62,6 +65,7 @@ export default function Metodologia() {
       const currentId = test[test.length - 1];
       const dscp = {
         disciplinaId: currentId,
+        alunoId: localStorage.aluno,
       };
       const config = {
         headers: {
@@ -69,6 +73,8 @@ export default function Metodologia() {
         },
       };
       const responseP = await api.post('/listarTudo', dscp, config);
+      console.log(responseP.data);
+
       setPosts(responseP.data);
       const responseD = await api.post('/getDisciplina', dscp, config);
 
@@ -121,25 +127,36 @@ export default function Metodologia() {
           <FormControlLabel
             control={
               <GreenCheckbox
-                checked={state.AULAS}
-                onChange={handleChange('AULAS')}
-                value="AULAS"
-                name="AULAS"
+                checked={state.AULA}
+                onChange={handleChange('AULA')}
+                value="AULA"
+                name="AULA"
               />
             }
             label="vídeos"
+          />
+          <FormControlLabel
+            control={
+              <GreenCheckbox
+                checked={state.MAPA}
+                onChange={handleChange('MAPA')}
+                value="MAPA"
+                name="MAPA"
+              />
+            }
+            label="Mapas"
           />
 
           <FormControlLabel
             control={
               <BlueCheckbox
-                checked={state.PDF}
-                onChange={handleChange('PDF')}
-                value="PDF"
-                name="PDF"
+                checked={state.ARTIGO}
+                onChange={handleChange('ARTIGO')}
+                value="ARTIGO"
+                name="ARTIGO"
               />
             }
-            label="pdf"
+            label="Artigos"
           />
 
           <FormControlLabel
@@ -159,15 +176,17 @@ export default function Metodologia() {
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (
           <Card
+            id={p.id}
             backgroundImage={p.thumbnail}
             photoProf={p.foto}
-            title={p.titulo || p.nome}
+            title={p.titulo}
             nameProf={p.profNome}
             desc={p.descricao}
             date={p.criadaEm}
             tipo={p.tipo}
             tipoColor={tipoColor(p.tipo)}
-            key={p.nome}
+            key={p.titulo}
+            checked={!!p.fav}
           />
         ))}
       </Grid>

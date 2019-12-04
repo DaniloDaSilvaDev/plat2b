@@ -120,6 +120,12 @@ function PrimarySearchAppBar(props) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('aluno');
+    localStorage.removeItem('authToken');
+    window.location.reload();
+  };
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -138,7 +144,7 @@ function PrimarySearchAppBar(props) {
         </Link>{' '}
       </MenuItem>
       {/* <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem> */}
-      <MenuItem onClick={handleMenuClose}>
+      <MenuItem onClick={handleLogout}>
         <Link to="/" style={{ color: '#373737' }}>
           {' '}
           Sair{' '}
