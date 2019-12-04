@@ -11,14 +11,11 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'pdf') {
-    return 'red';
-  }
-  if (tipo === 'audio') {
-    return 'blue';
-  } else if (tipo === 'aula') {
-    return 'orange';
-  }
+  if (tipo === 'Artigo') return 'red';
+  if (tipo === 'Podcast') return 'blue';
+  if (tipo === 'Aula') return 'orange';
+  if (tipo === 'Mapa') return 'green';
+  return 0;
 }
 
 export default function Home() {

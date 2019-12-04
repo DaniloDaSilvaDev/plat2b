@@ -25,12 +25,14 @@ export default function(props) {
       alunoId: parseInt(localStorage.aluno),
     };
 
+    console.log(tipo);
+
     switch (tipo) {
       case 'Aula':
         data.aulaId = props.id;
         break;
-      case 'Audio':
-        data.audioId = props.id;
+      case 'Podcast':
+        data.podcastId = props.id;
         break;
 
       case 'Artigo':

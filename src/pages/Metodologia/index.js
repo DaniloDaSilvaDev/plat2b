@@ -19,7 +19,7 @@ import api from '../../services/api';
 
 function tipoColor(tipo) {
   if (tipo === 'Artigo') return 'red';
-  if (tipo === 'Audio') return 'blue';
+  if (tipo === 'Podcast') return 'blue';
   if (tipo === 'Aula') return 'orange';
   if (tipo === 'Mapa') return 'green';
   return 0;
