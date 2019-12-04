@@ -38,6 +38,9 @@ export default function Metodologia() {
   useEffect(() => {
     const link = window.location.href.split('/');
     const disciplinaId = link[link.length - 1];
+    const headers = {
+      Authorization: localStorage.authToken,
+    };
 
     async function req() {
       const resFiltro = await api.get('/listarFiltrado', {
@@ -46,6 +49,7 @@ export default function Metodologia() {
           filtro: JSON.stringify(filtro),
           alunoId: localStorage.aluno,
         },
+        headers,
       });
       setPosts(resFiltro.data);
     }

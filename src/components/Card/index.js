@@ -23,8 +23,27 @@ export default function(props) {
     const { tipo } = props;
     const data = {
       alunoId: parseInt(localStorage.aluno),
-      aulaId: props.id,
     };
+
+    switch (tipo) {
+      case 'Aula':
+        data.aulaId = props.id;
+        break;
+      case 'Audio':
+        data.audioId = props.id;
+        break;
+
+      case 'Artigo':
+        data.artigoId = props.id;
+        break;
+
+      case 'Mapa':
+        data.mapaId = props.id;
+        break;
+
+      default:
+        break;
+    }
 
     const headers = {
       Authorization: localStorage.authToken,
