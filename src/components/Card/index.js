@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Grid, Typography, Paper } from '@material-ui/core';
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
 import Popover from '@material-ui/core/Popover';
@@ -17,6 +17,29 @@ export default function(props) {
   const classes = useStyles();
   const open = Boolean(anchorEl);
 
+  const handleClick = async () => {
+    setClick(!click);
+
+    const { tipo } = props;
+    const data = {
+      alunoId: parseInt(localStorage.aluno),
+      aulaId: props.id,
+    };
+
+    const headers = {
+      Authorization: localStorage.authToken,
+    };
+
+    const config = {
+      headers: {
+        Authorization: localStorage.authToken,
+      },
+    };
+    const response = click
+      ? await api.delete(`/desfavoritar${tipo}`, { data, headers })
+      : await api.post(`/favoritar${tipo}`, data, config);
+  };
+
   const handlePopoverOpen = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -25,28 +48,6 @@ export default function(props) {
     setAnchorEl(null);
   };
 
-  useEffect(() => {
-    async function resp() {
-      const { tipo } = props;
-      const ids = {
-        alunoId: parseInt(localStorage.aluno),
-        aulaId: props.id,
-      };
-      console.log(ids);
-
-      const config = {
-        headers: {
-          Authorization: localStorage.authToken,
-        },
-      };
-      const response = click
-        ? await api.delete(`/desfavoritar${tipo}`, ids, config)
-        : await api.post(`/favoritar${tipo}`, ids, config);
-      // setClick(response);
-      console.log(response);
-    }
-    resp();
-  }, [click]);
   return (
     // <Grid container className={classes.root} spacing={4}>
     <Grid item lg={4} md={6} sm={12}>
@@ -94,13 +95,8 @@ export default function(props) {
           >
             {props.tipo}
           </span>
-          <div
-            className={classes.icons}
-            onClick={() => {
-              setClick(!click);
-            }}
-          >
-            {props.checked ? (
+          <div className={classes.icons} onClick={handleClick}>
+            {click ? (
               <FaBookmark size={24} cursor="pointer" color="#fff" />
             ) : (
               <FaRegBookmark size={24} cursor="pointer" color="#fff" />
