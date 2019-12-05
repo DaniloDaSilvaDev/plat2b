@@ -10,7 +10,7 @@ export const useStyles = makeStyles(theme => ({
     padding: 20,
   },
   control: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
   },
   paper: {
     position: 'relative',

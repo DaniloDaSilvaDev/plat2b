@@ -11,6 +11,7 @@ import {
   useStyles,
   GreenCheckbox,
   BlueCheckbox,
+  OrangeCheckbox,
   RedCheckbox,
 } from './styles';
 
@@ -18,10 +19,10 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'Artigo') return 'red';
-  if (tipo === 'Podcast') return 'blue';
-  if (tipo === 'Aula') return 'orange';
-  if (tipo === 'Mapa') return 'green';
+  if (tipo === 'Artigo') return '#43B9D8';
+  if (tipo === 'Podcast') return '#F58D38';
+  if (tipo === 'Aula') return '#6B63ED';
+  if (tipo === 'Mapa') return '#22262A';
   return 0;
 }
 
@@ -76,10 +77,10 @@ export default function Metodologia() {
           Authorization: localStorage.authToken,
         },
       };
-      const responseP = await api.post('/listarTudo', dscp, config);
-      console.log(responseP.data);
+      const responseP = await api.post('/listarTudoDisciplina', dscp, config);
+      console.log(responseP.data.queryResponse);
 
-      setPosts(responseP.data);
+      setPosts(responseP.data.queryResponse);
       const responseD = await api.post('/getDisciplina', dscp, config);
 
       setDisciplinas(responseD.data.Disciplina.nome);
@@ -130,14 +131,14 @@ export default function Metodologia() {
           </Typography> */}
           <FormControlLabel
             control={
-              <GreenCheckbox
+              <RedCheckbox
                 checked={state.AULA}
                 onChange={handleChange('AULA')}
                 value="AULA"
                 name="AULA"
               />
             }
-            label="vídeos"
+            label="Aulas"
           />
           <FormControlLabel
             control={
@@ -165,7 +166,7 @@ export default function Metodologia() {
 
           <FormControlLabel
             control={
-              <RedCheckbox
+              <OrangeCheckbox
                 checked={state.AUDIO}
                 onChange={handleChange('AUDIO')}
                 value="AUDIO"

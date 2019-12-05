@@ -52,20 +52,12 @@ export const useStyles = makeStyles(theme => ({
   },
   tipo: {
     color: '#fff',
-    // fontSize: 14,
     top: '.9375rem',
     left: 22,
     position: 'absolute',
     textTransform: 'uppercase',
     borderRadius: '10rem',
     padding: '.375rem .5rem',
-    // backgroundColor: 'pdf'
-    //   ? 'red'
-    //   : 'audio'
-    //   ? 'blue'
-    //   : 'artigo'
-    //   ? 'orange'
-    //   : 'black',
   },
 
   title: {

@@ -6,6 +6,9 @@ export const useStyles = makeStyles(() => ({
     fle: 1,
     flexGrow: 1,
     fontSize: 15,
+    '@media screen and (max-width: 600px)': {
+      display: 'inline-block',
+    },
   },
   h1: {
     color: '#3d5170',

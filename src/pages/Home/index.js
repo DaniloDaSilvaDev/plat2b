@@ -11,10 +11,10 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'Artigo') return 'red';
-  if (tipo === 'Podcast') return 'blue';
-  if (tipo === 'Aula') return 'orange';
-  if (tipo === 'Mapa') return 'green';
+  if (tipo === 'Artigo') return '#43B9D8';
+  if (tipo === 'Podcast') return '#F58D38';
+  if (tipo === 'Aula') return '#6B63ED';
+  if (tipo === 'Mapa') return '#22262A';
   return 0;
 }
 
@@ -23,15 +23,19 @@ export default function Home() {
 
   useEffect(() => {
     async function resp() {
-      const disciplinaId = {};
+      const ids = {
+        cursoId: 325,
+        alunoId: localStorage.aluno,
+      };
+
       const config = {
         headers: {
           Authorization: localStorage.authToken,
         },
       };
-      const res = await api.post('/listarTudo', disciplinaId, config);
-      setPosts(res.data);
-      console.log(res.data);
+      const res = await api.post('/listarTudoCurso', ids, config);
+      setPosts(res.data.queryResponse);
+      console.log(res.data.queryResponse);
     }
     resp();
   }, []);
@@ -51,6 +55,7 @@ export default function Home() {
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (
           <Card
+            id={p.id}
             backgroundImage={p.thumbnail}
             photoProf={p.foto}
             title={p.titulo}
@@ -60,6 +65,7 @@ export default function Home() {
             tipo={p.tipo}
             tipoColor={tipoColor(p.tipo)}
             key={p.titulo}
+            checked={!!p.fav}
           />
         ))}
       </Grid>

@@ -4,7 +4,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { green, blue, orange } from '@material-ui/core/colors';
+import { orange } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
 
 export const useStyles = makeStyles(theme => ({
@@ -35,11 +35,21 @@ export const useStyles = makeStyles(theme => ({
   },
 }));
 
+// export const GreenCheckbox = withStyles({
+//   root: {
+//     color: black[400],
+//     '&$checked': {
+//       color: green[600],
+//     },
+//   },
+//   checked: {},
+// })(props => <Checkbox color="default" {...props} />);
+
 export const GreenCheckbox = withStyles({
   root: {
-    color: green[400],
+    color: '#22262A',
     '&$checked': {
-      color: green[600],
+      color: '#22262A',
     },
   },
   checked: {},
@@ -47,15 +57,25 @@ export const GreenCheckbox = withStyles({
 
 export const BlueCheckbox = withStyles({
   root: {
-    color: blue[400],
+    color: '#43B9D8',
     '&$checked': {
-      color: blue[600],
+      color: '#43B9D8',
     },
   },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
 export const RedCheckbox = withStyles({
+  root: {
+    color: '#6B63ED',
+    '&$checked': {
+      color: '#6B63ED',
+    },
+  },
+  checked: {},
+})(props => <Checkbox color="default" {...props} />);
+
+export const OrangeCheckbox = withStyles({
   root: {
     color: orange[400],
     '&$checked': {

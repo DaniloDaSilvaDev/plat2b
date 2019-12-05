@@ -1,10 +1,21 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+// import ButtColorButtonon from '@material-ui/core/Button';
 // import { connect } from 'react-redux';
 import useSignUpForm from './customLogin';
+
+const ColorButton = withStyles(theme => ({
+  root: {
+    color: theme.palette.getContrastText('#609F54'),
+    backgroundColor: '#609F54',
+    '&:hover': {
+      backgroundColor: '#479637',
+    },
+  },
+}))(Button);
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,14 +71,10 @@ export default function BasicTextFields() {
         noValidate
         autoComplete="off"
       >
-        <Typography
-          className={classes.titulo}
-          variant="h4"
-          component="h4"
-          gutterBottom
-        >
-          Login
-        </Typography>
+        <img
+          src="https://www.2beducacao.com.br/editter/assets/img/2b-educacao.png"
+          alt="Logo 2b"
+        />
         <div className={classes.containerNome}>
           <TextField
             id="standard-basic"
@@ -94,9 +101,9 @@ export default function BasicTextFields() {
           />
         </div>
 
-        <Button variant="contained" color="primary" type="submit">
+        <ColorButton variant="contained" color="primary" type="submit">
           Entrar
-        </Button>
+        </ColorButton>
       </form>
     </div>
   );
