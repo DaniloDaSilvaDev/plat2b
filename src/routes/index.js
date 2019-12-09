@@ -8,6 +8,7 @@ import Profile from '../pages/Profile';
 import Disciplinas from '../pages/Disciplinas';
 import VideoAula from '../pages/VideoAula';
 import Login2 from '../pages/Login2';
+import Favoritos from '../pages/Favoritos';
 import PdfAula from '../pages/PdfAula';
 import Metodologia from '../pages/Metodologia';
 import Sidebar from '../components/Sidebar';
@@ -46,6 +47,12 @@ function Routes({ sideBar }) {
         )}
 
         <Switch>
+          <ProtectedRoute
+            exact
+            path="/favoritos"
+            component={Favoritos}
+            authenticated={logado !== null}
+          />
           <ProtectedRoute
             exact
             path="/"
