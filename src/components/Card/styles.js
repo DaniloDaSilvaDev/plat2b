@@ -2,6 +2,7 @@
 /* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
+import { relative } from 'upath';
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -14,6 +15,7 @@ export const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
   },
   paper: {
+    position: 'relative',
     alignItems: 'stretch',
     display: 'flex',
     flexDirection: ' column',
@@ -51,13 +53,18 @@ export const useStyles = makeStyles(theme => ({
     // backgroundRepeat: "no-repeat"
   },
   tipo: {
+    fontSize: 24,
     color: '#fff',
-    top: '.9375rem',
-    left: 22,
-    position: 'absolute',
-    textTransform: 'uppercase',
-    borderRadius: '10rem',
+    top: 10,
+    left: 18,
+    position: 'relative',
+    // textTransform: 'uppercase',
+    borderRadius: '50%',
     padding: '.375rem .5rem',
+  },
+  iconTipo: {
+    position: 'relative',
+    top: 5,
   },
 
   title: {
@@ -77,9 +84,9 @@ export const useStyles = makeStyles(theme => ({
   },
   date: {
     color: '#5a6169;',
-    fontSize: '16px',
+    fontSize: 20,
     marginTop: 'auto',
-    padding: '2.1875rem 1.5625rem 20px 1.5625rem',
+    padding: '20px 0 50px 25px',
   },
   author: {
     display: 'flex',
@@ -117,7 +124,14 @@ export const useStyles = makeStyles(theme => ({
   icons: {
     position: 'absolute',
     top: 10,
-    right: 10,
+    right: 5,
+    zIndex: 100,
+  },
+  nomeDesciplina: {
+    position: 'absolute',
+    color: '#5A6169',
+    left: '15%',
+    bottom: '5px',
   },
 }));
 

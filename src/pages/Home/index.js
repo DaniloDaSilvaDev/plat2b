@@ -24,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     async function resp() {
       const ids = {
-        cursoId: 325,
+        cursoId: localStorage.cursoId,
         alunoId: localStorage.aluno,
       };
 
@@ -66,6 +66,7 @@ export default function Home() {
             tipoColor={tipoColor(p.tipo)}
             key={p.titulo}
             checked={!!p.fav}
+            nomeDisciplina={p.nomeDisciplina}
           />
         ))}
       </Grid>

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -11,18 +12,20 @@ import Login2 from '../pages/Login2';
 import Favoritos from '../pages/Favoritos';
 import PdfAula from '../pages/PdfAula';
 import Metodologia from '../pages/Metodologia';
+import Cursos from '../pages/Cursos';
 import Sidebar from '../components/Sidebar';
 import Header2 from '../components/Header2';
 import ProtectedRoute from './protectedRoute';
 
 function Routes({ sideBar }) {
   const logado = localStorage.getItem('authToken');
+  const cursoId = 358;
 
   const RouterStyle = styled.section`
     background-color: #eaeaea;
     width: 100%;
     margin-left: 100px;
-    margin-left: ${logado ? '100px' : '0px'};
+    margin-left: ${logado && cursoId ? '100px' : '0px'};
 
     /* transform: translateX(100px); */
     /* margin-top: 63.36px; */
@@ -37,10 +40,16 @@ function Routes({ sideBar }) {
   return (
     <RouterStyle>
       <BrowserRouter>
-        {logado ? (
+        {logado && cursoId ? (
           <>
             {' '}
-            <Header2 /> <Sidebar />
+            <Header2 />
+            <Sidebar />{' '}
+          </>
+        ) : logado && cursoId === null ? (
+          <>
+            {' '}
+            <Header2 />
           </>
         ) : (
           <></>
@@ -84,13 +93,20 @@ function Routes({ sideBar }) {
             component={Profile}
             authenticated={logado !== null}
           />
-          <Route
-            path="/login"
-            render={props =>
-              logado ? <Redirect to="/" /> : <Login2 {...props} />
-            }
-          />
         </Switch>
+
+        <ProtectedRoute
+          path="/cursos"
+          component={Cursos}
+          authenticated={logado !== null}
+        />
+
+        <Route
+          path="/login"
+          render={props =>
+            logado ? <Redirect to="/" /> : <Login2 {...props} />
+          }
+        />
       </BrowserRouter>
     </RouterStyle>
   );

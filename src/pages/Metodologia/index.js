@@ -79,8 +79,8 @@ export default function Metodologia() {
       };
       const responseP = await api.post('/listarTudoDisciplina', dscp, config);
       console.log(responseP.data.queryResponse);
-
       setPosts(responseP.data.queryResponse);
+
       const responseD = await api.post('/getDisciplina', dscp, config);
 
       setDisciplinas(responseD.data.Disciplina.nome);
@@ -192,6 +192,7 @@ export default function Metodologia() {
             tipoColor={tipoColor(p.tipo)}
             key={p.titulo}
             checked={!!p.fav}
+            nomeDisciplina={p.nomeDisciplina}
           />
         ))}
       </Grid>

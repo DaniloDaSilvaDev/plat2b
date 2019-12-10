@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Grid,
   Typography,
@@ -8,12 +8,57 @@ import {
   Box,
 } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
+import Vimeo from '@u-wave/react-vimeo';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import api from '../../services/api';
 import { useStyles, GreenCheckbox, VideoBody } from './styles';
 // import { Container } from './styles';
-import videoaula from '../../assets/videos/video.mp4';
 
 export default function VideoAula() {
   const classes = useStyles();
+  const [loading, setLoading] = useState(false);
+  const [aula, setAula] = useState({
+    aulaId: 0,
+    autorId: 0,
+    cursoId: 0,
+    dataCriacao: '',
+    descricao: '',
+    disciplinaId: 0,
+    duracao: 0,
+    link: '',
+    moduloId: 0,
+    sequencia: 0,
+    thumbnail: '',
+    titulo: '',
+    views: 0,
+  });
+
+  useEffect(() => {
+    async function resp() {
+      setLoading(true);
+      const test = window.location.href.split('/');
+      const currentId = test[test.length - 1];
+      const aulaId = {
+        aulaId: currentId,
+      };
+      const config = {
+        headers: {
+          Authorization: localStorage.authToken,
+        },
+      };
+      const responseP = await api.post('/getAula', aulaId, config);
+      setAula(responseP.data.Aula);
+      console.log(responseP.data.Aula);
+
+      console.log(responseP.data.Aula.link);
+
+      // const responseD = await api.post('/getDisciplina', dscp, config);
+
+      // setDisciplinas(responseD.data.Disciplina.nome);
+      setLoading(false);
+    }
+    resp();
+  }, []);
   // const [stars, setStars] = useState(0);
 
   // useEffect(e => {
@@ -32,42 +77,42 @@ export default function VideoAula() {
       <Grid container className={classes.root}>
         <Grid item lg={12} md={12} sm={12}>
           <Paper className={classes.paper}>
-            <video
+            <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+              {loading ? (
+                <div className={classes.root2}>
+                  <CircularProgress />
+                </div>
+              ) : (
+                <iframe
+                  title={aula.titulo}
+                  src={`https://player.vimeo.com/video/${aula.link}`}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                  }}
+                  frameBorder="0"
+                  allow="autoplay; fullscreen"
+                  allowFullScreen
+                />
+              )}
+            </div>
+            <script src="https://player.vimeo.com/api/player.js%22%3E" />
+
+            {/* <Vimeo
+              video="375497879"
+              autoplay
               width="100%"
-              // height="360"
+              height={360}
               className={classes.video}
-              // autoPlay="false"
-              preload
-              controls
-              // autoPlay
-              // onloadstart="console.log(event.type, event)"
-              // onprogress="console.log(event.type, event)"
-              // onsuspend="console.log(event.type, event)"
-              // onabort="console.log(event.type, event)"
-              // onError="console.log(event.type, event)"
-              // onemptied="console.log(event.type, event)"
-              // onstalled="console.log(event.type, event)"
-              // onloadedmetadata="console.log(event.type, event)"
-              // onloadeddata="console.log(event.type, event)"
-              // oncanplay="console.log(event.type, event)"
-              // oncanplaythrough="console.log(event.type, event)"
-              // onplaying="console.log(event.type, event)"
-              // onwaiting="console.log(event.type, event)"
-              // onseeking="console.log(event.type, event)"
-              // onseeked="console.log(event.type, event)"
-              // onended="console.log(event.type, event)"
-              // ondurationchange="console.log(event.type, event)"
-              // ontimeupdate="console.log(event.type, event)"
-              // onplay="console.log(event.type, event)"
-              // onpause="console.log(event.type, event)"
-            >
-              <source src={videoaula} type="video/mp4" />
-            </video>
+            /> */}
 
             <VideoBody>
               <Box>
                 <Typography component="h1" variant="h5" className={classes.h1}>
-                  Métodos pedagógicos
+                  {aula.titulo}
                 </Typography>
               </Box>
 
@@ -94,18 +139,7 @@ export default function VideoAula() {
               </Box>
               <Box>
                 <Typography component="p" variant="h5" className={classes.p}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Autem ad tenetur itaque repudiandae qui aperiam iure, officiis
-                  ipsum placeat, similique cum, laudantium repellat dignissimos
-                  id quasi non ab deleniti temporibus. Cumque nam, commodi autem
-                  eveniet a ipsa dignissimos distinctio asperiores vero libero,
-                  incidunt consequatur sit eos explicabo nesciunt, totam quasi
-                  provident natus odio. Reprehenderit quisquam et velit
-                  necessitatibus voluptatum consequuntur? Laborum illo quasi
-                  quae temporibus accusamus ipsum voluptas ullam magni vero quam
-                  ad eum officia vitae quidem natus rerum inventore minima
-                  architecto voluptates, distinctio aspernatur quaerat quos?
-                  Minima, eius voluptates.
+                  {aula.descricao}
                 </Typography>
               </Box>
             </VideoBody>

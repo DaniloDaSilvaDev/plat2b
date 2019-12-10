@@ -71,8 +71,8 @@ export default function Metodologia() {
       // const currentId = test[test.length - 1];
       const dscp = {
         // disciplinaId: currentId,
-        cursoId: 325,
         alunoId: localStorage.aluno,
+        cursoId: 358,
       };
       const config = {
         headers: {
@@ -81,6 +81,7 @@ export default function Metodologia() {
       };
       const responseP = await api.post('/listarFavoritos', dscp, config);
       console.log(responseP.data.favoritos);
+      console.log(responseP);
 
       setPosts(responseP.data.favoritos);
       // const responseD = await api.post('/getDisciplina', dscp, config);
@@ -129,6 +130,7 @@ export default function Metodologia() {
             tipoColor={tipoColor(p.tipo)}
             key={p.titulo}
             checked={!!p.fav}
+            nomeDisciplina={p.nomeDisciplina}
           />
         ))}
       </Grid>

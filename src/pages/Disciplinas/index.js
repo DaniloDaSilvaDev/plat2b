@@ -12,7 +12,7 @@ export default function Disciplinas() {
   useEffect(() => {
     async function resp() {
       const cursoId = {
-        cursoId: 323,
+        cursoId: 358,
       };
       const config = {
         headers: {

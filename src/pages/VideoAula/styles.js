@@ -15,6 +15,12 @@ export const useStyles = makeStyles(theme => ({
       padding: 20,
     },
   },
+  root2: {
+    height: 500,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   control: {
     padding: theme.spacing(2),
   },
