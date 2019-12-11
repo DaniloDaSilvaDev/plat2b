@@ -15,7 +15,7 @@ import {
   FaGraduationCap,
 } from 'react-icons/fa';
 import Popover from '@material-ui/core/Popover';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { CardBody, useStyles } from './styles';
 import api from '../../services/api';

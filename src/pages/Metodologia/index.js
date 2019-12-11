@@ -78,8 +78,8 @@ export default function Metodologia() {
         },
       };
       const responseP = await api.post('/listarTudoDisciplina', dscp, config);
-      console.log(responseP.data.queryResponse);
-      setPosts(responseP.data.queryResponse);
+      console.log(responseP.data);
+      setPosts(responseP.data);
 
       const responseD = await api.post('/getDisciplina', dscp, config);
 

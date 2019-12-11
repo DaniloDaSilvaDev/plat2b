@@ -80,10 +80,10 @@ export default function Metodologia() {
         },
       };
       const responseP = await api.post('/listarFavoritos', dscp, config);
-      console.log(responseP.data.favoritos);
+      console.log(responseP.data);
       console.log(responseP);
 
-      setPosts(responseP.data.favoritos);
+      setPosts(responseP.data);
       // const responseD = await api.post('/getDisciplina', dscp, config);
 
       // setDisciplinas(responseD.data.Disciplina.nome);

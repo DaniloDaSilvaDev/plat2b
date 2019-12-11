@@ -23,9 +23,11 @@ export default function Home() {
 
   useEffect(() => {
     async function resp() {
-      const ids = {
+      const infos = {
         cursoId: localStorage.cursoId,
         alunoId: localStorage.aluno,
+        page: 1,
+        pageSize: 12,
       };
 
       const config = {
@@ -33,20 +35,24 @@ export default function Home() {
           Authorization: localStorage.authToken,
         },
       };
-      const res = await api.post('/listarTudoCurso', ids, config);
-      setPosts(res.data.queryResponse);
-      console.log(res.data.queryResponse);
+      const res = await api.post('/listarTudoCurso', infos, config);
+      setPosts(res.data);
+      console.log(posts);
     }
     resp();
   }, []);
+
+  // useEffect(() => {
+  //   window.location.reload();
+  // }, [localStorage.cursoId]);
 
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
       <div style={{ marginTop: 50 }} />
-      <Typography component="h2" variant="h5" className={classes.h2}>
+      {/* <Typography component="h2" variant="h5" className={classes.h2}>
         Vídeos recentes
-      </Typography>
+      </Typography> */}
 
       <Typography component="h2" variant="h5" className={classes.h2}>
         Últimas publicações

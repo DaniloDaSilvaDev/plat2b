@@ -19,7 +19,7 @@ import ProtectedRoute from './protectedRoute';
 
 function Routes({ sideBar }) {
   const logado = localStorage.getItem('authToken');
-  const cursoId = 358;
+  const cursoId = localStorage.getItem('cursoId');
 
   const RouterStyle = styled.section`
     background-color: #eaeaea;
@@ -63,6 +63,7 @@ function Routes({ sideBar }) {
             authenticated={logado !== null}
           />
           <ProtectedRoute
+            // {...window.location.reload()}
             exact
             path="/"
             component={Home}
@@ -104,7 +105,7 @@ function Routes({ sideBar }) {
         <Route
           path="/login"
           render={props =>
-            logado ? <Redirect to="/" /> : <Login2 {...props} />
+            logado ? <Redirect to="/cursos" /> : <Login2 {...props} />
           }
         />
       </BrowserRouter>

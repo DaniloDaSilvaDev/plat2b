@@ -2,7 +2,7 @@
 /* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
-import { relative } from 'upath';
+// import { relative } from 'upath';
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -37,7 +37,7 @@ export const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundPosition: '50%',
     position: 'relative',
-    minHeight: '10.3125rem',
+    height: 130,
     borderTopLeftRadius: '.625rem',
     borderTopRightRadius: '.625rem',
     backgroundRepeat: 'no-repeat',
