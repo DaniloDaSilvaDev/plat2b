@@ -54,6 +54,16 @@ export default function MediaCard() {
       console.log(res.data.Cursos);
     }
     resp();
+    if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad') )
+    {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem('firstLoad');
+  }
   }, []);
 
   function handleCurso(cursoId) {

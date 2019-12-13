@@ -14,7 +14,7 @@ import {
   OrangeCheckbox,
   RedCheckbox,
 } from './styles';
-
+import Pagination from '../../components/Pagination'
 import Card from '../../components/Card';
 import api from '../../services/api';
 
@@ -29,6 +29,8 @@ function tipoColor(tipo) {
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
   const [filtro, setFiltro] = useState(['AULA', 'ARTIGO', 'AUDIO', 'MAPA']);
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalCards, setTotalCards] = useState(0)
   const [disciplinas, setDisciplinas] = useState();
   const [state, setState] = useState({
     AUDIO: true,
@@ -49,10 +51,13 @@ export default function Metodologia() {
           disciplinaId,
           filtro: JSON.stringify(filtro),
           alunoId: localStorage.aluno,
+          page: currentPage,
+          pageSize: 12,
         },
         headers,
       });
-      setPosts(resFiltro.data);
+      setPosts(resFiltro.data.queryResponse);
+      setTotalCards(resFiltro.data.total)
     }
     req();
   }, [filtro]);
@@ -64,29 +69,31 @@ export default function Metodologia() {
     setState({ ...state, [name]: event.target.checked });
   };
 
-  useEffect(() => {
-    async function resp() {
-      const test = window.location.href.split('/');
-      const currentId = test[test.length - 1];
-      const dscp = {
-        disciplinaId: currentId,
-        alunoId: localStorage.aluno,
-      };
-      const config = {
-        headers: {
-          Authorization: localStorage.authToken,
-        },
-      };
-      const responseP = await api.post('/listarTudoDisciplina', dscp, config);
-      console.log(responseP.data);
-      setPosts(responseP.data);
+  // useEffect(() => {
+  //   async function resp() {
+  //     const test = window.location.href.split('/');
+  //     const currentId = test[test.length - 1];
+  //     const dscp = {
+  //       disciplinaId: currentId,
+  //       alunoId: localStorage.aluno,
+  //       page: currentPage,
+  //       pageSize: 12,
+  //     };
+  //     const config = {
+  //       headers: {
+  //         Authorization: localStorage.authToken,
+  //       },
+  //     };
+  //     const responseP = await api.post('/listarTudoDisciplina', dscp, config);
+  //     console.log(responseP.data);
+  //     setPosts(responseP.data);
 
-      const responseD = await api.post('/getDisciplina', dscp, config);
+  //     const responseD = await api.post('/getDisciplina', dscp, config);
 
-      setDisciplinas(responseD.data.Disciplina.nome);
-    }
-    resp();
-  }, []);
+  //     setDisciplinas(responseD.data.Disciplina.nome);
+  //   }
+  //   resp();
+  // }, []);
 
   // async function getPosts() {
   //   const response = await api.get('http://localhost:3333/posts');
@@ -103,6 +110,34 @@ export default function Metodologia() {
   // }, [filters]);
 
   const classes = useStyles();
+
+  async function handlePageClick(pageNumber) {
+    setCurrentPage(pageNumber)
+    const link = window.location.href.split('/');
+    const disciplinaId = link[link.length - 1];
+    const headers = {
+      Authorization: localStorage.authToken,
+    };
+    const resFiltro = await api.get('/listarFiltrado', {
+      params: {
+        disciplinaId,
+        filtro: JSON.stringify(filtro),
+        alunoId: localStorage.aluno,
+        page: currentPage,
+        pageSize: 12,
+      },
+      headers,
+    });
+    setPosts(resFiltro.data.queryResponse);
+    console.log(pageNumber);
+    console.log(resFiltro.data.queryResponse);
+    
+    
+  }
+
+  handlePageClick();
+  // const paginate = pageNumber => setCurrentPage(pageNumber)
+
   return (
     <Container maxWidth="lg">
       {/* <Typography component="h1" variant="h5" className={classes.h1}>
@@ -196,6 +231,12 @@ export default function Metodologia() {
           />
         ))}
       </Grid>
+      <Pagination
+        className={classes.pageBtnsBottom}
+        comicsPerPage={12}
+        totalComics={totalCards}
+        paginate={handlePageClick}
+      />
     </Container>
   );
 }

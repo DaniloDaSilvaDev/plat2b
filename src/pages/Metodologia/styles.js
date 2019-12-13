@@ -33,6 +33,9 @@ export const useStyles = makeStyles(theme => ({
     color: '#3d5170',
     fontSize: '3em',
   },
+  pageBtnsBottom: {
+    padding: 300,
+  }
 }));
 
 // export const GreenCheckbox = withStyles({
