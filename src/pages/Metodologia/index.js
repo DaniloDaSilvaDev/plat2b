@@ -135,7 +135,6 @@ export default function Metodologia() {
     
   }
 
-  handlePageClick();
   // const paginate = pageNumber => setCurrentPage(pageNumber)
 
   return (
