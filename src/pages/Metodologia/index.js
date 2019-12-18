@@ -19,12 +19,13 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'Artigo') return '#43B9D8';
+  if (tipo === 'Artigo') return 'rgb(59, 155, 47)';
   if (tipo === 'Podcast') return '#F58D38';
   if (tipo === 'Aula') return '#6B63ED';
-  if (tipo === 'Mapa') return '#22262A';
+  if (tipo === 'Mapa') return 'rgb(20, 159, 251)';
   return 0;
 }
+
 
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
@@ -68,47 +69,6 @@ export default function Metodologia() {
       : setFiltro(filtro.filter(f => f !== name));
     setState({ ...state, [name]: event.target.checked });
   };
-
-  // useEffect(() => {
-  //   async function resp() {
-  //     const test = window.location.href.split('/');
-  //     const currentId = test[test.length - 1];
-  //     const dscp = {
-  //       disciplinaId: currentId,
-  //       alunoId: localStorage.aluno,
-  //       page: currentPage,
-  //       pageSize: 12,
-  //     };
-  //     const config = {
-  //       headers: {
-  //         Authorization: localStorage.authToken,
-  //       },
-  //     };
-  //     const responseP = await api.post('/listarTudoDisciplina', dscp, config);
-  //     console.log(responseP.data);
-  //     setPosts(responseP.data);
-
-  //     const responseD = await api.post('/getDisciplina', dscp, config);
-
-  //     setDisciplinas(responseD.data.Disciplina.nome);
-  //   }
-  //   resp();
-  // }, []);
-
-  // async function getPosts() {
-  //   const response = await api.get('http://localhost:3333/posts');
-  //   return response.data;
-  // }
-
-  // useEffect(() => {
-  //   async function res() {
-  //     const response = await getPosts();
-  //     const selecionados = response.filter(p => filters.includes(p.category));
-  //     setPosts(selecionados);
-  //   }
-  //   res();
-  // }, [filters]);
-
   const classes = useStyles();
 
   async function handlePageClick(pageNumber) {
@@ -123,16 +83,12 @@ export default function Metodologia() {
         disciplinaId,
         filtro: JSON.stringify(filtro),
         alunoId: localStorage.aluno,
-        page: currentPage,
+        page: pageNumber,
         pageSize: 12,
       },
       headers,
     });
     setPosts(resFiltro.data.queryResponse);
-    console.log(pageNumber);
-    console.log(resFiltro.data.queryResponse);
-    
-    
   }
 
   // const paginate = pageNumber => setCurrentPage(pageNumber)

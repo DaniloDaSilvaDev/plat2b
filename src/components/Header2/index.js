@@ -30,9 +30,9 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    '@media only screen and (min-width: 500px)': {
-      display: 'none',
-    },
+    // '@media only screen and (min-width: 510px)': {
+    //   display: 'none',
+    // },
   },
   title: {
     display: 'none',
@@ -308,5 +308,5 @@ function PrimarySearchAppBar(props) {
     </div>
   );
 }
-
 export default connect()(PrimarySearchAppBar);
+

@@ -19,12 +19,13 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'Artigo') return '#43B9D8';
+  if (tipo === 'Artigo') return 'rgb(59, 155, 47)';
   if (tipo === 'Podcast') return '#F58D38';
   if (tipo === 'Aula') return '#6B63ED';
-  if (tipo === 'Mapa') return '#22262A';
+  if (tipo === 'Mapa') return 'rgb(20, 159, 251)';
   return 0;
 }
+
 
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
@@ -80,10 +81,10 @@ export default function Metodologia() {
         },
       };
       const responseP = await api.post('/listarFavoritos', dscp, config);
-      console.log(responseP.data);
+      console.log(responseP.data.queryResponse);
       console.log(responseP);
 
-      setPosts(responseP.data);
+      setPosts(responseP.data.queryResponse);
       // const responseD = await api.post('/getDisciplina', dscp, config);
 
       // setDisciplinas(responseD.data.Disciplina.nome);

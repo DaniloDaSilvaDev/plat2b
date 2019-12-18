@@ -6,7 +6,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { green, blue, orange } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles((theme, props )=> ({
   root: {
     fle: 1,
     flexGrow: 1,

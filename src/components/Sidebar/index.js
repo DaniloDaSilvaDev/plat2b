@@ -16,7 +16,7 @@ import { Sidebar, List } from './style';
 import Item from './item';
 import Logo from './logo';
 
-function SideBar({ sideBar }) {
+function SideBar({ sideBar, sideBarOpen }) {
   const [selected, setSelected] = useState(0);
   const itemsList = [
     {
@@ -62,7 +62,7 @@ function SideBar({ sideBar }) {
   ];
 
   return (
-    <Sidebar id="menuToggle" clicado={sideBar}>
+    <Sidebar id="menuToggle" clicado={sideBar} loading={sideBarOpen}>
       <List id="menu">
         <Logo />
         {itemsList.map((item, index) => (
@@ -83,5 +83,6 @@ function SideBar({ sideBar }) {
 }
 // export default withRouter(SideBar);
 export default connect(state => ({
+  sideBarOpen: state.sideBarOpen,
   sideBar: state.sideBar,
 }))(SideBar);

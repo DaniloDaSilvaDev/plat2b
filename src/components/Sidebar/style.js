@@ -23,9 +23,14 @@ export const Sidebar = styled.div`
     }
   } */
 
-  @media only screen and (max-width: 500px) {
+  // @media only screen and (min-width: 510px) {
+  //   display: ${props => (props.loading ? '' : 'none')};
+  // }
+
+
+  
     display: ${props => (props.clicado ? '' : 'none')};
-  }
+ 
 `;
 
 export const List = styled.ul`

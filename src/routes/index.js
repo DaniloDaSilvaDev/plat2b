@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -17,25 +17,37 @@ import Sidebar from '../components/Sidebar';
 import Header2 from '../components/Header2';
 import ProtectedRoute from './protectedRoute';
 
-function Routes({ sideBar }) {
+function Routes({props,  sideBar, sideBarOpen }) {
   const logado = localStorage.getItem('authToken');
   const cursoId = localStorage.getItem('cursoId');
 
+  const [showSidebar] = useState(false);
+  // useEffect(()=> {
+  //   function handleSidebarOpen() {
+  //     const { dispatch } = props;
+  //     dispatch({
+  //       type: 'CARREGOU_SIDEBAR',
+  //       showSidebar,
+  //     });
+  //   }  
+  // },[])
+  
   const RouterStyle = styled.section`
     background-color: #eaeaea;
     width: 100%;
-    margin-left: 100px;
+    // margin-left: 100px;
     margin-left: ${logado && cursoId ? '100px' : '0px'};
 
     /* transform: translateX(100px); */
     /* margin-top: 63.36px; */
-    @media only screen and (max-width: 500px) {
+    // margin-left: ${localStorage.cursoId ? '100px' : '0px'};
+  
       margin-left: ${props => (sideBar ? '100px' : '0px')};
+  
 
-      /* transition-duration: 4s;
-      transition-timing-function: ease-in;
-      transition-property: all; */
-    }
+    // @media only screen and (min-width: 510px) {
+    //   margin-left: ${props => (sideBarOpen ? '100px' : '0px')};
+    // }
   `;
   return (
     <RouterStyle>
@@ -114,6 +126,7 @@ function Routes({ sideBar }) {
 }
 export default connect(state => ({
   sideBar: state.sideBar,
+  sideBarOpen: state.sideBarOpen,
 }))(Routes);
 
 // logado ? (

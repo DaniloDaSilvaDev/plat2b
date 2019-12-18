@@ -9,19 +9,62 @@ import { Container, Grid, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import Card from '../../components/Card';
 import api from '../../services/api';
+import { connect } from 'react-redux';
 
-function tipoColor(tipo) {
-  if (tipo === 'Artigo') return '#43B9D8';
-  if (tipo === 'Podcast') return '#F58D38';
-  if (tipo === 'Aula') return '#6B63ED';
-  if (tipo === 'Mapa') return '#22262A';
-  return 0;
-}
 
-export default function Home() {
+
+function Home(props) {
   const [posts, setPosts] = useState([]);
+  const [showSidebar, setSideBar] = useState(false);
 
-  useEffect(() => {
+  
+  
+  // useEffect(()=> {
+  //   function handleSidebarOpen() {
+  //     const { dispatch } = props;
+  //     dispatch({
+  //       type: 'CARREGOU_SIDEBAR',
+  //       showSidebar,
+  //     });
+  //   }
+
+  //  console.log("FOI");
+   
+  // },[])
+
+
+  function tipoColor(tipo) {
+    if (tipo === 'Artigo') return 'rgb(59, 155, 47)';
+    if (tipo === 'Podcast') return '#F58D38';
+    if (tipo === 'Aula') return '#6B63ED';
+    if (tipo === 'Mapa') return 'rgb(20, 159, 251)';
+    return 0;
+  }
+
+  // function handleSidebarOpen() {
+  //   const { dispatch } = props;
+  //   dispatch({
+  //     type: 'CARREGOU_SIDEBAR',
+  //     showSidebar,
+  //   });
+  // }
+
+
+
+  //   if( window.localStorage )
+  // {
+  //   if( !localStorage.getItem('firstLoad') )
+  //   {
+  //     localStorage['firstLoad'] = true;
+  
+      
+  //   }  
+  //   else
+  //     localStorage.removeItem('firstLoad');
+  // }
+
+
+  useEffect(() => {  
     async function resp() {
       const infos = {
         cursoId: localStorage.cursoId,
@@ -36,26 +79,12 @@ export default function Home() {
         },
       };
       const res = await api.post('/listarTudoCurso', infos, config);
-      setPosts(res.data);
-      console.log(posts);
+      setPosts(res.data.queryResponse);
     }
     resp();
+    console.log("Chamou useEffect");
     
-    if( window.localStorage )
-  {
-    if( !localStorage.getItem('firstLoad') )
-    {
-      localStorage['firstLoad'] = true;
-      window.location.reload();
-    }  
-    else
-      localStorage.removeItem('firstLoad');
-  }
   }, []);
-
-  // useEffect(() => {
-  //   window.location.reload();
-  // }, [localStorage.cursoId]);
 
   const classes = useStyles();
   return (
@@ -90,3 +119,17 @@ export default function Home() {
     </Container>
   );
 }
+
+export default connect()(Home);
+
+
+// if( window.localStorage )
+//   {
+//     if( !localStorage.getItem('firstLoad') )
+//     {
+//       localStorage['firstLoad'] = true;
+//       window.location.reload();
+//     }  
+//     else
+//       localStorage.removeItem('firstLoad');
+//   }

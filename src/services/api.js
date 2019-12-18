@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:13000',
+  baseURL: 'https://plataforma-api-2b-staging.herokuapp.com',
 });
 
 export default api;

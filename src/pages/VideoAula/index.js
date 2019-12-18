@@ -8,7 +8,6 @@ import {
   Box,
 } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
-import Vimeo from '@u-wave/react-vimeo';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import api from '../../services/api';
 import { useStyles, GreenCheckbox, VideoBody } from './styles';

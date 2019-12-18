@@ -51,7 +51,6 @@ export default function MediaCard() {
       };
       const res = await api.post('/listarCursosComprados', infos, config);
       setCursos(res.data.Cursos);
-      console.log(res.data.Cursos);
     }
     resp();
     if( window.localStorage )
@@ -68,7 +67,6 @@ export default function MediaCard() {
 
   function handleCurso(cursoId) {
     localStorage.setItem('cursoId', cursoId);
-    console.log(cursoId);
   }
 
   return (
