@@ -29,32 +29,33 @@ export default function(props) {
   const handleClick = async () => {
     setClick(!click);
 
-    const { tipo } = props;
+    const { id } = props;
     const data = {
       alunoId: parseInt(localStorage.aluno),
+      matId: id,
     };
 
-    console.log(tipo);
+    // console.log(tipo);
 
-    switch (tipo) {
-      case 'Aula':
-        data.aulaId = props.id;
-        break;
-      case 'Podcast':
-        data.podcastId = props.id;
-        break;
+    // switch (tipo) {
+    //   case 'video':
+    //     data.aulaId = props.id;
+    //     break;
+    //   case 'podcast':
+    //     data.podcastId = props.id;
+    //     break;
 
-      case 'Artigo':
-        data.artigoId = props.id;
-        break;
+    //   case 'pdf':
+    //     data.artigoId = props.id;
+    //     break;
 
-      case 'Mapa':
-        data.mapaId = props.id;
-        break;
+    //   case 'mapa':
+    //     data.mapaId = props.id;
+    //     break;
 
-      default:
-        break;
-    }
+    //   default:
+    //     break;
+    // }
 
     const headers = {
       Authorization: localStorage.authToken,
@@ -66,8 +67,8 @@ export default function(props) {
       },
     };
     const response = click
-      ? await api.delete(`/desfavoritar${tipo}`, { data, headers })
-      : await api.post(`/favoritar${tipo}`, data, config);
+      ? await api.delete('/desfavoritarMaterial', { data, headers })
+      : await api.post('/favoritarMaterial', data, config);
   };
 
   const handlePopoverOpen = event => {
@@ -89,7 +90,7 @@ export default function(props) {
             <FaRegBookmark size={24} cursor="pointer" color="#fff" />
           )}
         </div>
-        <Link to={`/aula/${props.id}`}>
+        <Link to={`/${props.tipo}/${props.id}`}>
           <div
             className={classes.img}
             style={{ backgroundImage: `url(${props.backgroundImage})` }}
@@ -131,22 +132,22 @@ export default function(props) {
               style={{ backgroundColor: `${props.tipoColor}` }}
               className={classes.tipo}
             >
-              {props.tipo === 'Podcast' ? (
+              {props.tipo === 'podcast' ? (
                 <FaPodcast className={classes.iconTipo} />
               ) : (
                 ''
               )}
-              {props.tipo === 'Aula' ? (
+              {props.tipo === 'video' ? (
                 <FaVideo className={classes.iconTipo} />
               ) : (
                 ''
               )}
-              {props.tipo === 'Artigo' ? (
+              {props.tipo === 'pdf' ? (
                 <FaFilePdf className={classes.iconTipo} />
               ) : (
                 ''
               )}
-              {props.tipo === 'Mapa' ? (
+              {props.tipo === 'mapa' ? (
                 <FaCodeBranch className={classes.iconTipo} />
               ) : (
                 ''

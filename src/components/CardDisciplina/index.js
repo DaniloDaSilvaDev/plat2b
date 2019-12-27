@@ -10,7 +10,7 @@ export default function CardDisciplina(props) {
   const classes = useStyles();
   return (
     <Grid item lg={4} md={6} sm={12}>
-      <Link to={`/conteudo/${props.id}`}>
+      <Link to={`/disciplina/${props.id}`}>
         <Paper className={classes.paper} key={props.id}>
           <CardBody>
             <div

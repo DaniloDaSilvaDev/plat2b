@@ -8,7 +8,7 @@ import {
   FaFilePdf,
   FaPodcast,
   FaCodeBranch,
-  FaCheckDouble,
+  // FaCheckDouble,
   FaGraduationCap,
   FaVideo,
 } from 'react-icons/fa';
@@ -16,7 +16,7 @@ import { Sidebar, List } from './style';
 import Item from './item';
 import Logo from './logo';
 
-function SideBar({ sideBar, sideBarOpen }) {
+function SideBar({ sideBar }) {
   const [selected, setSelected] = useState(0);
   const itemsList = [
     {
@@ -37,22 +37,22 @@ function SideBar({ sideBar, sideBarOpen }) {
     {
       title: 'PDFs',
       icon: <FaFilePdf />,
-      path: '/pdf',
+      path: '/pdfs',
     },
-    {
-      title: 'Questões',
-      icon: <FaCheckDouble />,
-      path: '/questoes',
-    },
+    // {
+    //   title: 'Questões',
+    //   icon: <FaCheckDouble />,
+    //   path: '/questoes',
+    // },
     {
       title: 'PodCasts',
       icon: <FaPodcast />,
-      path: '/podcast',
+      path: '/podcasts',
     },
     {
       title: 'Mapas Mentais',
       icon: <FaCodeBranch />,
-      path: '/mapas-mentais',
+      path: '/mapas',
     },
     {
       title: 'Favoritos',
@@ -62,7 +62,7 @@ function SideBar({ sideBar, sideBarOpen }) {
   ];
 
   return (
-    <Sidebar id="menuToggle" clicado={sideBar} loading={sideBarOpen}>
+    <Sidebar id="menuToggle" clicado={sideBar}>
       <List id="menu">
         <Logo />
         {itemsList.map((item, index) => (
@@ -83,6 +83,5 @@ function SideBar({ sideBar, sideBarOpen }) {
 }
 // export default withRouter(SideBar);
 export default connect(state => ({
-  sideBarOpen: state.sideBarOpen,
   sideBar: state.sideBar,
 }))(SideBar);

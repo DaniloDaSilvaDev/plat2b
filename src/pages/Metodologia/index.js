@@ -19,25 +19,25 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'Artigo') return 'rgb(59, 155, 47)';
-  if (tipo === 'Podcast') return '#F58D38';
-  if (tipo === 'Aula') return '#6B63ED';
-  if (tipo === 'Mapa') return 'rgb(20, 159, 251)';
+  if (tipo === 'pdf') return 'rgb(59, 155, 47)';
+  if (tipo === 'podcast') return '#F58D38';
+  if (tipo === 'video') return '#6B63ED';
+  if (tipo === 'mapa') return 'rgb(20, 159, 251)';
   return 0;
 }
 
-
 export default function Metodologia() {
+  
   const [posts, setPosts] = useState([]);
-  const [filtro, setFiltro] = useState(['AULA', 'ARTIGO', 'AUDIO', 'MAPA']);
+  const [filtro, setFiltro] = useState([1, 2, 3, 4]);
   const [currentPage, setCurrentPage] = useState(1)
   const [totalCards, setTotalCards] = useState(0)
   const [disciplinas, setDisciplinas] = useState();
   const [state, setState] = useState({
-    AUDIO: true,
-    ARTIGO: true,
-    AULA: true,
-    MAPA: true,
+    1: true,
+    2: true,
+    3: true,
+    4: true,
   });
   useEffect(() => {
     const link = window.location.href.split('/');
@@ -58,7 +58,7 @@ export default function Metodologia() {
         headers,
       });
       setPosts(resFiltro.data.queryResponse);
-      setTotalCards(resFiltro.data.total)
+      setTotalCards(resFiltro.data.total)   
     }
     req();
   }, [filtro]);
@@ -72,6 +72,7 @@ export default function Metodologia() {
   const classes = useStyles();
 
   async function handlePageClick(pageNumber) {
+    
     setCurrentPage(pageNumber)
     const link = window.location.href.split('/');
     const disciplinaId = link[link.length - 1];
@@ -92,17 +93,8 @@ export default function Metodologia() {
   }
 
   // const paginate = pageNumber => setCurrentPage(pageNumber)
-
   return (
     <Container maxWidth="lg">
-      {/* <Typography component="h1" variant="h5" className={classes.h1}>
-        Olá, <span>Danilo</span>
-      </Typography>
-
-      <Typography component="h2" variant="h5" className={classes.h2}>
-        Vídeos recentes
-      </Typography> */}
-
       <Filtro>
         <Typography component="h2" variant="h5" className={classes.h2}>
           {disciplinas}
@@ -116,51 +108,48 @@ export default function Metodologia() {
             margin: '20px 0',
           }}
         >
-          {/* <Typography component="p" variant="h5" className={classes.p}>
-            Filtro
-          </Typography> */}
           <FormControlLabel
             control={
               <RedCheckbox
-                checked={state.AULA}
-                onChange={handleChange('AULA')}
-                value="AULA"
-                name="AULA"
+                checked={state[1]}
+                onChange={handleChange(1)}
+                value={1}
+                name="Video"
               />
             }
-            label="Aulas"
+            label="video"
           />
           <FormControlLabel
             control={
               <GreenCheckbox
-                checked={state.MAPA}
-                onChange={handleChange('MAPA')}
-                value="MAPA"
-                name="MAPA"
+                checked={state[3]}
+                onChange={handleChange(3)}
+                value="Mapa"
+                name="Mapa"
               />
             }
-            label="Mapas"
+            label="mapas"
           />
 
           <FormControlLabel
             control={
               <BlueCheckbox
-                checked={state.ARTIGO}
-                onChange={handleChange('ARTIGO')}
-                value="ARTIGO"
-                name="ARTIGO"
+                checked={state[2]}
+                onChange={handleChange(2)}
+                value={2}
+                name="Pdf"
               />
             }
-            label="Artigos"
+            label="pdf"
           />
 
           <FormControlLabel
             control={
               <OrangeCheckbox
-                checked={state.AUDIO}
-                onChange={handleChange('AUDIO')}
-                value="AUDIO"
-                name="AUDIO"
+                checked={state[4]}
+                onChange={handleChange(4)}
+                value={4}
+                name="Podcast"
               />
             }
             label="podcast"

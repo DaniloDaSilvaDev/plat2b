@@ -11,13 +11,17 @@ import VideoAula from '../pages/VideoAula';
 import Login2 from '../pages/Login2';
 import Favoritos from '../pages/Favoritos';
 import PdfAula from '../pages/PdfAula';
+import Videos from '../pages/Videos';
+import Podcasts from '../pages/Podcasts';
+import Pdfs from '../pages/Pdfs';
+import Mapas from '../pages/Mapas';
 import Metodologia from '../pages/Metodologia';
 import Cursos from '../pages/Cursos';
 import Sidebar from '../components/Sidebar';
 import Header2 from '../components/Header2';
 import ProtectedRoute from './protectedRoute';
 
-function Routes({props,  sideBar, sideBarOpen }) {
+function Routes({props,  sideBar }) {
   const logado = localStorage.getItem('authToken');
   const cursoId = localStorage.getItem('cursoId');
 
@@ -43,11 +47,6 @@ function Routes({props,  sideBar, sideBarOpen }) {
     // margin-left: ${localStorage.cursoId ? '100px' : '0px'};
   
       margin-left: ${props => (sideBar ? '100px' : '0px')};
-  
-
-    // @media only screen and (min-width: 510px) {
-    //   margin-left: ${props => (sideBarOpen ? '100px' : '0px')};
-    // }
   `;
   return (
     <RouterStyle>
@@ -87,12 +86,32 @@ function Routes({props,  sideBar, sideBarOpen }) {
             authenticated={logado !== null}
           />
           <ProtectedRoute
-            path="/conteudo/:id"
+            path="/disciplina/:id"
             component={Metodologia}
             authenticated={logado !== null}
           />
           <ProtectedRoute
-            path="/aula/:id"
+            path="/videos"
+            component={Videos}
+            authenticated={logado !== null}
+          />
+          <ProtectedRoute
+            path="/pdfs"
+            component={Pdfs}
+            authenticated={logado !== null}
+          />
+           <ProtectedRoute
+            path="/podcasts"
+            component={Podcasts}
+            authenticated={logado !== null}
+          />
+          <ProtectedRoute
+            path="/mapas"
+            component={Mapas}
+            authenticated={logado !== null}
+          />
+          <ProtectedRoute
+            path="/video/:id"
             component={VideoAula}
             authenticated={logado !== null}
           />
@@ -126,7 +145,6 @@ function Routes({props,  sideBar, sideBarOpen }) {
 }
 export default connect(state => ({
   sideBar: state.sideBar,
-  sideBarOpen: state.sideBarOpen,
 }))(Routes);
 
 // logado ? (

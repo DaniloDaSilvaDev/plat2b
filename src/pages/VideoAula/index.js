@@ -14,10 +14,14 @@ import { useStyles, GreenCheckbox, VideoBody } from './styles';
 // import { Container } from './styles';
 
 export default function VideoAula() {
+  const [value, setValue] = useState(0);
+  const [state, setState] = useState({
+    checked: false,
+  });
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
   const [aula, setAula] = useState({
-    aulaId: 0,
+    matId: 0,
     autorId: 0,
     cursoId: 0,
     dataCriacao: '',
@@ -32,24 +36,32 @@ export default function VideoAula() {
     views: 0,
   });
 
+  // useEffect(() => {
+  //   const aulaId = {
+  //     alunoId: local
+  //     matId: currentId,
+  //   };
+
+  // })
+
   useEffect(() => {
     async function resp() {
       setLoading(true);
       const test = window.location.href.split('/');
       const currentId = test[test.length - 1];
       const aulaId = {
-        aulaId: currentId,
+        matId: currentId,
+        alunoId: localStorage.aluno
       };
       const config = {
         headers: {
           Authorization: localStorage.authToken,
         },
       };
-      const responseP = await api.post('/getAula', aulaId, config);
-      setAula(responseP.data.Aula);
-      console.log(responseP.data.Aula);
-
-      console.log(responseP.data.Aula.link);
+      
+      const responseP = await api.post('/getMaterial', aulaId, config);
+      setAula(responseP.data.Material)
+      console.log(responseP.data.Material);
 
       // const responseD = await api.post('/getDisciplina', dscp, config);
 
@@ -58,19 +70,81 @@ export default function VideoAula() {
     }
     resp();
   }, []);
-  // const [stars, setStars] = useState(0);
 
-  // useEffect(e => {
-  //   setStars({ stars: e });
-  // }, stars);
 
-  const [state, setState] = useState({
-    checked: true,
-  });
+  useEffect(() => {
+
+    async function resp() {
+      const test = window.location.href.split('/');
+      const currentId = test[test.length - 1];
+      const aulaId = {
+        matId: currentId,
+        alunoId: localStorage.aluno
+      };
+      const config = {
+        headers: {
+          Authorization: localStorage.authToken,
+        },
+      };
+
+    const respStars = await api.post('/verificarNota', aulaId, config)
+      console.log(respStars.data);
+      setValue(respStars.data.nota)
+    }
+    resp()
+  }, [value]);
+
+  useEffect(() => {
+   async function resp() {
+      const {cursoId, matId, disciplinaId, moduloId} = aula;
+      const aulaId = {
+        matId,
+        alunoId: localStorage.aluno,
+        disciplinaId,
+        moduloId,
+        cursoId,
+      };     
+
+      const config = {
+        headers: {
+          Authorization: localStorage.authToken,
+        },
+      };
+
+      const respCompletar = await api.post('/completarMaterial', aulaId, config)
+      console.log(respCompletar.data);
+      // setState(respCompletar.data.nota)
+    }
+    resp();
+  })
+
 
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked });
+    console.log(value);
   };
+
+  const handleChangeStars = async ( event, newValue) => {
+    event.persist()
+    const test = window.location.href.split('/');
+    const currentId = test[test.length - 1];
+
+    const aulaId = {
+      matId: currentId,
+      alunoId: localStorage.aluno,
+      nota: newValue
+    };
+
+    const config = {
+      headers: {
+        Authorization: localStorage.authToken,
+      },
+    };
+    const respStars = await api.post('/avaliarMaterial', aulaId, config)
+    setValue(respStars.data.nota)
+    console.log(newValue);
+  }
+
   return (
     <>
       <Grid container className={classes.root}>
@@ -82,21 +156,21 @@ export default function VideoAula() {
                   <CircularProgress />
                 </div>
               ) : (
-                <iframe
-                  title={aula.titulo}
-                  src={`https://player.vimeo.com/video/${aula.link}`}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                  }}
-                  frameBorder="0"
-                  allow="autoplay; fullscreen"
-                  allowFullScreen
-                />
-              )}
+                  <iframe
+                    title={aula.titulo}
+                    src={`https://player.vimeo.com/video/${aula.link}`}
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                    }}
+                    frameBorder="0"
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                  />
+                )}
             </div>
             <script src="https://player.vimeo.com/api/player.js%22%3E" />
 
@@ -117,13 +191,12 @@ export default function VideoAula() {
 
               <Box>
                 <Rating
-                  // style={{ marginLeft: '600px' }}
-                  value={3}
-                  name="size-large"
-                  // onClick={() => setStars(`value = { ${stars} }`)}
-                  size="large"
-                />
+                  name="simple-controlled"
+                  value={value}
+                  onChange={handleChangeStars}
+                 
 
+                />
                 <FormControlLabel
                   className={classes.check}
                   control={
@@ -133,7 +206,7 @@ export default function VideoAula() {
                       value="checked"
                     />
                   }
-                  // label="Custom color"
+                // label="Custom color"
                 />
               </Box>
               <Box>

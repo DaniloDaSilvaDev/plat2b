@@ -34,10 +34,10 @@ function Home(props) {
 
 
   function tipoColor(tipo) {
-    if (tipo === 'Artigo') return 'rgb(59, 155, 47)';
-    if (tipo === 'Podcast') return '#F58D38';
-    if (tipo === 'Aula') return '#6B63ED';
-    if (tipo === 'Mapa') return 'rgb(20, 159, 251)';
+    if (tipo === 'pdf') return 'rgb(59, 155, 47)';
+    if (tipo === 'podcast') return '#F58D38';
+    if (tipo === 'video') return '#6B63ED';
+    if (tipo === 'mapa') return 'rgb(20, 159, 251)';
     return 0;
   }
 
@@ -80,6 +80,8 @@ function Home(props) {
       };
       const res = await api.post('/listarTudoCurso', infos, config);
       setPosts(res.data.queryResponse);
+      console.log(res.data.queryResponse);
+      
     }
     resp();
     console.log("Chamou useEffect");
