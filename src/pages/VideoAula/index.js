@@ -13,7 +13,8 @@ import api from '../../services/api';
 import { useStyles, GreenCheckbox, VideoBody } from './styles';
 // import { Container } from './styles';
 
-export default function VideoAula() {
+export default function VideoAula(props) {
+  // const [click, setClick] = useState(false);
   const [value, setValue] = useState(0);
   const [state, setState] = useState({
     checked: false,
@@ -58,10 +59,9 @@ export default function VideoAula() {
           Authorization: localStorage.authToken,
         },
       };
-      
+
       const responseP = await api.post('/getMaterial', aulaId, config);
       setAula(responseP.data.Material)
-      console.log(responseP.data.Material);
 
       // const responseD = await api.post('/getDisciplina', dscp, config);
 
@@ -87,23 +87,46 @@ export default function VideoAula() {
         },
       };
 
-    const respStars = await api.post('/verificarNota', aulaId, config)
-      console.log(respStars.data);
-      setValue(respStars.data.nota)
+      const respStars = await api.post('/verificarNota', aulaId, config)
+      setValue(respStars.data ? respStars.data.nota : 0)
+
     }
     resp()
   }, [value]);
 
+  // useEffect(() => {
+  //  async function resp() {
+  //     const {cursoId, matId, disciplinaId, moduloId} = aula;
+  //     const aulaId = {
+  //       matId,
+  //       alunoId: localStorage.aluno,
+  //       disciplinaId,
+  //       moduloId,
+  //       cursoId,
+  //     };     
+
+  //     const config = {
+  //       headers: {
+  //         Authorization: localStorage.authToken,
+  //       },
+  //     };
+
+  //     const respCompletar = await api.post('/completarMaterial', aulaId, config)
+  //     console.log(respCompletar.data);
+  //     setState(respCompletar.data)
+  //   }
+  //   resp();
+  // },[])
+
   useEffect(() => {
-   async function resp() {
-      const {cursoId, matId, disciplinaId, moduloId} = aula;
+    async function resp() {
+      const test = window.location.href.split('/');
+      const currentId = test[test.length - 1];
       const aulaId = {
-        matId,
+        matId: currentId,
         alunoId: localStorage.aluno,
-        disciplinaId,
-        moduloId,
-        cursoId,
-      };     
+      };
+      console.log(aula);
 
       const config = {
         headers: {
@@ -111,12 +134,11 @@ export default function VideoAula() {
         },
       };
 
-      const respCompletar = await api.post('/completarMaterial', aulaId, config)
-      console.log(respCompletar.data);
-      // setState(respCompletar.data.nota)
+      const respMatCompletar = await api.post('/verificarMatCompleto', aulaId, config)
+      setState({ checked: !!respMatCompletar.data })
     }
     resp();
-  })
+  }, [])
 
 
   const handleChange = name => event => {
@@ -124,7 +146,7 @@ export default function VideoAula() {
     console.log(value);
   };
 
-  const handleChangeStars = async ( event, newValue) => {
+  const handleChangeStars = async (event, newValue) => {
     event.persist()
     const test = window.location.href.split('/');
     const currentId = test[test.length - 1];
@@ -142,8 +164,42 @@ export default function VideoAula() {
     };
     const respStars = await api.post('/avaliarMaterial', aulaId, config)
     setValue(respStars.data.nota)
-    console.log(newValue);
   }
+
+  const handleClick = async () => {
+    setState(!state.checked)
+
+    const test = window.location.href.split('/');
+    const currentId = test[test.length - 1];
+
+    const { cursoId, matId, disciplinaId, moduloId } = aula;
+    const data = {
+      matId,
+      alunoId: localStorage.aluno,
+      disciplinaId,
+      moduloId,
+      cursoId,
+    };
+
+    console.log(data);
+
+    const headers = {
+      Authorization: localStorage.authToken,
+    };
+
+    const config = {
+      headers: {
+        Authorization: localStorage.authToken,
+      },
+    };
+
+    const response = state.checked
+      ? await api.delete('/descompletarMaterial', { data, headers })
+      : await api.post('/completarMaterial', data, config);
+
+    console.log(response);
+  };
+
 
   return (
     <>
@@ -194,7 +250,7 @@ export default function VideoAula() {
                   name="simple-controlled"
                   value={value}
                   onChange={handleChangeStars}
-                 
+
 
                 />
                 <FormControlLabel
@@ -203,6 +259,7 @@ export default function VideoAula() {
                     <GreenCheckbox
                       checked={state.checked}
                       onChange={handleChange('checked')}
+                      onClick={handleClick}
                       value="checked"
                     />
                   }

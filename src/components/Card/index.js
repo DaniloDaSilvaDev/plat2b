@@ -3,7 +3,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
 import { Grid, Typography, Paper } from '@material-ui/core';
 import {
   FaRegBookmark,
@@ -21,6 +22,9 @@ import { CardBody, useStyles } from './styles';
 import api from '../../services/api';
 
 export default function(props) {
+  const [state, setState] = useState({
+    checked: false,
+  });
   const [anchorEl, setAnchorEl] = useState(null);
   const [click, setClick] = useState(props.checked);
   const classes = useStyles();
@@ -34,28 +38,6 @@ export default function(props) {
       alunoId: parseInt(localStorage.aluno),
       matId: id,
     };
-
-    // console.log(tipo);
-
-    // switch (tipo) {
-    //   case 'video':
-    //     data.aulaId = props.id;
-    //     break;
-    //   case 'podcast':
-    //     data.podcastId = props.id;
-    //     break;
-
-    //   case 'pdf':
-    //     data.artigoId = props.id;
-    //     break;
-
-    //   case 'mapa':
-    //     data.mapaId = props.id;
-    //     break;
-
-    //   default:
-    //     break;
-    // }
 
     const headers = {
       Authorization: localStorage.authToken,
@@ -78,6 +60,33 @@ export default function(props) {
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
+
+
+  useEffect(() => {
+    async function resp() {
+      const test = window.location.href.split('/');
+      const currentId = test[test.length - 1];
+      const aulaId = {
+        matId: currentId,
+        alunoId: localStorage.aluno,
+      };
+
+      const config = {
+        headers: {
+          Authorization: localStorage.authToken,
+        },
+      };
+
+      const respMatCompletar = await api.post('/verificarMatCompleto', aulaId, config)
+      // setState({ checked: !!respMatCompletar.data })
+      console.log(respMatCompletar.data);
+      
+    }
+    resp();
+    // console.log(state.checked);
+    
+  }, [])
+
 
   return (
     // <Grid container className={classes.root} spacing={4}>
@@ -172,6 +181,7 @@ export default function(props) {
             </Typography>
             {/* <Moment format="DD/MM/YYYY">{props.date}</Moment> */}
           </Typography>
+          <DoneAllIcon className={classes.concluido}/>
         </Link>
       </Paper>
     </Grid>

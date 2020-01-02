@@ -27,7 +27,6 @@ function tipoColor(tipo) {
 }
 
 export default function Metodologia() {
-  
   const [posts, setPosts] = useState([]);
   const [filtro, setFiltro] = useState([1, 2, 3, 4]);
   const [currentPage, setCurrentPage] = useState(1)

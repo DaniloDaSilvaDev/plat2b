@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/styles'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import Button from '@material-ui/core/Button'
@@ -12,11 +12,13 @@ const useStyles = makeStyles({
     margin: 50,
 	},
 	button: props => ({
-    backgroundColor: props.selected ? '#000' : '#f0f',
+    backgroundColor: props.selected ? '#000' : '#c9c9c9',
   }),
 })
 
 const Pagination = ({ comicsPerPage, totalComics, paginate }) => {
+	const [selected, setSelected] = useState(0);
+
 	const classes = useStyles()
 	const pageNumbers = []
 
@@ -26,13 +28,14 @@ const Pagination = ({ comicsPerPage, totalComics, paginate }) => {
 	}
 	
 	
+	
 	return (
 		<nav>
 			<ButtonGroup className={classes.pages}>
 				{pageNumbers.map((number, index) => (
 					//renderizar os botões utilizando o vetor 
 					<Button className={classes.button}
-					key={number} 
+					key={index} 
 					onClick={() => paginate(number)} 
 					>
 						{number}

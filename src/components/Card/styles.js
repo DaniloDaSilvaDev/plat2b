@@ -133,6 +133,12 @@ export const useStyles = makeStyles(theme => ({
     left: '15%',
     bottom: '5px',
   },
+  concluido: {
+    position: 'absolute',
+    color: 'green',
+    left: '90%',
+    bottom: '5px',
+  }
 }));
 
 export const CardBody = styled.div`
