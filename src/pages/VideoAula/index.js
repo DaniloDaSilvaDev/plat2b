@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import {
   Grid,
   Typography,
@@ -13,7 +14,8 @@ import api from '../../services/api';
 import { useStyles, GreenCheckbox, VideoBody } from './styles';
 // import { Container } from './styles';
 
-export default function VideoAula(props) {
+function VideoAula(props) {
+  const [checado] = useState(false);
   // const [click, setClick] = useState(false);
   const [value, setValue] = useState(0);
   const [state, setState] = useState({
@@ -36,14 +38,7 @@ export default function VideoAula(props) {
     titulo: '',
     views: 0,
   });
-
-  // useEffect(() => {
-  //   const aulaId = {
-  //     alunoId: local
-  //     matId: currentId,
-  //   };
-
-  // })
+  
 
   useEffect(() => {
     async function resp() {
@@ -167,6 +162,13 @@ export default function VideoAula(props) {
   }
 
   const handleClick = async () => {
+
+    const { dispatch } = props;
+    dispatch({
+      type: 'CHECKED',
+      checado,
+    });
+
     setState(!state.checked)
 
     const test = window.location.href.split('/');
@@ -250,8 +252,6 @@ export default function VideoAula(props) {
                   name="simple-controlled"
                   value={value}
                   onChange={handleChangeStars}
-
-
                 />
                 <FormControlLabel
                   className={classes.check}
@@ -279,3 +279,4 @@ export default function VideoAula(props) {
     </>
   );
 }
+export default connect()(VideoAula)

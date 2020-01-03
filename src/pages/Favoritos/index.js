@@ -73,7 +73,7 @@ export default function Metodologia() {
       const dscp = {
         // disciplinaId: currentId,
         alunoId: localStorage.aluno,
-        cursoId: 358,
+        cursoId: localStorage.cursoId,
       };
       const config = {
         headers: {
@@ -132,6 +132,7 @@ export default function Metodologia() {
             key={p.titulo}
             checked={!!p.fav}
             nomeDisciplina={p.nomeDisciplina}
+            visto={p.visto}
           />
         ))}
       </Grid>

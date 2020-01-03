@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom';
 import { CardBody, useStyles } from './styles';
 import api from '../../services/api';
 
-export default function(props) {
+export default props => {
   const [state, setState] = useState({
     checked: false,
   });
@@ -62,36 +62,37 @@ export default function(props) {
   };
 
 
-  useEffect(() => {
-    async function resp() {
-      const test = window.location.href.split('/');
-      const currentId = test[test.length - 1];
-      const aulaId = {
-        matId: currentId,
-        alunoId: localStorage.aluno,
-      };
+  // HABIB VAI VER SE RETORNA AULA CONCLUIDA OU NAO JA NA REQUISIÇÂO......
+  // useEffect(() => {
+  //   async function resp() {
+  //     const test = window.location.href.split('/');
+  //     const currentId = test[test.length - 1];
+  //     const aulaId = {
+  //       matId: currentId,
+  //       alunoId: localStorage.aluno,
+  //     };
 
-      const config = {
-        headers: {
-          Authorization: localStorage.authToken,
-        },
-      };
+  //     const config = {
+  //       headers: {
+  //         Authorization: localStorage.authToken,
+  //       },
+  //     };
 
-      const respMatCompletar = await api.post('/verificarMatCompleto', aulaId, config)
-      // setState({ checked: !!respMatCompletar.data })
-      console.log(respMatCompletar.data);
+  //     const respMatCompletar = await api.post('/verificarMatCompleto', aulaId, config)
+  //     // setState({ checked: !!respMatCompletar.data })
+  //     console.log(respMatCompletar.data);
       
-    }
-    resp();
-    // console.log(state.checked);
+  //   }
+  //   resp();
+  //   // console.log(state.checked);
     
-  }, [])
+  // }, [])
 
 
   return (
     // <Grid container className={classes.root} spacing={4}>
     <Grid item lg={4} md={6} sm={12}>
-      <Paper className={classes.paper} key={props.id}>
+      <Paper checked={props.checked} className={classes.paper} key={props.id}>
         <div className={classes.icons} onClick={handleClick}>
           {click ? (
             <FaBookmark size={24} cursor="pointer" color="#fff" />
@@ -181,7 +182,8 @@ export default function(props) {
             </Typography>
             {/* <Moment format="DD/MM/YYYY">{props.date}</Moment> */}
           </Typography>
-          <DoneAllIcon className={classes.concluido}/>
+          { props.visto ? <DoneAllIcon className={classes.concluido}/> : ''}
+          
         </Link>
       </Paper>
     </Grid>

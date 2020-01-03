@@ -21,7 +21,7 @@ import Sidebar from '../components/Sidebar';
 import Header2 from '../components/Header2';
 import ProtectedRoute from './protectedRoute';
 
-function Routes({props,  sideBar }) {
+function Routes({ sideBar }) {
   const logado = localStorage.getItem('authToken');
   const cursoId = localStorage.getItem('cursoId');
 
@@ -46,7 +46,7 @@ function Routes({props,  sideBar }) {
     /* margin-top: 63.36px; */
     // margin-left: ${localStorage.cursoId ? '100px' : '0px'};
   
-      margin-left: ${props => (sideBar ? '100px' : '0px')};
+      margin-left: ${sideBar ? '100px' : '0px'};
   `;
   return (
     <RouterStyle>

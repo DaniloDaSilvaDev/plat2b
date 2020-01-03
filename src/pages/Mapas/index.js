@@ -59,7 +59,7 @@ export default function Metodologia() {
       console.log(resFiltro.data);
       setTotalCards(resFiltro.data.total)
       console.log(resFiltro.data.total);
-      
+
     }
     req();
   }, []);
@@ -75,7 +75,7 @@ export default function Metodologia() {
   async function handlePageClick(pageNumber) {
     setCurrentPage(pageNumber)
     console.log(pageNumber);
-    
+
     // const link = window.location.href.split('/');
     // const disciplinaId = link[link.length - 1];
     const config = {
@@ -124,7 +124,7 @@ export default function Metodologia() {
           {/* <Typography component="p" variant="h5" className={classes.p}>
             Filtro
           </Typography> */}
-          {/* <FormControlLabel
+      {/* <FormControlLabel
             control={
               <RedCheckbox
                 checked={state.AULA}
@@ -187,6 +187,7 @@ export default function Metodologia() {
             key={p.titulo}
             checked={!!p.fav}
             nomeDisciplina={p.nomeDisciplina}
+            visto={p.visto}
           />
         ))}
       </Grid>

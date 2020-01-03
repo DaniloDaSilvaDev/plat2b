@@ -79,9 +79,7 @@ function Home(props) {
         },
       };
       const res = await api.post('/listarTudoCurso', infos, config);
-      setPosts(res.data.queryResponse);
-      console.log(res.data.queryResponse);
-      
+      setPosts(res.data.queryResponse);     
     }
     resp();
     console.log("Chamou useEffect");
@@ -115,6 +113,7 @@ function Home(props) {
             key={p.titulo}
             checked={!!p.fav}
             nomeDisciplina={p.nomeDisciplina}
+            visto={p.visto}
           />
         ))}
       </Grid>

@@ -26,7 +26,7 @@ function tipoColor(tipo) {
   return 0;
 }
 
-export default function Metodologia() {
+export default function Metodologia(props) {
   const [posts, setPosts] = useState([]);
   const [filtro, setFiltro] = useState([1, 2, 3, 4]);
   const [currentPage, setCurrentPage] = useState(1)
@@ -56,6 +56,8 @@ export default function Metodologia() {
         },
         headers,
       });
+      console.log(resFiltro.data.queryResponse);
+      
       setPosts(resFiltro.data.queryResponse);
       setTotalCards(resFiltro.data.total)   
     }
@@ -171,6 +173,7 @@ export default function Metodologia() {
             key={p.titulo}
             checked={!!p.fav}
             nomeDisciplina={p.nomeDisciplina}
+            visto={p.visto}
           />
         ))}
       </Grid>

@@ -3,8 +3,8 @@ export default function sideBar(state = false, action) {
     case 'OPEN_SIDEBAR':
       return !state;
 
-    case 'CARREGOU_SIDEBAR':
-    return !state
+    // case 'CARREGOU_SIDEBAR':
+    // return !state
 
     default:
       return state;
