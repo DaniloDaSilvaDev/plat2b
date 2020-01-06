@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useEffect } from 'react';
+import BackButton from '../../components/BackButtom'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   Grid,
   Typography,
@@ -133,6 +135,7 @@ function VideoAula(props) {
       setState({ checked: !!respMatCompletar.data })
     }
     resp();
+    console.log(localStorage.linkVoltar)
   }, [])
 
 
@@ -272,9 +275,14 @@ function VideoAula(props) {
                 </Typography>
               </Box>
             </VideoBody>
+           
+              <BackButton linkVoltar={localStorage.linkVoltar}/>
+            
           </Paper>
           {/* <Grid className={classes.icons} item lg={8} md={12} sm={12} /> */}
+          
         </Grid>
+        
       </Grid>
     </>
   );

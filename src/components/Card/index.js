@@ -89,6 +89,11 @@ export default props => {
   // }, [])
 
 
+  function linkVoltar() {
+    const test = window.location.href;
+    localStorage.setItem('linkVoltar', test);
+  }
+
   return (
     // <Grid container className={classes.root} spacing={4}>
     <Grid item lg={4} md={6} sm={12}>
@@ -100,7 +105,7 @@ export default props => {
             <FaRegBookmark size={24} cursor="pointer" color="#fff" />
           )}
         </div>
-        <Link to={`/${props.tipo}/${props.id}`}>
+        <Link to={`/${props.tipo}/${props.id}`}  onClick={linkVoltar}>
           <div
             className={classes.img}
             style={{ backgroundImage: `url(${props.backgroundImage})` }}
