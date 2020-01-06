@@ -19,10 +19,10 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 function tipoColor(tipo) {
-  if (tipo === 'Artigo') return 'rgb(59, 155, 47)';
-  if (tipo === 'Podcast') return '#F58D38';
-  if (tipo === 'Aula') return '#6B63ED';
-  if (tipo === 'Mapa') return 'rgb(20, 159, 251)';
+  if (tipo === 'pdf') return 'linear-gradient(165deg, rgba(3,87,0,1) 0%, rgba(23,180,5,1) 57%, rgba(44,251,6,1) 100%)';
+  if (tipo === 'podcast') return 'linear-gradient(165deg, rgba(255,76,0,1) 0%, rgba(255,98,0,1) 50%, rgba(255,209,0,1) 100%)';
+  if (tipo === 'video') return 'linear-gradient(165deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%)';
+  if (tipo === 'mapa') return 'linear-gradient(165deg, rgba(0,121,95,1) 0%, rgba(1,201,186,1) 54%, rgba(0,255,226,1) 100%)';
   return 0;
 }
 
@@ -121,7 +121,7 @@ export default function Metodologia() {
         {posts.map(p => (
           <Card
             id={p.id}
-            backgroundImage={p.thumbnail}
+            backgroundImage={tipoColor(p.tipo)}
             photoProf={p.foto}
             title={p.titulo}
             nameProf={p.profNome}

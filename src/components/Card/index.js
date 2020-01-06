@@ -108,7 +108,7 @@ export default props => {
         <Link to={`/${props.tipo}/${props.id}`}  onClick={linkVoltar}>
           <div
             className={classes.img}
-            style={{ backgroundImage: `url(${props.backgroundImage})` }}
+            style={{ backgroundImage: `${props.backgroundImage}` }}
           >
             <div
               className={classes.author}

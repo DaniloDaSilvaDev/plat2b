@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useEffect } from 'react';
+import BackButton from '../../components/BackButtom'
 import { connect } from 'react-redux';
 import {
   Grid,
@@ -220,6 +221,7 @@ export default function VideoAula(props) {
                 </Typography>
               </Box>
             </VideoBody>
+            <BackButton linkVoltar={localStorage.linkVoltar}/>
           </Paper>
           {/* <Grid className={classes.icons} item lg={8} md={12} sm={12} /> */}
         </Grid>
