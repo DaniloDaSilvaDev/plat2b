@@ -11,7 +11,8 @@ export const useStyles = makeStyles((theme, props )=> ({
     fle: 1,
     flexGrow: 1,
     fontSize: 15,
-    // padding: 40,
+    paddingBottom: 100,
+    paddingTop: 40,
   },
   h1: {
     color: '#3d5170',
