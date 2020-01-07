@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -54,14 +54,17 @@ const useStyles = makeStyles(theme => ({
   containerNome: {
     width: '70%',
   },
-  // botao: {
-  //   marginBottom: 50,
-  // },
+  msgError: {
+    color: 'red',
+    margin: '0 auto',
+    textAlign: 'center',
+  }
 }));
 
 export default function BasicTextFields() {
   const classes = useStyles();
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm();
+  const { loginError, inputs, handleInputChange, handleSubmit } = useSignUpForm();
+
 
   return (
     <div className={classes.container}>
@@ -100,6 +103,7 @@ export default function BasicTextFields() {
             className={classes.inputSenha}
           />
         </div>
+        {loginError && <h1  className={classes.msgError}>{loginError}</h1>}
 
         <ColorButton variant="contained" color="primary" type="submit">
           Entrar

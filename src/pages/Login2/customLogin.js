@@ -3,29 +3,36 @@ import api from '../../services/api';
 
 function useSignUpForm() {
   const [inputs, setInputs] = useState({});
+  const [loginError, setLoginError] = useState();
   // const [infosAluno] = useState({});
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const userData = {
-      email: `${inputs.email}`,
-      senha: `${inputs.senha}`,
-    };
+    try {
+      const userData = {
+        email: `${inputs.email}`,
+        senha: `${inputs.senha}`,
+      };
 
-    const res = await api.post('/loginAluno', userData);
-    // const { dispatch } = props;
-    // dispatch({
-    //   type: 'INFOS_USER',
-    //   infosAluno,
-    // });
+      const res = await api.post('/loginAluno', userData);
+      const aluno = res.data.alunoId;
 
-    const aluno = res.data.alunoId;
+      const authToken = `Bearer ${res.data.token}`;
+      localStorage.setItem('authToken', authToken);
+      localStorage.setItem('aluno', aluno);
+      api.defaults.headers.common.Authorization = authToken;
+      window.location.reload();
+      localStorage.removeItem('error');
 
-    const authToken = `Bearer ${res.data.token}`;
-    localStorage.setItem('authToken', authToken);
-    localStorage.setItem('aluno', aluno);
-    api.defaults.headers.common.Authorization = authToken;
-    window.location.reload();
+    } catch (error) {
+     
+      const err = "Credenciais inválidas";
+      localStorage.setItem('error', err);
+      setLoginError("Credenciais inválidas")
+    }
+
+
+
   };
 
   const handleInputChange = event => {
@@ -39,6 +46,7 @@ function useSignUpForm() {
     handleSubmit,
     handleInputChange,
     inputs,
+    loginError,
   };
 }
 export default useSignUpForm;
