@@ -137,12 +137,7 @@ function PrimarySearchAppBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>
-        <Link to="/perfil" style={{ color: '#373737' }}>
-          {' '}
-          Perfil{' '}
-        </Link>{' '}
-      </MenuItem>
+
       {/* <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem> */}
       <MenuItem onClick={handleLogout}>
         <Link to="/" style={{ color: '#373737' }}>

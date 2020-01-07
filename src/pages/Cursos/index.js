@@ -79,7 +79,7 @@ export default function MediaCard() {
       <Grid container className={classes.root} spacing={4}>
         {cursos.map(c => (
           <Link to="/">
-            <Card key={c.cursoId} className={classes.card}>
+            <Card key={c.cursoId} className={classes.card} onClick={() => handleCurso(c.cursoId)}>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
