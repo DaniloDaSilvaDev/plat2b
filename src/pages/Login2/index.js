@@ -36,6 +36,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#fff',
     borderRadius: 6,
     padding: '30px 0',
+    '@media only screen and (max-width: 700px)': {
+      width: '80%',
+      margin: '50px auto'
+    },
   },
   titulo: {
     color: '#464646',
