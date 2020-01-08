@@ -33,9 +33,7 @@ export const useStyles = makeStyles(theme => ({
   h1: {
     color: '#3d5170',
     fontSize: 40,
-    // lineHeight: '1em',
     fontWeight: 500,
-    // marginRight: 100,
     '@media screen and (max-width: 1200px)': {
       fontSize: 30,
     },
@@ -43,10 +41,6 @@ export const useStyles = makeStyles(theme => ({
   check: {
     margin: '0 0 0 20px',
     verticalAlign: 'baseline',
-    // display: 'fex',
-    // padding: '0 0 0 20px',
-    // flexDirection: 'row',
-    // alignItems: 'stretch',
   },
   infos: {
     display: 'flex',
@@ -80,15 +74,4 @@ export const VideoBody = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 15px 0 30px 0;
-  /* width: 200px;
-  flex: 1; */
-
-  /* background-color: #fff; */
-  /* padding: 30px 20px; */
-  /* margin: 30px 0;
-  border-radius: 20px; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex-wrap: nowrap; */
 `;

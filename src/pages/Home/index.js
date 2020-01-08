@@ -11,27 +11,9 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 import { connect } from 'react-redux';
 
-
-
 function Home(props) {
   const [posts, setPosts] = useState([]);
   const [showSidebar, setSideBar] = useState(false);
-
-  
-  
-  // useEffect(()=> {
-  //   function handleSidebarOpen() {
-  //     const { dispatch } = props;
-  //     dispatch({
-  //       type: 'CARREGOU_SIDEBAR',
-  //       showSidebar,
-  //     });
-  //   }
-
-  //  console.log("FOI");
-   
-  // },[])
-
 
   function tipoColor(tipo) {
     if (tipo === 'pdf') return 'linear-gradient(165deg, rgba(3,87,0,1) 0%, rgba(23,180,5,1) 57%, rgba(44,251,6,1) 100%)';
@@ -40,29 +22,6 @@ function Home(props) {
     if (tipo === 'mapa') return 'linear-gradient(165deg, rgba(0,121,95,1) 0%, rgba(1,201,186,1) 54%, rgba(0,255,226,1) 100%)';
     return 0;
   }
-
-  // function handleSidebarOpen() {
-  //   const { dispatch } = props;
-  //   dispatch({
-  //     type: 'CARREGOU_SIDEBAR',
-  //     showSidebar,
-  //   });
-  // }
-
-
-
-  //   if( window.localStorage )
-  // {
-  //   if( !localStorage.getItem('firstLoad') )
-  //   {
-  //     localStorage['firstLoad'] = true;
-  
-      
-  //   }  
-  //   else
-  //     localStorage.removeItem('firstLoad');
-  // }
-
 
   useEffect(() => {  
     async function resp() {
@@ -81,18 +40,13 @@ function Home(props) {
       const res = await api.post('/listarTudoCurso', infos, config);
       setPosts(res.data.queryResponse);     
     }
-    resp();
-    console.log("Chamou useEffect");
-    
+    resp();    
   }, []);
 
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
       <div style={{ marginTop: 50 }} />
-      {/* <Typography component="h2" variant="h5" className={classes.h2}>
-        Vídeos recentes
-      </Typography> */}
 
       <Typography component="h2" variant="h5" className={classes.h2}>
         Últimas publicações
@@ -122,15 +76,3 @@ function Home(props) {
 }
 
 export default connect()(Home);
-
-
-// if( window.localStorage )
-//   {
-//     if( !localStorage.getItem('firstLoad') )
-//     {
-//       localStorage['firstLoad'] = true;
-//       window.location.reload();
-//     }  
-//     else
-//       localStorage.removeItem('firstLoad');
-//   }

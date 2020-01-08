@@ -18,7 +18,6 @@ import Pagination from '../../components/Pagination'
 import Card from '../../components/Card';
 import api from '../../services/api';
 
-
 export default function Metodologia(props) {
   const [posts, setPosts] = useState([]);
   const [filtro, setFiltro] = useState([1, 2, 3, 4]);
@@ -32,7 +31,6 @@ export default function Metodologia(props) {
     4: true,
   });
 
-
   function tipoColor(tipo) {
     if (tipo === 'pdf') return 'linear-gradient(165deg, rgba(3,87,0,1) 0%, rgba(23,180,5,1) 57%, rgba(44,251,6,1) 100%)';
     if (tipo === 'podcast') return 'linear-gradient(165deg, rgba(255,76,0,1) 0%, rgba(255,98,0,1) 50%, rgba(255,209,0,1) 100%)';
@@ -40,8 +38,7 @@ export default function Metodologia(props) {
     if (tipo === 'mapa') return 'linear-gradient(165deg, rgba(0,121,95,1) 0%, rgba(1,201,186,1) 54%, rgba(0,255,226,1) 100%)';
     return 0;
   }
-
-
+  
   useEffect(() => {
     const link = window.location.href.split('/');
     const disciplinaId = link[link.length - 1];
@@ -60,8 +57,6 @@ export default function Metodologia(props) {
         },
         headers,
       });
-      console.log(resFiltro.data.queryResponse);
-      
       setPosts(resFiltro.data.queryResponse);
       setTotalCards(resFiltro.data.total)   
     }
@@ -97,7 +92,6 @@ export default function Metodologia(props) {
     setPosts(resFiltro.data.queryResponse);
   }
 
-  // const paginate = pageNumber => setCurrentPage(pageNumber)
   return (
     <Container maxWidth="lg">
       <Filtro>

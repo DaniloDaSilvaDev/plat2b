@@ -3,16 +3,9 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
-import { Container, Grid, Typography } from '@material-ui/core';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { Container, Grid } from '@material-ui/core';
 import {
-  Filtro,
   useStyles,
-  GreenCheckbox,
-  BlueCheckbox,
-  OrangeCheckbox,
-  RedCheckbox,
 } from './styles';
 
 import Card from '../../components/Card';
@@ -26,10 +19,8 @@ function tipoColor(tipo) {
   return 0;
 }
 
-
 export default function Metodologia() {
   const [posts, setPosts] = useState([]);
-  // const [filtro, setFiltro] = useState(['AULA', 'ARTIGO', 'AUDIO', 'MAPA']);
   const [disciplinas, setDisciplinas] = useState();
   const [state, setState] = useState({
     AUDIO: true,
@@ -37,41 +28,10 @@ export default function Metodologia() {
     AULA: true,
     MAPA: true,
   });
-  // useEffect(() => {
-  //   // const link = window.location.href.split('/');
-  //   // const disciplinaId = link[link.length - 1];
-  //   const headers = {
-  //     Authorization: localStorage.authToken,
-  //   };
-
-  //   async function req() {
-  //     const resFiltro = await api.get('/listarFavoritos', {
-  //       params: {
-  //         cursoId: 325,
-  //         // disciplinaId,
-  //         // filtro: JSON.stringify(filtro),
-  //         alunoId: localStorage.aluno,
-  //       },
-  //       headers,
-  //     });
-  //     setPosts(resFiltro.data);
-  //   }
-  //   req();
-  // }, [filtro]);
-
-  // const handleChange = name => async event => {
-  //   event.target.checked
-  //     ? setFiltro([...filtro, name])
-  //     : setFiltro(filtro.filter(f => f !== name));
-  //   setState({ ...state, [name]: event.target.checked });
-  // };
-
+  
   useEffect(() => {
     async function resp() {
-      // const test = window.location.href.split('/');
-      // const currentId = test[test.length - 1];
       const dscp = {
-        // disciplinaId: currentId,
         alunoId: localStorage.aluno,
         cursoId: localStorage.cursoId,
       };
@@ -81,42 +41,14 @@ export default function Metodologia() {
         },
       };
       const responseP = await api.post('/listarFavoritos', dscp, config);
-      console.log(responseP.data.queryResponse);
-      console.log(responseP);
-
       setPosts(responseP.data.queryResponse);
-      // const responseD = await api.post('/getDisciplina', dscp, config);
-
-      // setDisciplinas(responseD.data.Disciplina.nome);
     }
     resp();
   }, []);
 
-  // async function getPosts() {
-  //   const response = await api.get('http://localhost:3333/posts');
-  //   return response.data;
-  // }
-
-  // useEffect(() => {
-  //   async function res() {
-  //     const response = await getPosts();
-  //     const selecionados = response.filter(p => filters.includes(p.category));
-  //     setPosts(selecionados);
-  //   }
-  //   res();
-  // }, [filters]);
-
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
-      {/* <Typography component="h1" variant="h5" className={classes.h1}>
-        Olá, <span>Danilo</span>
-      </Typography>
-
-      <Typography component="h2" variant="h5" className={classes.h2}>
-        Vídeos recentes
-      </Typography> */}
-
       <Grid container className={classes.root} spacing={4}>
         {posts.map(p => (
           <Card

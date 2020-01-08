@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 import { Grid, Typography, Paper } from '@material-ui/core';
 import {
@@ -61,41 +61,12 @@ export default props => {
     setAnchorEl(null);
   };
 
-
-  // HABIB VAI VER SE RETORNA AULA CONCLUIDA OU NAO JA NA REQUISIÇÂO......
-  // useEffect(() => {
-  //   async function resp() {
-  //     const test = window.location.href.split('/');
-  //     const currentId = test[test.length - 1];
-  //     const aulaId = {
-  //       matId: currentId,
-  //       alunoId: localStorage.aluno,
-  //     };
-
-  //     const config = {
-  //       headers: {
-  //         Authorization: localStorage.authToken,
-  //       },
-  //     };
-
-  //     const respMatCompletar = await api.post('/verificarMatCompleto', aulaId, config)
-  //     // setState({ checked: !!respMatCompletar.data })
-  //     console.log(respMatCompletar.data);
-      
-  //   }
-  //   resp();
-  //   // console.log(state.checked);
-    
-  // }, [])
-
-
   function linkVoltar() {
     const test = window.location.href;
     localStorage.setItem('linkVoltar', test);
   }
 
   return (
-    // <Grid container className={classes.root} spacing={4}>
     <Grid item lg={4} md={6} sm={12}>
       <Paper checked={props.checked} className={classes.paper} key={props.id}>
         <div className={classes.icons} onClick={handleClick}>
@@ -168,9 +139,7 @@ export default props => {
                 ''
               )}
             </span>
-            {/* <Typography className={classes.nomeDesciplina}>
-              {props.nomeDisciplina}
-            </Typography> */}
+
           </div>
           <CardBody>
             <Typography component="h1" variant="h5" className={classes.title}>

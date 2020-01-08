@@ -6,7 +6,6 @@ import api from '../../services/api';
 
 export default function Disciplinas() {
   const classes = useStyles();
-
   const [disciplinas, setDisciplinas] = useState([]);
 
   useEffect(() => {

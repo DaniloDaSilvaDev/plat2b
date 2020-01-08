@@ -14,11 +14,8 @@ import {
   Avatar,
   Typography,
 } from '@material-ui/core';
-
-// import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-// import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -30,9 +27,6 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    // '@media only screen and (min-width: 510px)': {
-    //   display: 'none',
-    // },
   },
   title: {
     display: 'none',
@@ -137,8 +131,6 @@ function PrimarySearchAppBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-
-      {/* <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem> */}
       <MenuItem onClick={handleLogout}>
         <Link to="/" style={{ color: '#373737' }}>
           {' '}
@@ -192,12 +184,7 @@ function PrimarySearchAppBar(props) {
       </MenuItem>
     </Menu>
   );
-
-  // const [showSidebar] = useState(false);
-  // useEffect(() => {
-  //   setShowSidebar(!showSidebar);
-  // }, showSidebar);
-
+  
   const [showSidebar] = useState(false);
   function handleSidebarOpen() {
     const { dispatch } = props;

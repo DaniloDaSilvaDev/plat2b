@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/react-in-jsx-scope */
-// import styled from "styled-components";
 import React from 'react';
 import styled from 'styled-components';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -12,7 +11,6 @@ export const useStyles = makeStyles(theme => ({
     fle: 1,
     flexGrow: 1,
     fontSize: 15,
-    // padding: 40,
     marginTop: 30,
   },
   h1: {
@@ -34,16 +32,6 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '3em',
   },
 }));
-
-// export const GreenCheckbox = withStyles({
-//   root: {
-//     color: black[400],
-//     '&$checked': {
-//       color: green[600],
-//     },
-//   },
-//   checked: {},
-// })(props => <Checkbox color="default" {...props} />);
 
 export const GreenCheckbox = withStyles({
   root: {

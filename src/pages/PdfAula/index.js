@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useEffect } from 'react';
 import BackButton from '../../components/BackButtom'
-import { connect } from 'react-redux';
 import {
   Grid,
   Typography,
@@ -11,16 +10,11 @@ import {
   Box,
 } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import api from '../../services/api';
 import { useStyles, GreenCheckbox, VideoBody } from './styles';
-import pdfaula from '../../assets/pdf/pdf.pdf';
 
 export default function VideoAula(props) {
   const classes = useStyles();
-  // const handleChange = name => event => {
-  //   setState({ ...state, [name]: event.target.checked });
-  // };
   const [value, setValue] = useState(0);
   const [state, setState] = useState({
     checked: false,
@@ -42,7 +36,6 @@ export default function VideoAula(props) {
     views: 0,
   });
 
-
   useEffect(() => {
     async function resp() {
       setLoading(true);
@@ -61,8 +54,6 @@ export default function VideoAula(props) {
       const responseP = await api.post('/getMaterial', aulaId, config);
       setAula(responseP.data.Material)
       setLoading(false);
-      console.log(responseP);
-
     }
     resp();
   }, []);
@@ -98,7 +89,6 @@ export default function VideoAula(props) {
         matId: currentId,
         alunoId: localStorage.aluno,
       };
-      console.log(aula);
 
       const config = {
         headers: {
@@ -112,10 +102,8 @@ export default function VideoAula(props) {
     resp();
   }, [])
 
-
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked });
-    console.log(value);
   };
 
   const handleChangeStars = async (event, newValue) => {
@@ -153,8 +141,6 @@ export default function VideoAula(props) {
       cursoId,
     };
 
-    console.log(data);
-
     const headers = {
       Authorization: localStorage.authToken,
     };
@@ -168,8 +154,6 @@ export default function VideoAula(props) {
     const response = state.checked
       ? await api.delete('/descompletarMaterial', { data, headers })
       : await api.post('/completarMaterial', data, config);
-
-    console.log(response);
   };
 
 
@@ -212,7 +196,6 @@ export default function VideoAula(props) {
                       value="checked"
                     />
                   }
-                // label="Custom color"
                 />
               </Box>
               <Box>
@@ -223,7 +206,6 @@ export default function VideoAula(props) {
             </VideoBody>
             <BackButton linkVoltar={localStorage.linkVoltar}/>
           </Paper>
-          {/* <Grid className={classes.icons} item lg={8} md={12} sm={12} /> */}
         </Grid>
       </Grid>
     </>

@@ -2,7 +2,6 @@
 /* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
-// import { relative } from 'upath';
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -41,16 +40,6 @@ export const useStyles = makeStyles(theme => ({
     borderTopLeftRadius: '.625rem',
     borderTopRightRadius: '.625rem',
     backgroundRepeat: 'no-repeat',
-
-    // display: "flex",
-    // alignItems: "stretch",
-    // backgroundSize: "cover",
-    // backgroundPosition: "50%",
-    // position: "relative",
-    // minHeight: "10.3125rem",
-    // borderTopLeftRadius: "20px",
-    // borderTopRightRadius: "20px",
-    // backgroundRepeat: "no-repeat"
   },
   tipo: {
     fontSize: 24,
@@ -58,7 +47,6 @@ export const useStyles = makeStyles(theme => ({
     top: 10,
     left: 18,
     position: 'relative',
-    // textTransform: 'uppercase',
     borderRadius: '50%',
     padding: '.375rem .5rem',
   },
@@ -94,12 +82,6 @@ export const useStyles = makeStyles(theme => ({
     marginLeft: '1.5625rem',
     position: 'absolute',
     bottom: 0,
-
-    // display: "block",
-    // width: "60px",
-    // borderRadius: "50%",
-    // position: "absolute",
-    // top: "50px"
   },
   photo: {
     width: '50px',
@@ -143,15 +125,4 @@ export const useStyles = makeStyles(theme => ({
 
 export const CardBody = styled.div`
   padding: 2.1875rem 1.5625rem;
-  /* width: 200px;
-  flex: 1; */
-
-  /* background-color: #fff; */
-  /* padding: 30px 20px; */
-  /* margin: 30px 0;
-  border-radius: 20px; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex-wrap: nowrap; */
 `;

@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function BackButton(props) {
-  // const link = localStorage.linkVoltar;
   const classes = useStyles();
   return (
     <div className={classes.root}>

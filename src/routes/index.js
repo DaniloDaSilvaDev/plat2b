@@ -24,29 +24,11 @@ import ProtectedRoute from './protectedRoute';
 function Routes({ sideBar }) {
   const logado = localStorage.getItem('authToken');
   const cursoId = localStorage.getItem('cursoId');
-
-  const [showSidebar] = useState(false);
-  // useEffect(()=> {
-  //   function handleSidebarOpen() {
-  //     const { dispatch } = props;
-  //     dispatch({
-  //       type: 'CARREGOU_SIDEBAR',
-  //       showSidebar,
-  //     });
-  //   }  
-  // },[])
-  
   const RouterStyle = styled.section`
     background-color: #eaeaea;
     width: 100%;
-    // margin-left: 100px;
-    margin-left: ${logado && cursoId ? '100px' : '0px'};
-
-    /* transform: translateX(100px); */
-    /* margin-top: 63.36px; */
-    // margin-left: ${localStorage.cursoId ? '100px' : '0px'};
-  
-      margin-left: ${sideBar ? '100px' : '0px'};
+    margin-left: ${logado && cursoId ? '100px' : '0px'};  
+    margin-left: ${sideBar ? '100px' : '0px'};
   `;
   return (
     <RouterStyle>
@@ -74,7 +56,6 @@ function Routes({ sideBar }) {
             authenticated={logado !== null}
           />
           <ProtectedRoute
-            // {...window.location.reload()}
             exact
             path="/"
             component={Home}
@@ -146,32 +127,3 @@ function Routes({ sideBar }) {
 export default connect(state => ({
   sideBar: state.sideBar,
 }))(Routes);
-
-// logado ? (
-//   <RouterStyle>
-//     <BrowserRouter>
-//       <Header2 />
-//       <Sidebar />
-//       <Switch>
-//         <Route path="/" exact component={Home} />
-//         <Route path="/perfil" component={Profile} />
-//         <Route path="/disciplinas" exact component={Disciplinas} />
-//         <Route path="/disciplinas/:id" component={Metodologia} />
-//         <Route path="/aula/:id" component={VideoAula} />
-//         <Route path="/pdf/:id" component={PdfAula} />
-//       </Switch>
-//     </BrowserRouter>
-//   </RouterStyle>
-// ) : (
-//   <BrowserRouter>
-//     <Switch>
-//       {/* <Route path={<Redirect to="/login" />} component={Login} /> */}
-
-//       <Route path="/login">{logado && <Redirect to="/" />}</Route>
-//     </Switch>
-//   </BrowserRouter>
-// );
-// }
-// export default connect(state => ({
-// sideBar: state.sideBar,
-// }))(Routes);

@@ -34,7 +34,6 @@ const useStyles = makeStyles({
 
 export default function MediaCard() {
   const classes = useStyles();
-
   const [cursos, setCursos] = useState([]);
 
   useEffect(() => {

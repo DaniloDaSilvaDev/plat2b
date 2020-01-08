@@ -4,7 +4,6 @@ import api from '../../services/api';
 function useSignUpForm() {
   const [inputs, setInputs] = useState({});
   const [loginError, setLoginError] = useState();
-  // const [infosAluno] = useState({});
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -16,7 +15,6 @@ function useSignUpForm() {
 
       const res = await api.post('/loginAluno', userData);
       const aluno = res.data.alunoId;
-
       const authToken = `Bearer ${res.data.token}`;
       localStorage.setItem('authToken', authToken);
       localStorage.setItem('aluno', aluno);
@@ -30,9 +28,6 @@ function useSignUpForm() {
       localStorage.setItem('error', err);
       setLoginError("Credenciais inválidas")
     }
-
-
-
   };
 
   const handleInputChange = event => {

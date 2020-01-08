@@ -1,4 +1,3 @@
-// import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(() => ({
@@ -13,7 +12,6 @@ export const useStyles = makeStyles(() => ({
   h1: {
     color: '#3d5170',
     fontSize: '36px',
-    // textAlign: 'center',
     lineHeight: '1em',
     fontWeight: '500',
     margin: '100px 0 30px 0',

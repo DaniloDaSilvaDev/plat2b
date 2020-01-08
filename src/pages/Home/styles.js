@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/react-in-jsx-scope */
-// import styled from "styled-components";
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { green, blue, orange } from '@material-ui/core/colors';
