@@ -5,7 +5,6 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Home from '../pages/Home';
-import Profile from '../pages/Profile';
 import Disciplinas from '../pages/Disciplinas';
 import VideoAula from '../pages/VideoAula';
 import Login2 from '../pages/Login2';
@@ -99,11 +98,6 @@ function Routes({ sideBar }) {
           <ProtectedRoute
             path="/pdf/:id"
             component={PdfAula}
-            authenticated={logado !== null}
-          />
-          <ProtectedRoute
-            path="/perfil"
-            component={Profile}
             authenticated={logado !== null}
           />
         </Switch>
